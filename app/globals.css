@@ -40,34 +40,21 @@ p {
   @apply font-display text-4xl leading-tight md:text-5xl;
 }
 
-.showcase-scroll-up {
+.showcase-reveal {
+  opacity: 0;
+  transform: translateY(44px) scale(0.99);
+  transition: opacity 700ms ease, transform 700ms cubic-bezier(0.2, 0.7, 0.2, 1);
   will-change: transform, opacity;
 }
 
-@supports (animation-timeline: view()) {
-  .showcase-scroll-up {
-    opacity: 0.22;
-    transform: translateY(56px) scale(0.985);
-    animation: showcase-card-rise both;
-    animation-timeline: view();
-    animation-range: entry 12% cover 42%;
-  }
-}
-
-@keyframes showcase-card-rise {
-  from {
-    opacity: 0.22;
-    transform: translateY(56px) scale(0.985);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
+.showcase-reveal.is-visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .showcase-scroll-up {
-    animation: none !important;
+  .showcase-reveal {
+    transition: none !important;
     opacity: 1 !important;
     transform: none !important;
   }
