@@ -89,7 +89,7 @@ p {
   will-change: transform;
 }
 
-.group:hover .showcase-image {
+.showcase-media:hover .showcase-image {
   animation: showcase-hover-zoom 2.8s ease-in-out infinite alternate;
 }
 
@@ -117,7 +117,7 @@ p {
   }
 
   .showcase-image,
-  .group:hover .showcase-image {
+  .showcase-media:hover .showcase-image {
     animation: none !important;
     transition: none !important;
     transform: none !important;
