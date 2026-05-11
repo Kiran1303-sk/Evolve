@@ -56,7 +56,7 @@ const sectionShowcase = [
   },
   {
     src: '/images/section4.png',
-    title: 'Part of Hyderabad�s Future City Vision',
+    title: "Part of Hyderabad's Future City Vision",
     blurb: 'Located within the FCDA influence zone, this location is aligned with future-focused urban development potential.',
     points: ['AI / Sports / Health zones', 'University hub proximity', 'High-growth destination potential']
   },
@@ -74,7 +74,7 @@ const sectionShowcase = [
   },
   {
     src: '/images/section7.png',
-    title: 'Let�s Connect',
+    title: "Let's Connect",
     blurb: 'Dedicated visit support with direct call access and QR-based location sharing for quick and simple site planning.',
     points: ['Site visit assistance', 'Direct phone contact', 'Scan-to-location convenience']
   }
@@ -140,7 +140,7 @@ export default function HomePage() {
                       fill
                       loading="lazy"
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-contain object-center md:object-cover transition duration-500 group-hover:scale-105"
+                      className="object-cover object-center transition duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent md:from-black/55" />
                   </div>
