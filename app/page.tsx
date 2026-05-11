@@ -43,7 +43,7 @@ const features = [
 
 const sectionShowcase = [
   {
-    src: '/images/section%202.jpeg',
+    src: '/images/section2.jpeg',
     title: 'Designed for Natural Living',
     blurb: 'EVOLVE is equipped to support both lifestyle and land value through practical on-ground infrastructure and nature-first planning.',
     points: ['Drip irrigation', 'Water and electricity support', 'Security and maintenance options']
@@ -56,7 +56,7 @@ const sectionShowcase = [
   },
   {
     src: '/images/section4.jpeg',
-    title: 'Part of Hyderabad’s Future City Vision',
+    title: 'Part of Hyderabad�s Future City Vision',
     blurb: 'Located within the FCDA influence zone, this location is aligned with future-focused urban development potential.',
     points: ['AI / Sports / Health zones', 'University hub proximity', 'High-growth destination potential']
   },
@@ -74,7 +74,7 @@ const sectionShowcase = [
   },
   {
     src: '/images/section7.jpeg',
-    title: 'Let’s Connect',
+    title: 'Let�s Connect',
     blurb: 'Dedicated visit support with direct call access and QR-based location sharing for quick and simple site planning.',
     points: ['Site visit assistance', 'Direct phone contact', 'Scan-to-location convenience']
   }
