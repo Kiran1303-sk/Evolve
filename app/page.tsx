@@ -74,7 +74,7 @@ const sectionShowcase = [
   },
   {
     src: '/images/section7.png',
-    title: "Let's Connect",
+    title: 'Lets Connect',
     blurb: 'Dedicated visit support with direct call access and QR-based location sharing for quick and simple site planning.',
     points: ['Site visit assistance', 'Direct phone contact', 'Scan-to-location convenience']
   }
@@ -133,7 +133,7 @@ export default function HomePage() {
             {sectionShowcase.map((item, idx) => (
               <article key={item.src} className="group glass overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1">
                 <div className="grid gap-0 md:grid-cols-2">
-                  <div className={`relative h-72 overflow-hidden sm:h-80 md:h-[340px] ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
+                  <div className={`relative aspect-[16/10] w-full overflow-hidden md:h-[340px] md:aspect-auto ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
                     <Image
                       src={item.src}
                       alt="Project section visual"
