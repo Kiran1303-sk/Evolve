@@ -52,10 +52,74 @@ p {
   transform: translateY(0) scale(1);
 }
 
+.showcase-media,
+.showcase-content {
+  opacity: 0;
+  transition:
+    opacity 720ms ease,
+    transform 860ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: transform, opacity;
+}
+
+.showcase-media-left {
+  transform: translate(-36px, 34px);
+}
+
+.showcase-media-right {
+  transform: translate(36px, 34px);
+}
+
+.showcase-content-left {
+  transform: translate(-30px, 34px);
+}
+
+.showcase-content-right {
+  transform: translate(30px, 34px);
+}
+
+.showcase-reveal.is-visible .showcase-media,
+.showcase-reveal.is-visible .showcase-content {
+  opacity: 1;
+  transform: translate(0, 0);
+}
+
+.showcase-image {
+  transform: scale(1.01);
+  transition: transform 700ms ease;
+  will-change: transform;
+}
+
+.group:hover .showcase-image {
+  animation: showcase-hover-zoom 2.8s ease-in-out infinite alternate;
+}
+
+@keyframes showcase-hover-zoom {
+  0% {
+    transform: scale(1.02);
+  }
+  100% {
+    transform: scale(1.1);
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .showcase-reveal {
     transition: none !important;
     opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .showcase-media,
+  .showcase-content {
+    transition: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .showcase-image,
+  .group:hover .showcase-image {
+    animation: none !important;
+    transition: none !important;
     transform: none !important;
   }
 }

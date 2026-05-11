@@ -137,18 +137,22 @@ export default function HomePage() {
                 className="group glass overflow-hidden rounded-3xl border border-sand/20 bg-white/[0.08] shadow-[0_26px_60px_rgba(5,8,6,0.42)] transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/45 hover:shadow-[0_30px_72px_rgba(8,10,8,0.5)]"
               >
                 <div className="grid gap-0 md:grid-cols-2">
-                  <div className={`relative aspect-[16/10] w-full overflow-hidden md:h-[340px] md:aspect-auto ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
+                  <div
+                    className={`showcase-media relative aspect-[16/10] w-full overflow-hidden md:h-[340px] md:aspect-auto ${
+                      idx % 2 === 1 ? 'showcase-media-right md:order-2' : 'showcase-media-left'
+                    }`}
+                  >
                     <Image
                       src={item.src}
                       alt="Project section visual"
                       fill
                       loading="eager"
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover object-center transition duration-500 group-hover:scale-105"
+                      className="showcase-image object-cover object-center"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent md:from-black/55" />
                   </div>
-                  <div className="flex items-center p-6 md:p-10">
+                  <div className={`showcase-content flex items-center p-6 md:p-10 ${idx % 2 === 1 ? 'showcase-content-left' : 'showcase-content-right'}`}>
                     <div>
                       <h3 className="font-display text-3xl leading-tight md:text-4xl">{item.title}</h3>
                       <p className="mt-4 text-lg text-sand/80">{item.blurb}</p>
