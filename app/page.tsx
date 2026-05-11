@@ -131,7 +131,10 @@ export default function HomePage() {
         <section className="section-wrap py-20">
           <div className="space-y-8">
             {sectionShowcase.map((item, idx) => (
-              <article key={item.src} className="group glass overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1">
+              <article
+                key={item.src}
+                className="group glass overflow-hidden rounded-3xl border border-sand/20 bg-white/[0.08] shadow-[0_26px_60px_rgba(5,8,6,0.42)] transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/45 hover:shadow-[0_30px_72px_rgba(8,10,8,0.5)]"
+              >
                 <div className="grid gap-0 md:grid-cols-2">
                   <div className={`relative aspect-[16/10] w-full overflow-hidden md:h-[340px] md:aspect-auto ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
                     <Image
@@ -175,9 +178,13 @@ export default function HomePage() {
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {features.map(({ title, icon: Icon, desc, tag }) => (
-              <article key={title} className="group glass relative overflow-hidden rounded-2xl p-5 transition-transform duration-300 hover:-translate-y-1">
+              <article
+                key={title}
+                className="group glass relative overflow-hidden rounded-2xl border border-sand/20 bg-white/[0.08] p-5 shadow-[0_22px_48px_rgba(8,10,8,0.34)] transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/50 hover:shadow-[0_28px_60px_rgba(8,10,8,0.45)]"
+              >
                 <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
                   <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-bronze/20 blur-2xl" />
+                  <div className="absolute -left-14 bottom-0 h-28 w-28 rounded-full bg-sand/10 blur-2xl" />
                 </div>
                 <div className="relative z-10 flex items-start justify-between gap-3">
                   <Icon className="text-bronze transition duration-300 group-hover:scale-110" size={22} />
