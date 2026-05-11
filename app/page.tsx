@@ -93,7 +93,7 @@ export default function HomePage() {
               fill
               priority
               sizes="100vw"
-              className="object-cover object-[62%_46%] md:object-center scale-[1.06]"
+              className="object-cover object-center lg:object-[62%_46%] scale-[1.06]"
             />
           </div>
           <div className="absolute inset-0 bg-gradient-to-r from-black/75 via-black/50 to-black/20" />
@@ -133,16 +133,16 @@ export default function HomePage() {
             {sectionShowcase.map((item, idx) => (
               <article key={item.src} className="group glass overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1">
                 <div className="grid gap-0 md:grid-cols-2">
-                  <div className={`relative h-64 overflow-hidden md:h-[340px] ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
+                  <div className={`relative h-72 overflow-hidden sm:h-80 md:h-[340px] ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
                     <Image
                       src={item.src}
                       alt="Project section visual"
                       fill
                       loading="lazy"
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover transition duration-500 group-hover:scale-105"
+                      className="object-cover object-center transition duration-500 group-hover:scale-105"
                     />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-black/10 to-transparent" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent md:from-black/55" />
                   </div>
                   <div className="flex items-center p-6 md:p-10">
                     <div>
