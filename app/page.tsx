@@ -140,7 +140,7 @@ export default function HomePage() {
                       fill
                       loading="lazy"
                       sizes="(max-width: 768px) 100vw, 50vw"
-                      className="object-cover object-center transition duration-500 group-hover:scale-105"
+                      className="object-contain object-center md:object-cover transition duration-500 group-hover:scale-105"
                     />
                     <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent md:from-black/55" />
                   </div>
