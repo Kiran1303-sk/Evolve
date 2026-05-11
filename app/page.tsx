@@ -133,7 +133,7 @@ export default function HomePage() {
             {sectionShowcase.map((item, idx) => (
               <article
                 key={item.src}
-                className="group glass overflow-hidden rounded-3xl border border-sand/20 bg-white/[0.08] shadow-[0_26px_60px_rgba(5,8,6,0.42)] transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/45 hover:shadow-[0_30px_72px_rgba(8,10,8,0.5)]"
+                className="showcase-scroll-up group glass overflow-hidden rounded-3xl border border-sand/20 bg-white/[0.08] shadow-[0_26px_60px_rgba(5,8,6,0.42)] transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/45 hover:shadow-[0_30px_72px_rgba(8,10,8,0.5)]"
               >
                 <div className="grid gap-0 md:grid-cols-2">
                   <div className={`relative aspect-[16/10] w-full overflow-hidden md:h-[340px] md:aspect-auto ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
