@@ -43,37 +43,37 @@ const features = [
 
 const sectionShowcase = [
   {
-    src: '/images/section2.jpeg',
+    src: '/images/section2.png',
     title: 'Designed for Natural Living',
     blurb: 'EVOLVE is equipped to support both lifestyle and land value through practical on-ground infrastructure and nature-first planning.',
     points: ['Drip irrigation', 'Water and electricity support', 'Security and maintenance options']
   },
   {
-    src: '/images/section3.jpeg',
+    src: '/images/section3.png',
     title: 'A Space That Grows With You',
     blurb: 'Build something personal, grow something green, or keep it untouched. The layout is intentionally flexible for different ownership goals.',
     points: ['Low-density layout', 'Clear land structuring', 'Farm-ready infrastructure']
   },
   {
-    src: '/images/section4.jpeg',
+    src: '/images/section4.png',
     title: 'Part of Hyderabad�s Future City Vision',
     blurb: 'Located within the FCDA influence zone, this location is aligned with future-focused urban development potential.',
     points: ['AI / Sports / Health zones', 'University hub proximity', 'High-growth destination potential']
   },
   {
-    src: '/images/section5.jpeg',
+    src: '/images/section5.png',
     title: 'Phase 1 Master Plan Overview',
     blurb: 'A 12-acre, limited-plots, low-density master plan with clearly organized facing options and planned internal roads.',
     points: ['Limited plots', 'East / West / North facing options', 'Structured phase layout']
   },
   {
-    src: '/images/section6.jpeg',
+    src: '/images/section6.png',
     title: 'Strong Connectivity',
     blurb: 'Strategically connected to key road and growth corridors for faster access to major urban and transport points.',
     points: ['10 mins to radial road', '20 mins to proposed rail terminal', '15 mins to Future City']
   },
   {
-    src: '/images/section7.jpeg',
+    src: '/images/section7.png',
     title: 'Let�s Connect',
     blurb: 'Dedicated visit support with direct call access and QR-based location sharing for quick and simple site planning.',
     points: ['Site visit assistance', 'Direct phone contact', 'Scan-to-location convenience']
