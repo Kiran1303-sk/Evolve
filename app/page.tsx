@@ -139,7 +139,7 @@ export default function HomePage() {
                 <div className="showcase-shell-glow pointer-events-none absolute inset-0" />
                 <div className="grid gap-0 md:grid-cols-2">
                   <div
-                    className={`showcase-media relative aspect-[16/10] w-full overflow-hidden md:h-[340px] md:aspect-auto ${
+                    className={`showcase-media relative aspect-[16/10] w-full overflow-hidden md:h-full md:min-h-[340px] md:aspect-auto ${
                       idx % 2 === 1 ? 'showcase-media-right md:order-2' : 'showcase-media-left'
                     }`}
                   >
