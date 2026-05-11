@@ -134,8 +134,9 @@ export default function HomePage() {
             {sectionShowcase.map((item, idx) => (
               <ScrollReveal
                 key={item.src}
-                className="group glass overflow-hidden rounded-3xl border border-sand/20 bg-white/[0.08] shadow-[0_26px_60px_rgba(5,8,6,0.42)] transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/45 hover:shadow-[0_30px_72px_rgba(8,10,8,0.5)]"
+                className="showcase-shell group relative overflow-hidden rounded-[30px] border border-sand/20 bg-[linear-gradient(150deg,rgba(255,255,255,0.13),rgba(255,255,255,0.03))] shadow-[0_28px_80px_rgba(3,5,4,0.48)] transition-all duration-500 hover:-translate-y-1.5 hover:border-bronze/50 hover:shadow-[0_36px_90px_rgba(6,8,6,0.55)]"
               >
+                <div className="showcase-shell-glow pointer-events-none absolute inset-0" />
                 <div className="grid gap-0 md:grid-cols-2">
                   <div
                     className={`showcase-media relative aspect-[16/10] w-full overflow-hidden md:h-[340px] md:aspect-auto ${
@@ -150,15 +151,24 @@ export default function HomePage() {
                       sizes="(max-width: 768px) 100vw, 50vw"
                       className="showcase-image object-cover object-center"
                     />
+                    <div className="absolute left-4 top-4 z-10 rounded-full border border-sand/30 bg-black/35 px-3 py-1 text-[10px] uppercase tracking-[0.18em] text-sand/85 backdrop-blur-sm md:text-xs">
+                      EVOLVE SERIES {idx + 1}
+                    </div>
                     <div className="absolute inset-0 bg-gradient-to-t from-black/35 via-black/10 to-transparent md:from-black/55" />
                   </div>
                   <div className={`showcase-content flex items-center p-6 md:p-10 ${idx % 2 === 1 ? 'showcase-content-left' : 'showcase-content-right'}`}>
                     <div>
-                      <h3 className="font-display text-3xl leading-tight md:text-4xl">{item.title}</h3>
-                      <p className="mt-4 text-lg text-sand/80">{item.blurb}</p>
+                      <div className="mb-4 inline-flex rounded-full border border-bronze/35 bg-bronze/10 px-3 py-1 text-[10px] uppercase tracking-[0.17em] text-bronze md:text-xs">
+                        Signature Infrastructure
+                      </div>
+                      <h3 className="font-display text-3xl leading-tight text-white md:text-4xl">{item.title}</h3>
+                      <p className="mt-4 text-base leading-relaxed text-sand/80 md:text-lg">{item.blurb}</p>
                       <div className="mt-5 flex flex-wrap gap-2">
                         {item.points.map((point) => (
-                          <span key={point} className="rounded-full border border-sand/20 bg-white/5 px-3 py-1 text-xs text-sand/85 md:text-sm">
+                          <span
+                            key={point}
+                            className="rounded-full border border-sand/25 bg-white/[0.06] px-3 py-1 text-xs tracking-wide text-sand/90 shadow-[inset_0_1px_0_rgba(255,255,255,0.12)] md:text-sm"
+                          >
                             {point}
                           </span>
                         ))}
@@ -185,18 +195,20 @@ export default function HomePage() {
             {features.map(({ title, icon: Icon, desc, tag }) => (
               <article
                 key={title}
-                className="group glass relative overflow-hidden rounded-2xl border border-sand/20 bg-white/[0.08] p-5 shadow-[0_22px_48px_rgba(8,10,8,0.34)] transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/50 hover:shadow-[0_28px_60px_rgba(8,10,8,0.45)]"
+                className="feature-card group relative overflow-hidden rounded-2xl border border-sand/20 p-5 shadow-[0_26px_56px_rgba(4,6,5,0.42)] transition-all duration-300 hover:-translate-y-1.5 hover:border-bronze/45 hover:shadow-[0_34px_72px_rgba(4,6,5,0.55)]"
               >
-                <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
-                  <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-bronze/20 blur-2xl" />
-                  <div className="absolute -left-14 bottom-0 h-28 w-28 rounded-full bg-sand/10 blur-2xl" />
+                <div className="pointer-events-none absolute inset-0 opacity-0 transition duration-500 group-hover:opacity-100">
+                  <div className="absolute -right-20 -top-20 h-44 w-44 rounded-full bg-bronze/25 blur-3xl" />
+                  <div className="absolute -left-16 bottom-0 h-32 w-32 rounded-full bg-green-200/10 blur-3xl" />
                 </div>
                 <div className="relative z-10 flex items-start justify-between gap-3">
-                  <Icon className="text-bronze transition duration-300 group-hover:scale-110" size={22} />
-                  <span className="rounded-full border border-sand/20 bg-white/5 px-3 py-1 text-[11px] uppercase tracking-wider text-sand/80">{tag}</span>
+                  <div className="feature-icon-wrap">
+                    <Icon className="text-bronze transition duration-300 group-hover:scale-110" size={22} />
+                  </div>
+                  <span className="rounded-full border border-sand/20 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-wider text-sand/85">{tag}</span>
                 </div>
-                <h3 className="relative z-10 mt-4 font-semibold">{title}</h3>
-                <p className="relative z-10 mt-3 text-sm text-sand/75">{desc}</p>
+                <h3 className="relative z-10 mt-4 font-display text-2xl leading-tight text-white">{title}</h3>
+                <p className="relative z-10 mt-3 text-sm leading-relaxed text-sand/75">{desc}</p>
               </article>
             ))}
           </div>
