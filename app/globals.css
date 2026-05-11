@@ -1,4 +1,4 @@
-﻿@tailwind base;
+@tailwind base;
 @tailwind components;
 @tailwind utilities;
 
@@ -40,35 +40,3 @@ p {
   @apply font-display text-4xl leading-tight md:text-5xl;
 }
 
-.scroll-up-card {
-  will-change: transform, opacity;
-}
-
-@supports (animation-timeline: view()) {
-  .scroll-up-card {
-    opacity: 0.25;
-    transform: translateY(42px) scale(0.98);
-    animation: card-scroll-up both;
-    animation-timeline: view();
-    animation-range: entry 8% cover 36%;
-  }
-}
-
-@keyframes card-scroll-up {
-  from {
-    opacity: 0.25;
-    transform: translateY(42px) scale(0.98);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0) scale(1);
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .scroll-up-card {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-}

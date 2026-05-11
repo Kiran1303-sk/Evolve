@@ -1,4 +1,4 @@
-﻿import Image from 'next/image';
+import Image from 'next/image';
 import { Droplets, ShieldCheck, Sprout, Trees, Route, WavesLadder } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 
@@ -131,7 +131,7 @@ export default function HomePage() {
         <section className="section-wrap py-20">
           <div className="space-y-8">
             {sectionShowcase.map((item, idx) => (
-              <article key={item.src} className="scroll-up-card group glass overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1">
+              <article key={item.src} className="group glass overflow-hidden rounded-3xl transition-all duration-300 hover:-translate-y-1">
                 <div className="grid gap-0 md:grid-cols-2">
                   <div className={`relative aspect-[16/10] w-full overflow-hidden md:h-[340px] md:aspect-auto ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
                     <Image
@@ -175,7 +175,7 @@ export default function HomePage() {
           </div>
           <div className="mt-8 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
             {features.map(({ title, icon: Icon, desc, tag }) => (
-              <article key={title} className="scroll-up-card group glass relative overflow-hidden rounded-2xl p-5 transition-transform duration-300 hover:-translate-y-1">
+              <article key={title} className="group glass relative overflow-hidden rounded-2xl p-5 transition-transform duration-300 hover:-translate-y-1">
                 <div className="pointer-events-none absolute inset-0 opacity-0 transition group-hover:opacity-100">
                   <div className="absolute -right-16 -top-16 h-40 w-40 rounded-full bg-bronze/20 blur-2xl" />
                 </div>
