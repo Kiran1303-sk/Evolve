@@ -16,13 +16,13 @@ export default function Navbar() {
     <header className="fixed inset-x-0 top-0 z-50">
       <nav className="section-wrap mt-4">
         <div className="glass flex items-center justify-between rounded-full px-5 py-1.5 md:px-6 md:py-2">
-          <Link href="#" className="relative h-10 w-40 overflow-hidden md:h-12 md:w-48">
+          <Link href="#" className="relative -ml-1 h-10 w-40 overflow-hidden md:h-12 md:w-48">
             <Image
               src="/images/evolve-logo-trimmed.png"
               alt="EVOLVE by DSQUARE logo"
               fill
               sizes="(max-width: 768px) 160px, 192px"
-              className="object-contain object-center drop-shadow-[0_2px_8px_rgba(0,0,0,0.28)]"
+              className="object-contain object-left drop-shadow-[0_2px_8px_rgba(0,0,0,0.28)]"
             />
           </Link>
           <button className="md:hidden" aria-label="Toggle menu" onClick={() => setOpen(!open)}>
