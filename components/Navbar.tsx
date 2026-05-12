@@ -20,7 +20,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#5ea669]/26 bg-[#f7fff5] shadow-[0_6px_18px_rgba(28,69,45,0.10)]">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#b99654]/30 bg-[#f9f3e8] shadow-[0_6px_18px_rgba(77,56,28,0.10)]">
       <nav className="section-wrap flex h-16 items-center justify-between md:h-20">
         <Link href="#home" className="relative h-10 w-36 overflow-hidden md:h-11 md:w-44" onClick={() => setOpen(false)}>
           <Image
@@ -42,7 +42,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#5ea669]/35 text-[#245538] lg:hidden"
+          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#b99654]/40 text-[#4f3e22] lg:hidden"
           aria-label="Toggle menu"
           onClick={() => setOpen((prev) => !prev)}
         >
@@ -51,13 +51,13 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="section-wrap border-t border-[#5ea669]/15 py-3 lg:hidden">
+        <div className="section-wrap border-t border-[#b99654]/20 py-3 lg:hidden">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block border-b border-[#5ea669]/10 py-2 text-sm font-semibold text-[#245538]"
+              className="block border-b border-[#b99654]/15 py-2 text-sm font-semibold text-[#4f3e22]"
             >
               {item.label}
             </a>
