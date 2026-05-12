@@ -35,7 +35,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: #4a3a22;
+  color: #d8eaf5;
   transition: color 180ms ease;
 }
 
@@ -47,12 +47,12 @@ body {
   width: 0;
   height: 2px;
   border-radius: 9999px;
-  background: linear-gradient(90deg, #b99654, #dcc28f);
+  background: linear-gradient(90deg, #9cc0d8, #e3f1fb);
   transition: width 240ms ease;
 }
 
 .field-nav-link:hover {
-  color: #2a2115;
+  color: #f3f9fd;
 }
 
 .field-nav-link:hover::after {

@@ -20,7 +20,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#d7ebf5]/70 bg-gradient-to-r from-[#eaf6ff]/90 via-[#f3fbff]/88 to-[#e8f4ff]/90 backdrop-blur-xl shadow-[0_10px_26px_rgba(72,116,145,0.18)]">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#b8cad6]/28 bg-gradient-to-r from-[#121619]/86 via-[#1a2228]/82 to-[#141b21]/86 backdrop-blur-2xl shadow-[0_10px_26px_rgba(10,14,18,0.34)]">
       <nav className="section-wrap flex h-16 items-center justify-between md:h-20">
         <Link href="#home" className="relative h-12 w-44 overflow-hidden md:h-14 md:w-52" onClick={() => setOpen(false)}>
           <Image
@@ -42,7 +42,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#9fc3dc]/60 text-[#2b4f66] lg:hidden"
+          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#a9c0cf]/45 text-[#deedf7] lg:hidden"
           aria-label="Toggle menu"
           onClick={() => setOpen((prev) => !prev)}
         >
@@ -51,13 +51,13 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="section-wrap border-t border-[#c7dfef]/70 py-3 lg:hidden">
+        <div className="section-wrap border-t border-[#a9c0cf]/32 py-3 lg:hidden">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block border-b border-[#b9d5e8]/55 py-2 text-sm font-semibold text-[#2b4f66]"
+              className="block border-b border-[#91a9ba]/28 py-2 text-sm font-semibold text-[#deedf7]"
             >
               {item.label}
             </a>
