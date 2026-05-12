@@ -251,9 +251,10 @@ body {
   position: relative;
   border-radius: 1.4rem;
   overflow: hidden;
-  min-height: 320px;
+  aspect-ratio: 16 / 9;
+  min-height: 0;
   border: none;
-  background: #f6fceb;
+  background: transparent;
   box-shadow: 0 16px 26px rgba(36, 85, 56, 0.14);
 }
 
@@ -279,11 +280,11 @@ body {
 
 .journey-image {
   position: relative;
-  aspect-ratio: 4/3;
+  aspect-ratio: 16 / 9;
   border-radius: 1.2rem;
   overflow: hidden;
   border: 1px solid rgba(94, 153, 110, 0.24);
-  background: #f7fce9;
+  background: transparent;
 }
 
 .field-list-item {
@@ -344,7 +345,7 @@ body {
 
 @media (max-width: 1023px) {
   .neo-image-wrap {
-    min-height: 260px;
+    aspect-ratio: 16 / 10;
   }
 }
 

@@ -21,18 +21,18 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-[#5ea669]/26 bg-[#f7fff5] shadow-[0_6px_18px_rgba(28,69,45,0.10)]">
-      <nav className="section-wrap flex h-16 items-center md:h-20">
+      <nav className="section-wrap flex h-16 items-center justify-between md:h-20">
         <Link href="#home" className="relative h-10 w-36 overflow-hidden md:h-11 md:w-44" onClick={() => setOpen(false)}>
           <Image
-            src="/images/evolve-logo-trimmed.png"
+            src="/images/evolve-logo-transparent.png"
             alt="EVOLVE by DSQUARE logo"
             fill
             sizes="(max-width: 768px) 144px, 176px"
-            className="object-contain object-left drop-shadow-[0_1px_1px_rgba(255,255,255,0.75)]"
+            className="object-contain object-left"
           />
         </Link>
 
-        <div className="ml-8 hidden items-center gap-5 xl:gap-6 lg:flex">
+        <div className="hidden flex-1 items-center justify-end gap-5 lg:flex xl:gap-6">
           {navItems.map((item) => (
             <a key={item.href} href={item.href} className="field-nav-link">
               {item.label}
