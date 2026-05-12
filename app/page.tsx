@@ -92,7 +92,7 @@ export default function HomePage() {
       <main className="orbit-theme">
         <section id="home" className="neo-hero">
           <div className="neo-hero-bg">
-            <Image src="/images/bg.png" alt="Farm landscape" fill priority sizes="100vw" className="object-cover object-center" />
+            <Image src="/Mango-farm.jpg" alt="Mango farm landscape" fill priority sizes="100vw" className="object-cover object-center" />
           </div>
           <div className="neo-overlay" />
           <div className="section-wrap relative z-10 flex min-h-screen items-center py-28">
@@ -265,6 +265,9 @@ export default function HomePage() {
             </div>
           </div>
         </section>
+        <footer className="border-t border-[#C8A96B]/25 py-6 text-center text-sm font-medium text-[#1F4D3A]">
+          © 2026 All Rights Reserved.
+        </footer>
       </main>
     </>
   );
