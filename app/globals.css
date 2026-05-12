@@ -13,11 +13,11 @@ html {
 
 body {
   font-family: var(--font-manrope), sans-serif;
-  color: #1f241f;
+  color: #222222;
   background:
-    radial-gradient(circle at 8% 12%, #f2ead7 0%, transparent 34%),
-    radial-gradient(circle at 90% 85%, #ece2cc 0%, transparent 30%),
-    linear-gradient(145deg, #faf6ee 0%, #f4ecdf 52%, #fcf8f1 100%);
+    radial-gradient(circle at 8% 12%, rgba(122, 155, 118, 0.14) 0%, transparent 34%),
+    radial-gradient(circle at 90% 85%, rgba(200, 169, 107, 0.12) 0%, transparent 30%),
+    linear-gradient(145deg, #F8F5EF 0%, #f5f1e8 52%, #F8F5EF 100%);
   overflow-x: hidden;
 }
 
@@ -35,7 +35,7 @@ body {
   font-weight: 700;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: #d8eaf5;
+  color: #1F4D3A;
   transition: color 180ms ease;
 }
 
@@ -47,12 +47,12 @@ body {
   width: 0;
   height: 2px;
   border-radius: 9999px;
-  background: linear-gradient(90deg, #9cc0d8, #e3f1fb);
+  background: linear-gradient(90deg, #C8A96B, #ddc18f);
   transition: width 240ms ease;
 }
 
 .field-nav-link:hover {
-  color: #f3f9fd;
+  color: #163a2b;
 }
 
 .field-nav-link:hover::after {
@@ -78,8 +78,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(120deg, rgba(250, 244, 231, 0.14) 0%, rgba(238, 223, 193, 0.12) 32%, rgba(28, 24, 16, 0.7) 100%),
-    radial-gradient(circle at 20% 24%, rgba(196, 163, 96, 0.18), transparent 42%);
+    linear-gradient(120deg, rgba(248, 245, 239, 0.12) 0%, rgba(122, 155, 118, 0.14) 30%, rgba(31, 77, 58, 0.72) 100%),
+    radial-gradient(circle at 20% 24%, rgba(200, 169, 107, 0.2), transparent 42%);
 }
 
 .hero-copy {
@@ -124,15 +124,15 @@ body {
 }
 
 .field-cta-primary {
-  border: 1px solid #b99654;
-  background: linear-gradient(95deg, #af8b4a, #d0b176);
-  color: #1b1914;
+  border: 1px solid #C8A96B;
+  background: linear-gradient(95deg, #b99958, #d5ba84);
+  color: #1F4D3A;
 }
 
 .field-cta-secondary {
-  border: 1px solid rgba(255, 248, 235, 0.7);
-  color: #fff8ec;
-  background: rgba(44, 33, 19, 0.38);
+  border: 1px solid rgba(248, 245, 239, 0.75);
+  color: #F8F5EF;
+  background: rgba(31, 77, 58, 0.45);
 }
 
 .field-cta-primary:hover,
@@ -147,9 +147,9 @@ body {
 }
 
 .neo-panel {
-  border: 1px solid rgba(140, 112, 71, 0.12);
+  border: 1px solid rgba(122, 155, 118, 0.2);
   border-radius: 1.4rem;
-  background: linear-gradient(145deg, rgba(255, 252, 246, 0.96), rgba(247, 239, 225, 0.96));
+  background: linear-gradient(145deg, rgba(248, 245, 239, 0.98), rgba(244, 239, 229, 0.98));
   padding: 1.5rem;
 }
 
@@ -159,7 +159,7 @@ body {
 }
 
 .neo-stats > div {
-  border: 1px solid rgba(140, 112, 71, 0.1);
+  border: 1px solid rgba(122, 155, 118, 0.16);
   border-radius: 1.2rem;
   background: rgba(255, 255, 255, 0.85);
   padding: 1rem;
@@ -170,18 +170,18 @@ body {
   font-family: var(--font-cormorant), serif;
   font-size: 2.1rem;
   line-height: 1;
-  color: #2c251b;
+  color: #1F4D3A;
 }
 
 .neo-stats p {
   margin-top: 0.2rem;
-  color: #5d4d36;
+  color: #222222;
 }
 
 .media-card {
-  border: 1px solid rgba(140, 112, 71, 0.12);
+  border: 1px solid rgba(122, 155, 118, 0.16);
   border-radius: 1.3rem;
-  background: linear-gradient(145deg, rgba(255, 252, 246, 0.96), rgba(246, 237, 221, 0.98));
+  background: linear-gradient(145deg, rgba(248, 245, 239, 0.98), rgba(243, 238, 228, 0.98));
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -191,8 +191,8 @@ body {
 
 .media-card:hover {
   transform: translateY(-6px);
-  border-color: rgba(155, 124, 78, 0.5);
-  box-shadow: 0 18px 30px rgba(68, 49, 24, 0.16);
+  border-color: rgba(200, 169, 107, 0.5);
+  box-shadow: 0 18px 30px rgba(31, 77, 58, 0.14);
 }
 
 .media-card-image {
@@ -211,34 +211,34 @@ body {
   display: inline-flex;
   align-items: center;
   gap: 0.3rem;
-  border: 1px solid rgba(185, 150, 84, 0.24);
+  border: 1px solid rgba(200, 169, 107, 0.34);
   border-radius: 9999px;
   padding: 0.35rem 0.6rem;
   font-size: 0.67rem;
   font-weight: 700;
   letter-spacing: 0.09em;
   text-transform: uppercase;
-  color: #725a33;
+  color: #7A9B76;
 }
 
 .infra-card {
-  border: 1px solid rgba(140, 112, 71, 0.12);
+  border: 1px solid rgba(122, 155, 118, 0.16);
   border-radius: 1.1rem;
-  background: rgba(255, 252, 245, 0.9);
+  background: rgba(248, 245, 239, 0.95);
   padding: 1.1rem;
   transition: transform 220ms ease, background 220ms ease;
 }
 
 .infra-card:hover {
   transform: translateY(-4px);
-  background: rgba(249, 241, 226, 1);
+  background: rgba(244, 239, 229, 1);
 }
 
 .feature-row-title {
   display: flex;
   align-items: center;
   gap: 0.55rem;
-  color: #2f291f;
+  color: #1F4D3A;
 }
 
 .feature-row-title h3 {
@@ -255,7 +255,7 @@ body {
   min-height: 0;
   border: none;
   background: transparent;
-  box-shadow: 0 16px 26px rgba(64, 45, 21, 0.14);
+  box-shadow: 0 16px 26px rgba(31, 77, 58, 0.12);
 }
 
 .neo-image-wrap img {
@@ -274,7 +274,7 @@ body {
 }
 
 .journey-strip {
-  border-top: 1px solid rgba(140, 112, 71, 0.12);
+  border-top: 1px solid rgba(122, 155, 118, 0.16);
   padding-top: 2rem;
 }
 
@@ -300,16 +300,16 @@ body {
   width: 0.38rem;
   height: 0.38rem;
   border-radius: 9999px;
-  background: #b99654;
+  background: #C8A96B;
 }
 
 .field-tag {
-  border: 1px solid rgba(140, 112, 71, 0.16);
+  border: 1px solid rgba(122, 155, 118, 0.2);
   border-radius: 9999px;
   padding: 0.36rem 0.68rem;
   font-size: 0.74rem;
-  color: #5a4528;
-  background: rgba(253, 247, 237, 0.95);
+  color: #1F4D3A;
+  background: rgba(248, 245, 239, 0.98);
 }
 
 @keyframes hero-pan-zoom {

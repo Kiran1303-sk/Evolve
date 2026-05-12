@@ -113,9 +113,9 @@ export default function HomePage() {
         <section id="story" className="neo-band py-20 md:py-24">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr]">
             <div className="neo-panel">
-              <p className="kicker text-[#6f5830]">PROJECT STORY</p>
-              <h2 className="mt-3 font-display text-4xl leading-tight text-[#2e261b] md:text-6xl">Farm-Style Plots Crafted for Living</h2>
-              <p className="mt-5 text-base leading-relaxed text-[#5f4c34] md:text-lg">
+              <p className="kicker text-[#C8A96B]">PROJECT STORY</p>
+              <h2 className="mt-3 font-display text-4xl leading-tight text-[#1F4D3A] md:text-6xl">Farm-Style Plots Crafted for Living</h2>
+              <p className="mt-5 text-base leading-relaxed text-[#222222] md:text-lg">
                 EVOLVE is designed for buyers who want usable farmland, future growth potential, and practical infrastructure in one place. From plantation support to
                 internal road planning, each section is built around real site utility.
               </p>
@@ -139,8 +139,8 @@ export default function HomePage() {
 
         <section id="showcase" className="neo-showcase py-20 md:py-24">
           <div className="section-wrap">
-            <p className="kicker text-[#6f5830]">NEW VISUAL GALLERY</p>
-            <h2 className="mt-3 font-display text-4xl text-[#2e261b] md:text-6xl">Interactive Media Blocks</h2>
+            <p className="kicker text-[#C8A96B]">NEW VISUAL GALLERY</p>
+            <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Interactive Media Blocks</h2>
             <div className="mt-10 grid gap-8 md:grid-cols-2">
               {gallery.map((item) => (
                 <ScrollReveal key={item.src} className="h-full">
@@ -150,8 +150,8 @@ export default function HomePage() {
                     </div>
                     <div className="p-5">
                       <p className="media-pill"><Sparkles size={14} /> Enhanced View</p>
-                      <h3 className="mt-3 font-display text-3xl text-[#2e261b]">{item.title}</h3>
-                      <p className="mt-2 text-sm text-[#5f4c34]">{item.desc}</p>
+                      <h3 className="mt-3 font-display text-3xl text-[#1F4D3A]">{item.title}</h3>
+                      <p className="mt-2 text-sm text-[#222222]">{item.desc}</p>
                     </div>
                   </article>
                 </ScrollReveal>
@@ -162,8 +162,8 @@ export default function HomePage() {
 
         <section id="highlights" className="neo-showcase py-20 md:py-24">
           <div className="section-wrap">
-            <p className="kicker text-[#6f5830]">PROJECT JOURNEY</p>
-            <h2 className="mt-3 font-display text-4xl text-[#2e261b] md:text-6xl">Plans, Maps, and Future Vision</h2>
+            <p className="kicker text-[#C8A96B]">PROJECT JOURNEY</p>
+            <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Plans, Maps, and Future Vision</h2>
             <div className="mt-10 space-y-14">
               {sectionShowcase.slice(0, 3).map((item, idx) => (
                 <ScrollReveal key={item.src}>
@@ -172,10 +172,10 @@ export default function HomePage() {
                       <Image src={item.src} alt={item.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain object-center" />
                     </div>
                     <div className="self-center">
-                      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#8b6f3e]">Stage {idx + 1}</p>
-                      <h3 className="mt-2 font-display text-3xl leading-tight text-[#2e261b] md:text-5xl">{item.title}</h3>
-                      <p className="mt-4 text-[#5f4c34]">{item.blurb}</p>
-                      <ul className="mt-5 space-y-2 text-[#5f4c34]">
+                      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#7A9B76]">Stage {idx + 1}</p>
+                      <h3 className="mt-2 font-display text-3xl leading-tight text-[#1F4D3A] md:text-5xl">{item.title}</h3>
+                      <p className="mt-4 text-[#222222]">{item.blurb}</p>
+                      <ul className="mt-5 space-y-2 text-[#222222]">
                         {item.points.map((point) => (
                           <li key={point} className="field-list-item">{point}</li>
                         ))}
@@ -190,8 +190,8 @@ export default function HomePage() {
 
         <section id="features" className="neo-band py-20 md:py-24">
           <div className="section-wrap">
-            <p className="kicker text-[#6f5830]">INFRASTRUCTURE</p>
-            <h2 className="mt-3 font-display text-4xl text-[#2e261b] md:text-6xl">Core Capability Deck</h2>
+            <p className="kicker text-[#C8A96B]">INFRASTRUCTURE</p>
+            <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Core Capability Deck</h2>
             <div className="mt-10 grid gap-5 md:grid-cols-2">
               {infrastructure.map(({ title, icon: Icon, desc, stat }) => (
                 <article key={title} className="infra-card">
@@ -199,8 +199,8 @@ export default function HomePage() {
                     <Icon size={19} />
                     <h3>{title}</h3>
                   </div>
-                  <p className="mt-3 text-[#5f4c34]">{desc}</p>
-                  <span className="mt-4 inline-flex rounded-full border border-[#b99654]/35 px-3 py-1 text-xs font-bold uppercase tracking-[0.13em] text-[#8f6f39]">
+                  <p className="mt-3 text-[#222222]">{desc}</p>
+                  <span className="mt-4 inline-flex rounded-full border border-[#C8A96B]/35 px-3 py-1 text-xs font-bold uppercase tracking-[0.13em] text-[#C8A96B]">
                     {stat}
                   </span>
                 </article>
@@ -212,10 +212,10 @@ export default function HomePage() {
         <section id="master-plan" className="neo-contact py-20 md:py-24">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <div>
-              <p className="kicker text-[#6f5830]">MASTER PLAN</p>
-              <h2 className="mt-3 font-display text-4xl text-[#2e261b] md:text-6xl">{masterPlan.title}</h2>
-              <p className="mt-4 text-[#5f4c34]">{masterPlan.blurb}</p>
-              <ul className="mt-5 space-y-2 text-[#5f4c34]">
+              <p className="kicker text-[#C8A96B]">MASTER PLAN</p>
+              <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">{masterPlan.title}</h2>
+              <p className="mt-4 text-[#222222]">{masterPlan.blurb}</p>
+              <ul className="mt-5 space-y-2 text-[#222222]">
                 {masterPlan.points.map((point) => (
                   <li key={point} className="field-list-item">{point}</li>
                 ))}
@@ -230,10 +230,10 @@ export default function HomePage() {
         <section id="connectivity" className="neo-band py-20 md:py-24">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <div>
-              <p className="kicker text-[#6f5830]">CONNECTIVITY MAP</p>
-              <h2 className="mt-3 font-display text-4xl text-[#2e261b] md:text-6xl">{connectivity.title}</h2>
-              <p className="mt-4 text-[#5f4c34]">{connectivity.blurb}</p>
-              <ul className="mt-5 space-y-2 text-[#5f4c34]">
+              <p className="kicker text-[#C8A96B]">CONNECTIVITY MAP</p>
+              <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">{connectivity.title}</h2>
+              <p className="mt-4 text-[#222222]">{connectivity.blurb}</p>
+              <ul className="mt-5 space-y-2 text-[#222222]">
                 {connectivity.points.map((point) => (
                   <li key={point} className="field-list-item">{point}</li>
                 ))}
@@ -248,9 +248,9 @@ export default function HomePage() {
         <section id="contact" className="neo-contact py-20 md:py-24">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <div>
-              <p className="kicker text-[#6f5830]">CONTACT & QR</p>
-              <h2 className="mt-3 font-display text-4xl text-[#2e261b] md:text-6xl">Plan Your EVOLVE Visit</h2>
-              <p className="mt-4 text-[#5f4c34]">{contact.blurb}</p>
+              <p className="kicker text-[#C8A96B]">CONTACT & QR</p>
+              <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Plan Your EVOLVE Visit</h2>
+              <p className="mt-4 text-[#222222]">{contact.blurb}</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {contact.points.map((point) => (
                   <span key={point} className="field-tag">{point}</span>
@@ -269,3 +269,4 @@ export default function HomePage() {
     </>
   );
 }
+
