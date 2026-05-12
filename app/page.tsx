@@ -143,7 +143,7 @@ export default function HomePage() {
             <h2 className="mt-3 font-display text-4xl text-[#183025] md:text-6xl">Interactive Media Blocks</h2>
             <div className="mt-10 grid gap-8 md:grid-cols-2">
               {gallery.map((item) => (
-                <ScrollReveal key={item.src}>
+                <ScrollReveal key={item.src} className="h-full">
                   <article className="media-card">
                     <div className="media-card-image">
                       <Image src={item.src} alt={item.title} fill sizes="(max-width: 768px) 100vw, 33vw" className="object-cover object-center" />

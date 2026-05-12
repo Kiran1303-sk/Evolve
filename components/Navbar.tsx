@@ -20,7 +20,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#5ea669]/20 bg-[#f7fff5]/82 backdrop-blur-xl">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#5ea669]/26 bg-[#f7fff5] shadow-[0_6px_18px_rgba(28,69,45,0.10)]">
       <nav className="section-wrap flex h-16 items-center md:h-20">
         <Link href="#home" className="relative h-10 w-36 overflow-hidden md:h-11 md:w-44" onClick={() => setOpen(false)}>
           <Image
@@ -32,7 +32,7 @@ export default function Navbar() {
           />
         </Link>
 
-        <div className="ml-10 hidden items-center gap-6 lg:flex">
+        <div className="ml-8 hidden items-center gap-5 xl:gap-6 lg:flex">
           {navItems.map((item) => (
             <a key={item.href} href={item.href} className="field-nav-link">
               {item.label}
