@@ -1,5 +1,5 @@
 import Image from 'next/image';
-import { Compass, Leaf, ShieldCheck, Sparkles, Waves } from 'lucide-react';
+import { Compass, Facebook, Instagram, Leaf, Linkedin, ShieldCheck, Sparkles, Waves, Youtube } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import ScrollReveal from '@/components/ScrollReveal';
 import HeroSlideshow from '@/components/HeroSlideshow';
@@ -77,7 +77,7 @@ const sectionShowcase = [
   },
   {
     src: '/images/section7.png',
-    title: 'Let’s Connect',
+    title: 'Let's Connect',
     blurb: 'Dedicated visit support with direct call access and QR-based location sharing for quick and simple site planning.',
     points: ['Site visit assistance', 'Direct phone contact', 'Scan-to-location convenience']
   }
@@ -95,7 +95,7 @@ export default function HomePage() {
           <HeroSlideshow />
         </section>
 
-        <section id="story" className="neo-band py-20 md:py-24">
+        <section id="story" className="neo-band py-12 md:py-16">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr]">
             <div className="neo-panel">
               <p className="kicker text-[#C8A96B]">PROJECT STORY</p>
@@ -122,7 +122,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="showcase" className="neo-showcase py-20 md:py-24">
+        <section id="showcase" className="neo-showcase py-12 md:py-16">
           <div className="section-wrap">
             <p className="kicker text-[#C8A96B]">NEW VISUAL GALLERY</p>
             <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Interactive Media Blocks</h2>
@@ -145,7 +145,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="highlights" className="neo-showcase py-20 md:py-24">
+        <section id="highlights" className="neo-showcase py-12 md:py-16">
           <div className="section-wrap">
             <p className="kicker text-[#C8A96B]">PROJECT JOURNEY</p>
             <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Plans, Maps, and Future Vision</h2>
@@ -173,7 +173,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="features" className="neo-band py-20 md:py-24">
+        <section id="features" className="neo-band py-12 md:py-16">
           <div className="section-wrap">
             <p className="kicker text-[#C8A96B]">INFRASTRUCTURE</p>
             <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Core Capability Deck</h2>
@@ -194,7 +194,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="master-plan" className="neo-contact py-20 md:py-24">
+        <section id="master-plan" className="neo-contact py-12 md:py-16">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <div>
               <p className="kicker text-[#C8A96B]">MASTER PLAN</p>
@@ -212,7 +212,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="connectivity" className="neo-band py-20 md:py-24">
+        <section id="connectivity" className="neo-band py-12 md:py-16">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <div>
               <p className="kicker text-[#C8A96B]">CONNECTIVITY MAP</p>
@@ -230,7 +230,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="contact" className="neo-contact py-20 md:py-24">
+        <section id="contact" className="neo-contact py-12 md:py-16">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <div>
               <p className="kicker text-[#C8A96B]">CONTACT & QR</p>
@@ -250,11 +250,20 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-        <footer className="border-t border-[#C8A96B]/25 py-6 text-center text-sm font-medium text-[#1F4D3A]">
-          © 2026 All Rights Reserved.
+        <footer className="border-t border-[#C8A96B]/25 py-6">
+          <div className="section-wrap flex flex-col items-center gap-4 text-center text-sm font-medium text-[#1F4D3A]">
+            <div className="flex items-center gap-4">
+              <a href="#" aria-label="Instagram" className="transition-opacity hover:opacity-70"><Instagram size={18} /></a>
+              <a href="#" aria-label="Facebook" className="transition-opacity hover:opacity-70"><Facebook size={18} /></a>
+              <a href="#" aria-label="YouTube" className="transition-opacity hover:opacity-70"><Youtube size={18} /></a>
+              <a href="#" aria-label="LinkedIn" className="transition-opacity hover:opacity-70"><Linkedin size={18} /></a>
+            </div>
+            <p>© 2026 All Rights Reserved.</p>
+          </div>
         </footer>
       </main>
     </>
   );
 }
+
 

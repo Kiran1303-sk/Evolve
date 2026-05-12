@@ -10,20 +10,6 @@ const slides = [
     kicker: 'MANGO FARMLAND',
     title: 'Mango Groves Crafted for Long-Term Value.',
     desc: 'Plan your space around premium mango cultivation with practical infrastructure and future-ready plot access.'
-  },
-  {
-    src: '/guava_farm2.jpg',
-    alt: 'Guava farm view',
-    kicker: 'GUAVA PLANTATION',
-    title: 'Guava Plots Designed for Productive Living.',
-    desc: 'A green, low-density layout where guava cultivation meets clean land planning and smooth internal connectivity.'
-  },
-  {
-    src: '/papamango-farm.webp',
-    alt: 'Papaya and mango mixed farm',
-    kicker: 'MIXED CROP ZONE',
-    title: 'Diversified Farming Backed by Modern Layout.',
-    desc: 'From papaya to mango, build a flexible farm vision in a location aligned with growth, utility, and access.'
   }
 ];
 
@@ -67,4 +53,3 @@ export default function HeroSlideshow() {
     </>
   );
 }
-
