@@ -1,4 +1,4 @@
-import Image from 'next/image';
+﻿import Image from 'next/image';
 import { Compass, Facebook, Instagram, Leaf, Linkedin, ShieldCheck, Sparkles, Waves, Youtube } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import ScrollReveal from '@/components/ScrollReveal';
@@ -77,7 +77,7 @@ const sectionShowcase = [
   },
   {
     src: '/images/section7.png',
-    title: 'Let's Connect',
+    title: "Let's Connect",
     blurb: 'Dedicated visit support with direct call access and QR-based location sharing for quick and simple site planning.',
     points: ['Site visit assistance', 'Direct phone contact', 'Scan-to-location convenience']
   }
