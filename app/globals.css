@@ -73,8 +73,8 @@ body {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(120deg, rgba(248, 255, 248, 0.26) 0%, rgba(226, 250, 231, 0.25) 38%, rgba(14, 49, 28, 0.66) 100%),
-    radial-gradient(circle at 20% 24%, rgba(181, 231, 165, 0.24), transparent 42%);
+    linear-gradient(120deg, rgba(248, 255, 248, 0.1) 0%, rgba(226, 250, 231, 0.1) 32%, rgba(14, 49, 28, 0.74) 100%),
+    radial-gradient(circle at 20% 24%, rgba(181, 231, 165, 0.16), transparent 42%);
 }
 
 .hero-copy {
@@ -84,6 +84,14 @@ body {
 
 .hero-copy p {
   color: #f2fbe9;
+}
+
+.hero-panel {
+  border: 1px solid rgba(255, 255, 255, 0.28);
+  border-radius: 1.3rem;
+  background: linear-gradient(145deg, rgba(12, 34, 20, 0.5), rgba(18, 58, 33, 0.38));
+  backdrop-filter: blur(6px);
+  padding: 1.35rem;
 }
 
 .kicker {

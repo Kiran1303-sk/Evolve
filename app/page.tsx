@@ -40,11 +40,6 @@ const gallery = [
     src: '/images/new-img2.png',
     title: 'Lifestyle Farming Frame',
     desc: 'New on-site imagery integrated into the experience with premium card treatment.'
-  },
-  {
-    src: '/images/section4.png',
-    title: 'Master Planning Snapshot',
-    desc: 'Existing project planning visual retained to connect growth and layout intent.'
   }
 ];
 
@@ -101,7 +96,7 @@ export default function HomePage() {
           </div>
           <div className="neo-overlay" />
           <div className="section-wrap relative z-10 flex min-h-screen items-center py-28">
-            <div className="hero-copy max-w-3xl">
+            <div className="hero-copy hero-panel max-w-3xl">
               <p className="kicker">DSQUARE EVOLVE EXPERIENCE</p>
               <h1 className="mt-4 font-display text-5xl leading-tight md:text-7xl">A New Farm-Living Interface, Reimagined.</h1>
               <p className="mt-6 max-w-2xl text-base leading-relaxed md:text-lg">
@@ -118,9 +113,9 @@ export default function HomePage() {
         <section id="story" className="neo-band py-20 md:py-24">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr]">
             <div className="neo-panel">
-              <p className="kicker text-[#89c26b]">PROJECT STORY</p>
-              <h2 className="mt-3 font-display text-4xl leading-tight text-[#eaf8db] md:text-6xl">From Static Brochure to Dynamic Journey</h2>
-              <p className="mt-5 text-base leading-relaxed text-[#cbe8bc] md:text-lg">
+              <p className="kicker text-[#3d6f4b]">PROJECT STORY</p>
+              <h2 className="mt-3 font-display text-4xl leading-tight text-[#183025] md:text-6xl">From Static Brochure to Dynamic Journey</h2>
+              <p className="mt-5 text-base leading-relaxed text-[#345a45] md:text-lg">
                 This redesign introduces a cinematic layout system, smoother reveals, deeper contrast, and card-based interaction to make the experience feel alive on
                 both desktop and mobile.
               </p>
@@ -144,9 +139,9 @@ export default function HomePage() {
 
         <section id="showcase" className="neo-showcase py-20 md:py-24">
           <div className="section-wrap">
-            <p className="kicker text-[#89c26b]">NEW VISUAL GALLERY</p>
-            <h2 className="mt-3 font-display text-4xl text-[#eaf8db] md:text-6xl">Interactive Media Blocks</h2>
-            <div className="mt-10 grid gap-8 md:grid-cols-3">
+            <p className="kicker text-[#3d6f4b]">NEW VISUAL GALLERY</p>
+            <h2 className="mt-3 font-display text-4xl text-[#183025] md:text-6xl">Interactive Media Blocks</h2>
+            <div className="mt-10 grid gap-8 md:grid-cols-2">
               {gallery.map((item) => (
                 <ScrollReveal key={item.src}>
                   <article className="media-card">
@@ -155,8 +150,8 @@ export default function HomePage() {
                     </div>
                     <div className="p-5">
                       <p className="media-pill"><Sparkles size={14} /> Enhanced View</p>
-                      <h3 className="mt-3 font-display text-3xl text-[#f3ffe9]">{item.title}</h3>
-                      <p className="mt-2 text-sm text-[#cbe8bc]">{item.desc}</p>
+                      <h3 className="mt-3 font-display text-3xl text-[#183025]">{item.title}</h3>
+                      <p className="mt-2 text-sm text-[#345a45]">{item.desc}</p>
                     </div>
                   </article>
                 </ScrollReveal>
@@ -263,7 +258,6 @@ export default function HomePage() {
               </div>
               <div className="mt-8 flex flex-wrap gap-3">
                 <a href="tel:+919999999999" className="field-cta-primary">Call Now</a>
-                <a href="#home" className="field-cta-secondary">Back to Top</a>
               </div>
             </div>
             <div className="neo-image-wrap">
