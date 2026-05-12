@@ -114,24 +114,24 @@ export default function HomePage() {
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr]">
             <div className="neo-panel">
               <p className="kicker text-[#3d6f4b]">PROJECT STORY</p>
-              <h2 className="mt-3 font-display text-4xl leading-tight text-[#183025] md:text-6xl">From Static Brochure to Dynamic Journey</h2>
+              <h2 className="mt-3 font-display text-4xl leading-tight text-[#183025] md:text-6xl">Farm-Style Plots Crafted for Living</h2>
               <p className="mt-5 text-base leading-relaxed text-[#345a45] md:text-lg">
-                This redesign introduces a cinematic layout system, smoother reveals, deeper contrast, and card-based interaction to make the experience feel alive on
-                both desktop and mobile.
+                EVOLVE is designed for buyers who want usable farmland, future growth potential, and practical infrastructure in one place. From plantation support to
+                internal road planning, each section is built around real site utility.
               </p>
             </div>
             <div className="neo-stats">
               <div>
-                <span>3</span>
-                <p>curated visual highlights</p>
+                <span>12 Acres</span>
+                <p>Phase 1 planned footprint</p>
               </div>
               <div>
-                <span>2</span>
-                <p>new PNG images added</p>
+                <span>Low Density</span>
+                <p>Limited plots with clear structuring</p>
               </div>
               <div>
-                <span>100%</span>
-                <p>rounded visual card system</p>
+                <span>FCDA Zone</span>
+                <p>Aligned with future city development influence</p>
               </div>
             </div>
           </div>
