@@ -24,7 +24,7 @@ export default function Navbar() {
       <nav className="section-wrap flex h-16 items-center justify-between md:h-20">
         <Link href="#home" className="relative h-12 w-44 overflow-hidden md:h-14 md:w-52" onClick={() => setOpen(false)}>
           <Image
-            src="/images/evolve-logo-transparent.png"
+            src="/images/logo_gold2.png"
             alt="EVOLVE by DSQUARE logo"
             fill
             sizes="(max-width: 768px) 176px, 208px"

@@ -222,7 +222,7 @@ export default function HomePage() {
               </ul>
             </div>
             <div className="neo-image-wrap">
-              <Image src={masterPlan.src} alt={masterPlan.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain object-center" />
+              <Image src={masterPlan.src} alt={masterPlan.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center" />
             </div>
           </div>
         </section>
@@ -240,7 +240,7 @@ export default function HomePage() {
               </ul>
             </div>
             <div className="neo-image-wrap">
-              <Image src={connectivity.src} alt={connectivity.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain object-center" />
+              <Image src={connectivity.src} alt={connectivity.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center" />
             </div>
           </div>
         </section>
@@ -261,7 +261,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="neo-image-wrap">
-              <Image src={contact.src} alt={contact.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain object-center" />
+              <Image src={contact.src} alt={contact.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center" />
             </div>
           </div>
         </section>
