@@ -169,7 +169,7 @@ export default function HomePage() {
                 <ScrollReveal key={item.src}>
                   <article className="journey-strip grid gap-6 md:grid-cols-2 md:gap-10">
                     <div className={`journey-image ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
-                      <Image src={item.src} alt={item.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center" />
+                      <Image src={item.src} alt={item.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain object-center" />
                     </div>
                     <div className="self-center">
                       <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#4f8f5f]">Stage {idx + 1}</p>
@@ -222,7 +222,7 @@ export default function HomePage() {
               </ul>
             </div>
             <div className="neo-image-wrap">
-              <Image src={masterPlan.src} alt={masterPlan.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center" />
+              <Image src={masterPlan.src} alt={masterPlan.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain object-center" />
             </div>
           </div>
         </section>
@@ -240,7 +240,7 @@ export default function HomePage() {
               </ul>
             </div>
             <div className="neo-image-wrap">
-              <Image src={connectivity.src} alt={connectivity.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center" />
+              <Image src={connectivity.src} alt={connectivity.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain object-center" />
             </div>
           </div>
         </section>
@@ -261,7 +261,7 @@ export default function HomePage() {
               </div>
             </div>
             <div className="neo-image-wrap">
-              <Image src={contact.src} alt={contact.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover object-center" />
+              <Image src={contact.src} alt={contact.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-contain object-center" />
             </div>
           </div>
         </section>
