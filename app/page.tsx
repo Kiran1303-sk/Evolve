@@ -90,152 +90,158 @@ export default function HomePage() {
     <>
       <Navbar />
       <main>
-        <section id="home" className="farm-hero relative flex min-h-screen items-end overflow-hidden">
+        <section id="home" className="hero-field relative min-h-screen overflow-hidden">
           <div className="absolute inset-0">
-            <Image src="/images/bg.png" alt="Luxury farm landscape" fill priority sizes="100vw" className="object-cover object-center" />
+            <Image src="/images/bg.png" alt="Farm landscape" fill priority sizes="100vw" className="object-cover object-center" />
           </div>
-          <div className="farm-hero-overlay absolute inset-0" />
-
-          <div className="section-wrap relative z-10 pb-14 pt-32 md:pb-16">
-            <div className="max-w-3xl">
-              <span className="farm-eyebrow">FCDA Influence Zone</span>
-              <h1 className="mt-4 font-display text-5xl leading-tight text-white md:text-7xl">A Modern Farm Template for Purposeful Land Ownership</h1>
-              <p className="mt-5 max-w-2xl text-base leading-relaxed text-sand/90 md:text-lg">
-                EVOLVE is built on a simple idea: land should not just be owned, it should be lived. We combine open nature, practical infrastructure,
-                and future-ready planning for a farm-first lifestyle.
+          <div className="hero-field-overlay absolute inset-0" />
+          <div className="section-wrap relative z-10 flex min-h-screen items-end pb-16 pt-28 md:pb-20">
+            <div className="max-w-3xl text-[#f5f1e7]">
+              <p className="kicker">FCDA Influence Zone</p>
+              <h1 className="mt-4 font-display text-5xl leading-tight md:text-7xl">Living Farmland, Modern Planning, Future Value.</h1>
+              <p className="mt-6 max-w-2xl text-base leading-relaxed text-[#f5f1e7]/95 md:text-lg">
+                EVOLVE is land designed to be lived, not just held. Grow, build, or preserve in a low-density farm environment backed by practical infrastructure.
               </p>
               <div className="mt-8 flex flex-wrap gap-3">
-                <a href="#features" className="farm-btn-primary">Explore Features</a>
-                <a href="#contact" className="farm-btn-secondary">Book Site Visit</a>
+                <a href="#features" className="field-cta-primary">Explore Features</a>
+                <a href="#contact" className="field-cta-secondary">Book Site Visit</a>
               </div>
             </div>
           </div>
         </section>
 
-        <section id="story" className="section-wrap py-20 md:py-24">
-          <div className="farm-story-grid grid gap-6 md:grid-cols-3">
-            <article className="farm-story-card md:col-span-2">
-              <h2 className="font-display text-4xl leading-tight text-white md:text-5xl">Farm-Style Plots Crafted for Living</h2>
-              <p className="mt-4 text-sand/85">
-                In a time where spaces are shrinking, EVOLVE brings back openness, nature, and a more mindful way of thinking. Plant, grow, build, or
-                simply hold land that evolves with time.
+        <section id="story" className="story-band py-20 md:py-24">
+          <div className="section-wrap grid gap-8 md:grid-cols-[1.2fr_0.8fr]">
+            <div>
+              <p className="kicker text-[#26462d]">Story</p>
+              <h2 className="mt-3 font-display text-4xl leading-tight text-[#1e341f] md:text-6xl">Farm-Style Plots Crafted for Living</h2>
+              <p className="mt-5 text-base leading-relaxed text-[#2e4b34] md:text-lg">
+                In a time where spaces are shrinking, EVOLVE brings back openness, nature, and a more mindful way of thinking. This is a place where you can plant,
+                grow, build, and let your investment evolve naturally over time.
               </p>
-            </article>
-            <article className="farm-story-card">
-              <p className="text-xs uppercase tracking-[0.18em] text-bronze">Project Lens</p>
-              <p className="mt-3 text-sand/85">12-acre phase, limited plots, low-density planning, and farm-ready utility support focused on long-term value.</p>
-            </article>
+            </div>
+            <div className="story-stats">
+              <div>
+                <span>12 Acres</span>
+                <p>Phase 1 planned footprint</p>
+              </div>
+              <div>
+                <span>Low Density</span>
+                <p>Limited plots with clear structuring</p>
+              </div>
+              <div>
+                <span>Future-Aligned</span>
+                <p>Located in FCDA influence zone</p>
+              </div>
+            </div>
           </div>
         </section>
 
-        <section id="highlights" className="section-wrap pb-20 md:pb-24">
-          <div className="mb-8 flex items-end justify-between gap-4">
-            <div>
-              <h2 className="font-display text-4xl leading-tight text-white md:text-5xl">Project Highlights</h2>
-              <p className="mt-3 max-w-2xl text-sand/75">Your current project data, remapped into a modern farm-template layout.</p>
-            </div>
-          </div>
+        <section id="highlights" className="highlights-band py-20 md:py-24">
+          <div className="section-wrap">
+            <p className="kicker text-[#26462d]">Highlights</p>
+            <h2 className="mt-3 font-display text-4xl text-[#1e341f] md:text-6xl">Project Journey</h2>
 
-          <div className="space-y-8">
-            {sectionShowcase.slice(0, 3).map((item, idx) => (
-              <ScrollReveal key={item.src} className="farm-highlight-shell overflow-hidden rounded-[28px] border border-sand/20">
-                <div className="grid md:grid-cols-2">
-                  <div className={`relative min-h-[280px] ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
-                    <Image src={item.src} alt={item.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
-                  </div>
-                  <div className="p-6 md:p-10">
-                    <span className="farm-eyebrow">Highlight {idx + 1}</span>
-                    <h3 className="mt-3 font-display text-3xl leading-tight text-white md:text-4xl">{item.title}</h3>
-                    <p className="mt-4 text-sand/80">{item.blurb}</p>
-                    <div className="mt-5 flex flex-wrap gap-2">
-                      {item.points.map((point) => (
-                        <span key={point} className="farm-chip">{point}</span>
-                      ))}
+            <div className="mt-10 space-y-16">
+              {sectionShowcase.slice(0, 3).map((item, idx) => (
+                <ScrollReveal key={item.src}>
+                  <article className="highlight-strip grid gap-6 md:grid-cols-2 md:gap-10">
+                    <div className={`relative min-h-[260px] overflow-hidden ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
+                      <Image src={item.src} alt={item.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
                     </div>
-                  </div>
-                </div>
-              </ScrollReveal>
-            ))}
-          </div>
-        </section>
-
-        <section id="features" className="section-wrap pb-20 md:pb-24">
-          <div className="mb-8 flex flex-wrap items-end justify-between gap-4">
-            <div>
-              <h2 className="font-display text-4xl leading-tight text-white md:text-5xl">Infrastructure Features</h2>
-              <p className="mt-3 max-w-2xl text-sand/75">Built for lifestyle comfort and long-term value with practical, farm-oriented infrastructure.</p>
+                    <div className="self-center">
+                      <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#6d7d46]">Stage {idx + 1}</p>
+                      <h3 className="mt-2 font-display text-3xl leading-tight text-[#1f3823] md:text-5xl">{item.title}</h3>
+                      <p className="mt-4 text-[#315237]">{item.blurb}</p>
+                      <ul className="mt-5 space-y-2 text-[#315237]">
+                        {item.points.map((point) => (
+                          <li key={point} className="field-list-item">{point}</li>
+                        ))}
+                      </ul>
+                    </div>
+                  </article>
+                </ScrollReveal>
+              ))}
             </div>
-            <div className="rounded-full border border-bronze/40 bg-bronze/10 px-4 py-2 text-xs tracking-[0.14em] text-bronze md:text-sm">PREMIUM INFRA READY</div>
-          </div>
-          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {features.map(({ title, icon: Icon, desc, tag }) => (
-              <article key={title} className="farm-feature-card group rounded-2xl border border-sand/20 p-5">
-                <div className="flex items-start justify-between gap-3">
-                  <div className="feature-icon-wrap">
-                    <Icon className="text-bronze transition duration-300 group-hover:scale-110" size={22} />
-                  </div>
-                  <span className="rounded-full border border-sand/20 bg-black/20 px-3 py-1 text-[11px] uppercase tracking-wider text-sand/85">{tag}</span>
-                </div>
-                <h3 className="mt-4 font-display text-2xl leading-tight text-white">{title}</h3>
-                <p className="mt-3 text-sm leading-relaxed text-sand/75">{desc}</p>
-              </article>
-            ))}
           </div>
         </section>
 
-        <section id="master-plan" className="section-wrap pb-20 md:pb-24">
-          <div className="farm-split grid items-center gap-8 overflow-hidden rounded-[28px] border border-sand/20 p-5 md:grid-cols-2 md:p-8">
-            <div className="relative min-h-[280px] overflow-hidden rounded-2xl">
+        <section id="features" className="features-band py-20 md:py-24">
+          <div className="section-wrap">
+            <p className="kicker text-[#26462d]">Features</p>
+            <h2 className="mt-3 font-display text-4xl text-[#1e341f] md:text-6xl">Infrastructure Matrix</h2>
+            <p className="mt-4 max-w-3xl text-[#315237]">A practical feature sheet presented as rows for faster scanning and better decision clarity.</p>
+
+            <div className="mt-10 border-y border-[#26462d]/25">
+              {features.map(({ title, icon: Icon, desc, tag }) => (
+                <article key={title} className="feature-row">
+                  <div className="feature-row-title">
+                    <Icon size={20} />
+                    <h3>{title}</h3>
+                  </div>
+                  <p>{desc}</p>
+                  <span>{tag}</span>
+                </article>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section id="master-plan" className="plan-band py-20 md:py-24">
+          <div className="section-wrap grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
+            <div className="relative min-h-[300px] overflow-hidden md:min-h-[440px]">
               <Image src={masterPlan.src} alt={masterPlan.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
             </div>
             <div>
-              <span className="farm-eyebrow">Master Plan</span>
-              <h2 className="mt-3 font-display text-4xl leading-tight text-white md:text-5xl">{masterPlan.title}</h2>
-              <p className="mt-4 text-sand/80">{masterPlan.blurb}</p>
-              <ul className="mt-5 space-y-2 text-sand/85">
+              <p className="kicker text-[#26462d]">Master Plan</p>
+              <h2 className="mt-3 font-display text-4xl text-[#1e341f] md:text-6xl">{masterPlan.title}</h2>
+              <p className="mt-4 text-[#315237]">{masterPlan.blurb}</p>
+              <ul className="mt-5 space-y-2 text-[#315237]">
                 {masterPlan.points.map((point) => (
-                  <li key={point} className="farm-list-item">{point}</li>
+                  <li key={point} className="field-list-item">{point}</li>
                 ))}
               </ul>
             </div>
           </div>
         </section>
 
-        <section id="connectivity" className="section-wrap pb-20 md:pb-24">
-          <div className="farm-split grid items-center gap-8 overflow-hidden rounded-[28px] border border-sand/20 p-5 md:grid-cols-2 md:p-8">
+        <section id="connectivity" className="connect-band py-20 md:py-24">
+          <div className="section-wrap grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
             <div>
-              <span className="farm-eyebrow">Connectivity</span>
-              <h2 className="mt-3 font-display text-4xl leading-tight text-white md:text-5xl">{connectivity.title}</h2>
-              <p className="mt-4 text-sand/80">{connectivity.blurb}</p>
-              <ul className="mt-5 space-y-2 text-sand/85">
+              <p className="kicker text-[#26462d]">Connectivity</p>
+              <h2 className="mt-3 font-display text-4xl text-[#1e341f] md:text-6xl">{connectivity.title}</h2>
+              <p className="mt-4 text-[#315237]">{connectivity.blurb}</p>
+              <ul className="mt-5 space-y-2 text-[#315237]">
                 {connectivity.points.map((point) => (
-                  <li key={point} className="farm-list-item">{point}</li>
+                  <li key={point} className="field-list-item">{point}</li>
                 ))}
               </ul>
             </div>
-            <div className="relative min-h-[280px] overflow-hidden rounded-2xl">
+            <div className="relative min-h-[300px] overflow-hidden md:min-h-[440px]">
               <Image src={connectivity.src} alt={connectivity.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
             </div>
           </div>
         </section>
 
-        <section id="contact" className="section-wrap pb-24">
-          <div className="farm-contact relative overflow-hidden rounded-[28px] border border-sand/20 p-6 md:p-10">
-            <div className="absolute inset-0 opacity-25">
-              <Image src={contact.src} alt={contact.title} fill sizes="100vw" className="object-cover" />
-            </div>
-            <div className="relative z-10 max-w-2xl">
-              <span className="farm-eyebrow">Lets Connect</span>
-              <h2 className="mt-3 font-display text-4xl leading-tight text-white md:text-5xl">Plan Your EVOLVE Visit</h2>
-              <p className="mt-4 text-sand/85">{contact.blurb}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {contact.points.map((point) => (
-                  <span key={point} className="farm-chip">{point}</span>
-                ))}
+        <section id="contact" className="contact-band py-20 md:py-24">
+          <div className="section-wrap">
+            <div className="contact-strip grid gap-8 md:grid-cols-[1.1fr_0.9fr] md:items-center">
+              <div>
+                <p className="kicker text-[#26462d]">Contact</p>
+                <h2 className="mt-3 font-display text-4xl text-[#1e341f] md:text-6xl">Plan Your EVOLVE Visit</h2>
+                <p className="mt-4 text-[#315237]">{contact.blurb}</p>
+                <div className="mt-5 flex flex-wrap gap-2">
+                  {contact.points.map((point) => (
+                    <span key={point} className="field-tag">{point}</span>
+                  ))}
+                </div>
+                <div className="mt-8 flex flex-wrap gap-3">
+                  <a href="tel:+919999999999" className="field-cta-primary">Call Now</a>
+                  <a href="#home" className="field-cta-secondary">Back to Top</a>
+                </div>
               </div>
-              <div className="mt-7 flex flex-wrap gap-3">
-                <a href="tel:+919999999999" className="farm-btn-primary">Call Now</a>
-                <a href="#home" className="farm-btn-secondary">Back to Top</a>
+              <div className="relative min-h-[280px] overflow-hidden md:min-h-[360px]">
+                <Image src={contact.src} alt={contact.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
               </div>
             </div>
           </div>
