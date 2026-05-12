@@ -146,8 +146,14 @@ export default function HomePage() {
               {sectionShowcase.slice(0, 3).map((item, idx) => (
                 <ScrollReveal key={item.src}>
                   <article className="highlight-strip grid gap-6 md:grid-cols-2 md:gap-10">
-                    <div className={`relative min-h-[260px] overflow-hidden ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
-                      <Image src={item.src} alt={item.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+                    <div className={`relative aspect-[4/3] overflow-hidden bg-[#e8e1cf] md:h-[440px] md:aspect-auto ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
+                      <Image
+                        src={item.src}
+                        alt={item.title}
+                        fill
+                        sizes="(max-width: 768px) 100vw, 50vw"
+                        className="object-contain object-center"
+                      />
                     </div>
                     <div className="self-center">
                       <p className="text-sm font-semibold uppercase tracking-[0.2em] text-[#6d7d46]">Stage {idx + 1}</p>
@@ -189,8 +195,14 @@ export default function HomePage() {
 
         <section id="master-plan" className="plan-band py-20 md:py-24">
           <div className="section-wrap grid gap-8 md:grid-cols-[0.9fr_1.1fr] md:items-center">
-            <div className="relative min-h-[300px] overflow-hidden md:min-h-[440px]">
-              <Image src={masterPlan.src} alt={masterPlan.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#e8e1cf] md:h-[440px] md:aspect-auto">
+              <Image
+                src={masterPlan.src}
+                alt={masterPlan.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-contain object-center"
+              />
             </div>
             <div>
               <p className="kicker text-[#26462d]">Master Plan</p>
@@ -217,8 +229,14 @@ export default function HomePage() {
                 ))}
               </ul>
             </div>
-            <div className="relative min-h-[300px] overflow-hidden md:min-h-[440px]">
-              <Image src={connectivity.src} alt={connectivity.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+            <div className="relative aspect-[4/3] overflow-hidden bg-[#e8e1cf] md:h-[440px] md:aspect-auto">
+              <Image
+                src={connectivity.src}
+                alt={connectivity.title}
+                fill
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="object-contain object-center"
+              />
             </div>
           </div>
         </section>
@@ -240,8 +258,14 @@ export default function HomePage() {
                   <a href="#home" className="field-cta-secondary">Back to Top</a>
                 </div>
               </div>
-              <div className="relative min-h-[280px] overflow-hidden md:min-h-[360px]">
-                <Image src={contact.src} alt={contact.title} fill sizes="(max-width: 768px) 100vw, 50vw" className="object-cover" />
+              <div className="relative aspect-[4/3] overflow-hidden bg-[#e8e1cf] md:h-[440px] md:aspect-auto">
+                <Image
+                  src={contact.src}
+                  alt={contact.title}
+                  fill
+                  sizes="(max-width: 768px) 100vw, 50vw"
+                  className="object-contain object-center"
+                />
               </div>
             </div>
           </div>
