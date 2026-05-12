@@ -21,7 +21,7 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-[#C8A96B]/35 bg-[#F8F5EF]/95 backdrop-blur-xl shadow-[0_10px_26px_rgba(31,77,58,0.10)]">
       <nav className="section-wrap flex h-16 items-center justify-between md:h-20">
-        <Link href="#home" className="logo-gradient-wrap relative h-12 w-44 overflow-hidden md:h-14 md:w-52" onClick={() => setOpen(false)}>
+        <Link href="#home" className="logo-gradient-wrap relative h-14 w-52 overflow-hidden md:h-16 md:w-60" onClick={() => setOpen(false)}>
           <span className="sr-only">EVOLVE by DSQUARE logo</span>
           <span aria-hidden="true" className="logo-gradient-mark" />
         </Link>
