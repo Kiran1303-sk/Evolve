@@ -2,7 +2,6 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
-import Image from 'next/image';
 import { Menu, X } from 'lucide-react';
 
 const navItems = [
@@ -22,14 +21,9 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-[#C8A96B]/35 bg-[#F8F5EF]/95 backdrop-blur-xl shadow-[0_10px_26px_rgba(31,77,58,0.10)]">
       <nav className="section-wrap flex h-16 items-center justify-between md:h-20">
-        <Link href="#home" className="relative h-12 w-44 overflow-hidden md:h-14 md:w-52" onClick={() => setOpen(false)}>
-          <Image
-            src="/images/evolve-logo-transparent.png"
-            alt="EVOLVE by DSQUARE logo"
-            fill
-            sizes="(max-width: 768px) 176px, 208px"
-            className="object-contain object-left"
-          />
+        <Link href="#home" className="logo-gradient-wrap relative h-12 w-44 overflow-hidden md:h-14 md:w-52" onClick={() => setOpen(false)}>
+          <span className="sr-only">EVOLVE by DSQUARE logo</span>
+          <span aria-hidden="true" className="logo-gradient-mark" />
         </Link>
 
         <div className="hidden flex-1 items-center justify-end gap-5 lg:flex xl:gap-6">
