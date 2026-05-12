@@ -95,7 +95,7 @@ export default function HomePage() {
           <HeroSlideshow />
         </section>
 
-        <section id="story" className="neo-band py-12 md:py-16">
+        <section id="story" className="neo-band py-8 md:py-10">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr]">
             <div className="neo-panel">
               <p className="kicker text-[#C8A96B]">PROJECT STORY</p>
@@ -122,7 +122,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="showcase" className="neo-showcase py-12 md:py-16">
+        <section id="showcase" className="neo-showcase py-8 md:py-10">
           <div className="section-wrap">
             <p className="kicker text-[#C8A96B]">NEW VISUAL GALLERY</p>
             <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Interactive Media Blocks</h2>
@@ -145,7 +145,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="highlights" className="neo-showcase py-12 md:py-16">
+        <section id="highlights" className="neo-showcase py-8 md:py-10">
           <div className="section-wrap">
             <p className="kicker text-[#C8A96B]">PROJECT JOURNEY</p>
             <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Plans, Maps, and Future Vision</h2>
@@ -173,7 +173,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="features" className="neo-band py-12 md:py-16">
+        <section id="features" className="neo-band py-8 md:py-10">
           <div className="section-wrap">
             <p className="kicker text-[#C8A96B]">INFRASTRUCTURE</p>
             <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Core Capability Deck</h2>
@@ -194,7 +194,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="master-plan" className="neo-contact py-12 md:py-16">
+        <section id="master-plan" className="neo-contact py-8 md:py-10">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <div>
               <p className="kicker text-[#C8A96B]">MASTER PLAN</p>
@@ -212,7 +212,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="connectivity" className="neo-band py-12 md:py-16">
+        <section id="connectivity" className="neo-band py-8 md:py-10">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <div>
               <p className="kicker text-[#C8A96B]">CONNECTIVITY MAP</p>
@@ -230,7 +230,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="contact" className="neo-contact py-12 md:py-16">
+        <section id="contact" className="neo-contact py-8 md:py-10">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <div>
               <p className="kicker text-[#C8A96B]">CONTACT & QR</p>
@@ -265,5 +265,4 @@ export default function HomePage() {
     </>
   );
 }
-
 
