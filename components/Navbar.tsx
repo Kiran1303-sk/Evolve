@@ -8,10 +8,9 @@ import { Menu, X } from 'lucide-react';
 const navItems = [
   { href: '#home', label: 'Home' },
   { href: '#story', label: 'Story' },
-  { href: '#highlights', label: 'Highlights' },
+  { href: '#showcase', label: 'Showcase' },
   { href: '#features', label: 'Features' },
-  { href: '#master-plan', label: 'Master Plan' },
-  { href: '#connectivity', label: 'Connectivity' },
+  { href: '#master-plan', label: 'Visit Plan' },
   { href: '#contact', label: 'Contact' }
 ];
 
@@ -19,7 +18,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#26462d]/20 bg-[#f5f1e7]/90 backdrop-blur-md">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#89c26b]/20 bg-[#071108]/72 backdrop-blur-xl">
       <nav className="section-wrap flex h-16 items-center md:h-20">
         <Link href="#home" className="relative h-10 w-36 overflow-hidden md:h-11 md:w-44" onClick={() => setOpen(false)}>
           <Image
@@ -41,7 +40,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-md border border-[#26462d]/20 text-[#26462d] lg:hidden"
+          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#89c26b]/35 text-[#d9ffc0] lg:hidden"
           aria-label="Toggle menu"
           onClick={() => setOpen((prev) => !prev)}
         >
@@ -50,13 +49,13 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="section-wrap border-t border-[#26462d]/15 py-3 lg:hidden">
+        <div className="section-wrap border-t border-[#89c26b]/15 py-3 lg:hidden">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block border-b border-[#26462d]/10 py-2 text-sm font-semibold text-[#26462d]"
+              className="block border-b border-[#89c26b]/10 py-2 text-sm font-semibold text-[#d9ffc0]"
             >
               {item.label}
             </a>
