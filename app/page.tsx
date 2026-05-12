@@ -2,6 +2,7 @@ import Image from 'next/image';
 import { Compass, Leaf, ShieldCheck, Sparkles, Waves } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import ScrollReveal from '@/components/ScrollReveal';
+import HeroSlideshow from '@/components/HeroSlideshow';
 
 const infrastructure = [
   {
@@ -91,23 +92,7 @@ export default function HomePage() {
       <Navbar />
       <main className="orbit-theme">
         <section id="home" className="neo-hero">
-          <div className="neo-hero-bg">
-            <Image src="/Mango-farm.jpg" alt="Mango farm landscape" fill priority sizes="100vw" className="object-cover object-center" />
-          </div>
-          <div className="neo-overlay" />
-          <div className="section-wrap relative z-10 flex min-h-screen items-center py-28">
-            <div className="hero-copy max-w-3xl">
-              <p className="kicker">DSQUARE EVOLVE EXPERIENCE</p>
-              <h1 className="mt-4 font-display text-5xl leading-tight md:text-7xl">A New Farm-Living Interface, Reimagined.</h1>
-              <p className="mt-6 max-w-2xl text-base leading-relaxed md:text-lg">
-                Step into an immersive land showcase built for modern buyers. Distinct visuals, layered depth, and clear pathways to explore, evaluate, and plan your visit.
-              </p>
-              <div className="mt-8 flex flex-wrap gap-3">
-                <a href="#showcase" className="field-cta-primary">See New Gallery</a>
-                <a href="#contact" className="field-cta-secondary">Book Site Visit</a>
-              </div>
-            </div>
-          </div>
+          <HeroSlideshow />
         </section>
 
         <section id="story" className="neo-band py-20 md:py-24">

@@ -94,6 +94,17 @@ body {
   inset: 0;
 }
 
+.hero-slide {
+  opacity: 0;
+  transition: opacity 900ms ease-in-out;
+  object-fit: cover;
+  object-position: center;
+}
+
+.hero-slide.is-active {
+  opacity: 1;
+}
+
 .neo-hero-bg img {
   animation: hero-pan-zoom 18s ease-in-out infinite alternate;
   will-change: transform;
@@ -377,6 +388,7 @@ body {
 @media (prefers-reduced-motion: reduce) {
   .showcase-reveal,
   .showcase-reveal.is-visible,
+  .hero-slide,
   .neo-hero-bg img,
   .hero-copy,
   .hero-panel h1,
