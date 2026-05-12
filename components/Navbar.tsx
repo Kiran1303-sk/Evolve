@@ -20,14 +20,14 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#b99654]/30 bg-[#f9f3e8] shadow-[0_6px_18px_rgba(77,56,28,0.10)]">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#d7ebf5]/70 bg-gradient-to-r from-[#eaf6ff]/90 via-[#f3fbff]/88 to-[#e8f4ff]/90 backdrop-blur-xl shadow-[0_10px_26px_rgba(72,116,145,0.18)]">
       <nav className="section-wrap flex h-16 items-center justify-between md:h-20">
-        <Link href="#home" className="relative h-10 w-36 overflow-hidden md:h-11 md:w-44" onClick={() => setOpen(false)}>
+        <Link href="#home" className="relative h-12 w-44 overflow-hidden md:h-14 md:w-52" onClick={() => setOpen(false)}>
           <Image
             src="/images/evolve-logo-transparent.png"
             alt="EVOLVE by DSQUARE logo"
             fill
-            sizes="(max-width: 768px) 144px, 176px"
+            sizes="(max-width: 768px) 176px, 208px"
             className="object-contain object-left"
           />
         </Link>
@@ -42,7 +42,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#b99654]/40 text-[#4f3e22] lg:hidden"
+          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#9fc3dc]/60 text-[#2b4f66] lg:hidden"
           aria-label="Toggle menu"
           onClick={() => setOpen((prev) => !prev)}
         >
@@ -51,13 +51,13 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="section-wrap border-t border-[#b99654]/20 py-3 lg:hidden">
+        <div className="section-wrap border-t border-[#c7dfef]/70 py-3 lg:hidden">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block border-b border-[#b99654]/15 py-2 text-sm font-semibold text-[#4f3e22]"
+              className="block border-b border-[#b9d5e8]/55 py-2 text-sm font-semibold text-[#2b4f66]"
             >
               {item.label}
             </a>
