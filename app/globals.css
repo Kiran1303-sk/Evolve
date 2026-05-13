@@ -124,8 +124,27 @@ body {
   animation: hero-copy-rise 900ms ease-out both;
 }
 
+.hero-copy-enter {
+  animation: hero-copy-slide-up 650ms cubic-bezier(0.2, 0.8, 0.2, 1) both;
+}
+
 .hero-copy p {
   color: #f2fbe9;
+}
+
+.hero-dot {
+  width: 0.58rem;
+  height: 0.58rem;
+  border-radius: 9999px;
+  border: 1px solid rgba(248, 245, 239, 0.65);
+  background: rgba(248, 245, 239, 0.28);
+  transition: transform 220ms ease, background 220ms ease, border-color 220ms ease;
+}
+
+.hero-dot.is-active {
+  transform: scale(1.2);
+  border-color: #C8A96B;
+  background: #C8A96B;
 }
 
 .hero-panel {
@@ -368,6 +387,17 @@ body {
   }
 }
 
+@keyframes hero-copy-slide-up {
+  0% {
+    opacity: 0;
+    transform: translateY(36px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 @keyframes hero-headline {
   0% {
     opacity: 0;
@@ -391,7 +421,9 @@ body {
   .hero-slide,
   .neo-hero-bg img,
   .hero-copy,
+  .hero-copy-enter,
   .hero-panel h1,
+  .hero-dot,
   .field-cta-primary,
   .field-cta-secondary,
   .media-card,
