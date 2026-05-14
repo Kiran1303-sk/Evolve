@@ -6,11 +6,11 @@ import { Menu, X } from 'lucide-react';
 
 const navItems = [
   { href: '#home', label: 'Home' },
-  { href: '#story', label: 'Story' },
-  { href: '#highlights', label: 'Highlights' },
+  { href: '#vision', label: 'Vision' },
   { href: '#features', label: 'Features' },
-  { href: '#master-plan', label: 'Master Plan' },
-  { href: '#connectivity', label: 'Connectivity' },
+  { href: '#land-experience', label: 'Land' },
+  { href: '#investment', label: 'Investment' },
+  { href: '#gallery', label: 'Gallery' },
   { href: '#contact', label: 'Contact' }
 ];
 
@@ -18,7 +18,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#C8A96B]/35 bg-[#F8F5EF]/95 backdrop-blur-xl shadow-[0_10px_26px_rgba(31,77,58,0.10)]">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#C8A96B]/20 bg-[#0F0F0F]/62 backdrop-blur-2xl shadow-[0_18px_44px_rgba(0,0,0,0.22)]">
       <nav className="section-wrap flex h-16 items-center justify-between md:h-20">
         <Link href="#home" className="logo-gradient-wrap relative h-16 w-60 overflow-hidden md:h-20 md:w-72" onClick={() => setOpen(false)}>
           <span className="sr-only">EVOLVE by DSQUARE logo</span>
@@ -35,7 +35,7 @@ export default function Navbar() {
 
         <button
           type="button"
-          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-xl border border-[#C8A96B]/45 text-[#1F4D3A] lg:hidden"
+          className="ml-auto inline-flex h-10 w-10 items-center justify-center rounded-full border border-[#C8A96B]/45 text-[#F5F1E8] lg:hidden"
           aria-label="Toggle menu"
           onClick={() => setOpen((prev) => !prev)}
         >
@@ -44,13 +44,13 @@ export default function Navbar() {
       </nav>
 
       {open && (
-        <div className="section-wrap border-t border-[#C8A96B]/30 py-3 lg:hidden">
+        <div className="section-wrap border-t border-[#C8A96B]/25 bg-[#0F0F0F]/88 py-3 lg:hidden">
           {navItems.map((item) => (
             <a
               key={item.href}
               href={item.href}
               onClick={() => setOpen(false)}
-              className="block border-b border-[#C8A96B]/20 py-2 text-sm font-semibold text-[#1F4D3A]"
+              className="block border-b border-[#C8A96B]/15 py-2 text-sm font-semibold uppercase tracking-[0.14em] text-[#F5F1E8]"
             >
               {item.label}
             </a>
