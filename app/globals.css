@@ -47,7 +47,11 @@ textarea {
 }
 
 .logo-gradient-wrap {
-  display: block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 110px;
+  min-height: 60px;
 }
 
 .logo-gradient-mark {
@@ -63,6 +67,33 @@ textarea {
   mask-position: left center;
   -webkit-mask-size: contain;
   mask-size: contain;
+}
+
+.logo-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.05;
+}
+
+.logo-name {
+  font-family: var(--font-cormorant), serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  color: #f5f1e8;
+}
+
+.logo-tag {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  color: rgba(245, 241, 232, 0.95);
+  letter-spacing: 0.18em;
 }
 
 @supports not ((-webkit-mask-image: url('')) or (mask-image: url(''))) {
@@ -218,7 +249,7 @@ textarea {
 
 .lux-section {
   position: relative;
-  padding: clamp(4rem, 8vw, 7rem) 0;
+  padding: clamp(2.5rem, 5vw, 4.8rem) 0;
 }
 
 .hero {
@@ -227,7 +258,7 @@ textarea {
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  padding-bottom: clamp(3.8rem, 7vw, 6.3rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
 }
 
 .hero-image {
@@ -368,7 +399,7 @@ textarea {
 
 .section-title {
   max-width: 11.5ch;
-  margin-top: 0.7rem;
+  margin-top: 0.55rem;
   color: var(--forest);
   font-family: var(--font-cormorant), serif;
   font-size: clamp(2.35rem, 5vw, 5rem);
@@ -379,12 +410,11 @@ textarea {
 
 .section-copy {
   max-width: 52ch;
-  margin-top: 1rem;
+  margin-top: 0.85rem;
   color: #394337;
   font-size: clamp(0.98rem, 1.3vw, 1.08rem);
-  line-height: 1.8;
-  text-align: justify;
-  text-align-last: left;
+  line-height: 1.75;
+  text-align: left;
 }
 
 .split-layout {

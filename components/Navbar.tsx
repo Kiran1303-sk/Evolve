@@ -20,9 +20,15 @@ export default function Navbar() {
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-[#C8A96B]/20 bg-[#0F0F0F]/62 backdrop-blur-2xl shadow-[0_18px_44px_rgba(0,0,0,0.22)]">
       <nav className="section-wrap flex h-16 items-center justify-between md:h-20">
-        <Link href="#home" className="logo-gradient-wrap relative h-16 w-60 overflow-hidden md:h-20 md:w-72" onClick={() => setOpen(false)}>
-          <span className="sr-only">EVOLVE by DSQUARE logo</span>
-          <span aria-hidden="true" className="logo-gradient-mark" />
+        <Link href="#home" className="logo-link" onClick={() => setOpen(false)}>
+          <span className="logo-gradient-wrap relative h-16 w-60 overflow-hidden md:h-20 md:w-72">
+            <span className="sr-only">EVOLVE by DSQUARE logo</span>
+            <span aria-hidden="true" className="logo-gradient-mark" />
+          </span>
+          <span className="logo-text">
+            <span className="logo-name">EVOLVE</span>
+            <span className="logo-tag">by DSQUARE</span>
+          </span>
         </Link>
 
         <div className="hidden flex-1 items-center justify-end gap-5 lg:flex xl:gap-6">
