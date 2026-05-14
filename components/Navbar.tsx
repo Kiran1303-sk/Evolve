@@ -24,7 +24,7 @@ export default function Navbar() {
         <Link href="#home" className="logo-image-wrap relative h-20 w-72 overflow-hidden md:h-24 md:w-80" onClick={() => setOpen(false)}>
           <span className="sr-only">EVOLVE by DSQUARE logo</span>
           <Image
-            src="/images/evolve-logo-transparent.png"
+            src="/updated logo.png"
             alt=""
             fill
             priority
