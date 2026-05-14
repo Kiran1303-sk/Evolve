@@ -34,13 +34,13 @@ const infrastructure = [
 const gallery = [
   {
     src: '/images/new-image.png',
-    title: 'Fresh Plantation View',
-    desc: 'Newly added high-detail field visual converted from JPEG to PNG.'
+    title: 'Plantation Entrance View',
+    desc: 'Tree-lined arrival stretch with clear internal access and natural shade pockets.'
   },
   {
     src: '/images/new-img2.png',
-    title: 'Lifestyle Farming Frame',
-    desc: 'New on-site imagery integrated into the experience with premium card treatment.'
+    title: 'Lifestyle Farming Zone',
+    desc: 'Prepared land pockets designed for weekend farming, plantation, and long-term value.'
   }
 ];
 
@@ -125,7 +125,7 @@ export default function HomePage() {
         <section id="showcase" className="neo-showcase py-8 md:py-10">
           <div className="section-wrap">
             <p className="kicker text-[#C8A96B]">NEW VISUAL GALLERY</p>
-            <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Interactive Media Blocks</h2>
+            <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Live Site Visuals</h2>
             <div className="mt-10 grid gap-8 md:grid-cols-2">
               {gallery.map((item) => (
                 <ScrollReveal key={item.src} className="h-full">
@@ -145,7 +145,49 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="highlights" className="neo-showcase py-8 md:py-10">
+        <section id="experience-scroll" className="split-scroll-section py-8 md:py-10">
+          <div className="section-wrap">
+            <p className="kicker text-[#C8A96B]">ENHANCED VIEW</p>
+            <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Scroll Through The Site Experience</h2>
+            <div className="split-scroll-grid mt-8">
+              <div className="split-scroll-text">
+                {[
+                  {
+                    title: 'Fresh Plantation View',
+                    desc: 'Green belts, breathing space, and farm-ready pockets are planned for practical use and calm visual quality.'
+                  },
+                  {
+                    title: 'Lifestyle Farming Frame',
+                    desc: 'Each segment supports personal farming, plantation activity, and flexible use for families and investors.'
+                  },
+                  {
+                    title: 'Infrastructure Built In',
+                    desc: 'Road planning, access routing, and utility readiness are aligned with daily usability and future growth.'
+                  }
+                ].map((item) => (
+                  <article key={item.title} className="split-scroll-card">
+                    <p className="media-pill"><Sparkles size={14} /> Enhanced View</p>
+                    <h3 className="mt-3 font-display text-3xl text-[#1F4D3A] md:text-4xl">{item.title}</h3>
+                    <p className="mt-3 text-base leading-relaxed text-[#222222]">{item.desc}</p>
+                  </article>
+                ))}
+              </div>
+              <div className="split-scroll-media">
+                <div className="split-scroll-sticky">
+                  <Image
+                    src="/images/new-image.png"
+                    alt="Evolve plantation visual"
+                    fill
+                    sizes="(max-width: 768px) 100vw, 45vw"
+                    className="object-cover object-center"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section id="highlights" className="neo-showcase neo-cover-section py-8 md:py-10">
           <div className="section-wrap">
             <p className="kicker text-[#C8A96B]">PROJECT JOURNEY</p>
             <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Plans, Maps, and Future Vision</h2>
@@ -265,4 +307,3 @@ export default function HomePage() {
     </>
   );
 }
-

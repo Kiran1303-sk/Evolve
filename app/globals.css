@@ -220,6 +220,49 @@ body {
   position: relative;
 }
 
+.split-scroll-section {
+  position: relative;
+  z-index: 5;
+}
+
+.split-scroll-grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.split-scroll-text {
+  display: grid;
+  gap: 1rem;
+}
+
+.split-scroll-card {
+  min-height: 46vh;
+  border: 1px solid rgba(122, 155, 118, 0.2);
+  border-radius: 1.2rem;
+  background: linear-gradient(145deg, rgba(248, 245, 239, 0.98), rgba(243, 238, 228, 0.98));
+  padding: 1.35rem;
+}
+
+.split-scroll-media {
+  position: relative;
+}
+
+.split-scroll-sticky {
+  position: relative;
+  border-radius: 1.2rem;
+  overflow: hidden;
+  min-height: 56vh;
+  box-shadow: 0 18px 32px rgba(31, 77, 58, 0.16);
+}
+
+.neo-cover-section {
+  z-index: 20;
+  background:
+    radial-gradient(circle at 8% 12%, rgba(122, 155, 118, 0.14) 0%, transparent 34%),
+    radial-gradient(circle at 90% 85%, rgba(200, 169, 107, 0.12) 0%, transparent 30%),
+    linear-gradient(145deg, #F8F5EF 0%, #f5f1e8 52%, #F8F5EF 100%);
+}
+
 .neo-panel {
   border: 1px solid rgba(122, 155, 118, 0.2);
   border-radius: 1.4rem;
@@ -442,6 +485,20 @@ body {
 @media (max-width: 1023px) {
   .neo-image-wrap {
     aspect-ratio: 16 / 10;
+  }
+}
+
+@media (min-width: 1024px) {
+  .split-scroll-grid {
+    grid-template-columns: minmax(0, 1fr) minmax(360px, 46%);
+    align-items: start;
+    gap: 2rem;
+  }
+
+  .split-scroll-sticky {
+    position: sticky;
+    top: 5.8rem;
+    min-height: calc(100vh - 7.4rem);
   }
 }
 
