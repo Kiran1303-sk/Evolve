@@ -23,10 +23,6 @@ export default function Navbar() {
         <Link href="#home" className="logo-gradient-wrap relative h-20 w-72 overflow-hidden md:h-24 md:w-80" onClick={() => setOpen(false)}>
           <span className="sr-only">EVOLVE by DSQUARE logo</span>
           <span aria-hidden="true" className="logo-gradient-mark" />
-          <span className="logo-badge">
-            <strong>EVOLVE</strong>
-            <span>by DSQUARE</span>
-          </span>
         </Link>
 
         <div className="hidden flex-1 items-center justify-end gap-5 lg:flex xl:gap-6">

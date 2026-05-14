@@ -69,31 +69,6 @@ textarea {
   mask-size: contain;
 }
 
-.logo-badge {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  color: #f5f1e8;
-  pointer-events: none;
-}
-
-.logo-badge strong {
-  font-family: var(--font-cormorant), serif;
-  font-size: 1.35rem;
-  font-weight: 800;
-  letter-spacing: 0.18em;
-}
-
-.logo-badge span {
-  font-size: 0.8rem;
-  text-transform: uppercase;
-  letter-spacing: 0.2em;
-  color: rgba(245, 241, 232, 0.95);
-}
 
 @supports not ((-webkit-mask-image: url('')) or (mask-image: url(''))) {
   .logo-gradient-mark {
