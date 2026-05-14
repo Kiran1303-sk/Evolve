@@ -222,6 +222,7 @@ textarea {
 }
 
 .hero {
+  position: relative;
   min-height: 100svh;
   display: flex;
   align-items: flex-end;
@@ -545,6 +546,10 @@ textarea {
   color: var(--white);
 }
 
+.land-exp .section-copy {
+  max-width: 44ch;
+}
+
 .land-intro {
   position: relative;
   z-index: 2;
@@ -582,6 +587,8 @@ textarea {
   width: max-content;
   gap: 1rem;
   padding-inline: 1rem;
+  margin-inline: auto;
+  align-items: flex-start;
 }
 
 .land-slide {
