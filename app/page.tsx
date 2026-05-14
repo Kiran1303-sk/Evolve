@@ -235,10 +235,18 @@ export default function HomePage() {
     const isMobileSlider = window.matchMedia('(max-width: 900px)').matches;
 
     if (!isMobileSlider) {
+      const track = document.querySelector<HTMLElement>('.horizontal-track');
+      const distance = track ? Math.max(track.scrollWidth - window.innerWidth, 0) : 0;
+
       gsap.to('.horizontal-track', {
-        xPercent: -48,
+        x: -distance,
         ease: 'none',
-        scrollTrigger: { trigger: '.land-exp', start: 'top top', end: '+=1400', scrub: 1, pin: true }
+        scrollTrigger: {
+          trigger: '.land-exp',
+          start: 'top top',
+          end: () => `+=${Math.max(distance + window.innerHeight * 0.75, 1200)}`,
+          scrub: 1
+        }
       });
     }
 

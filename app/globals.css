@@ -278,7 +278,7 @@ textarea {
   color: #edf3e8;
   font-size: clamp(1rem, 1.8vw, 1.25rem);
   line-height: 1.75;
-  text-align: justify;
+  text-align: left;
 }
 
 .hero-actions,
@@ -384,6 +384,7 @@ textarea {
   font-size: clamp(0.98rem, 1.3vw, 1.08rem);
   line-height: 1.8;
   text-align: justify;
+  text-align-last: left;
 }
 
 .split-layout {
@@ -533,6 +534,7 @@ textarea {
   font-size: 0.94rem;
   line-height: 1.7;
   text-align: justify;
+  text-align-last: left;
 }
 
 .land-exp {
