@@ -9,6 +9,8 @@
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
+  scroll-snap-type: y mandatory;
+  scroll-padding-top: 5rem;
 }
 
 body {
@@ -27,6 +29,26 @@ body {
 
 .orbit-theme {
   position: relative;
+}
+
+.snap-root {
+  position: relative;
+}
+
+.snap-page {
+  min-height: 100svh;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: center;
+}
+
+.snap-page > * {
+  width: 100%;
+}
+
+.snap-page-compact {
+  min-height: 60svh;
 }
 
 .ambient-theme .neo-band,
@@ -472,6 +494,16 @@ body {
 }
 
 @media (max-width: 1023px) {
+  html {
+    scroll-snap-type: y proximity;
+    scroll-padding-top: 4.5rem;
+  }
+
+  .snap-page {
+    min-height: auto;
+    display: block;
+  }
+
   .neo-image-wrap {
     aspect-ratio: 16 / 10;
   }
