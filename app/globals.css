@@ -46,6 +46,20 @@ textarea {
   @apply mx-auto w-full max-w-7xl px-5 md:px-8;
 }
 
+.logo-brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.85rem;
+  color: #fafaf8;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+
+.logo-brand .logo-text {
+  font-size: clamp(0.85rem, 1vw, 1rem);
+}
+
 .logo-gradient-wrap {
   display: inline-flex;
   align-items: center;
@@ -576,7 +590,9 @@ textarea {
   overflow-y: hidden;
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
-  padding-inline: 0.75rem;
+  scroll-behavior: smooth;
+  padding-inline-start: 0;
+  padding-inline-end: 0.75rem;
   margin-top: 1.5rem;
 }
 
@@ -585,20 +601,20 @@ textarea {
   padding-inline: 0;
 }
 
+.horizontal-track {
+  display: flex;
+  width: max-content;
+  gap: 1rem;
+  padding-inline: 0;
+  margin-inline: 0;
+  align-items: flex-start;
+}
+
 .horizontal-viewport.mobile-slider .land-slide {
   width: min(84vw, 360px);
   min-height: 50vh;
   flex: 0 0 auto;
   scroll-snap-align: start;
-}
-
-.horizontal-track {
-  display: flex;
-  width: max-content;
-  gap: 1rem;
-  padding-inline: 1rem;
-  margin-inline: auto;
-  align-items: flex-start;
 }
 
 .land-slide {
@@ -1046,6 +1062,11 @@ textarea {
 
   .hero {
     min-height: 96svh;
+    padding-top: 7rem;
+  }
+
+  .hero-content {
+    padding-top: 1rem;
   }
 
   .section-title {
