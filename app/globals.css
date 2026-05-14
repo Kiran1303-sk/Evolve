@@ -218,7 +218,7 @@ textarea {
 
 .lux-section {
   position: relative;
-  padding: clamp(5.5rem, 10vw, 9rem) 0;
+  padding: clamp(4rem, 8vw, 7rem) 0;
 }
 
 .hero {
@@ -272,11 +272,12 @@ textarea {
 }
 
 .hero-subtitle {
-  max-width: 58rem;
+  max-width: 52ch;
   margin-top: 1.15rem;
   color: #edf3e8;
   font-size: clamp(1rem, 1.8vw, 1.25rem);
   line-height: 1.75;
+  text-align: justify;
 }
 
 .hero-actions,
@@ -376,11 +377,12 @@ textarea {
 }
 
 .section-copy {
-  max-width: 61ch;
+  max-width: 52ch;
   margin-top: 1rem;
   color: #394337;
   font-size: clamp(0.98rem, 1.3vw, 1.08rem);
   line-height: 1.8;
+  text-align: justify;
 }
 
 .split-layout {
@@ -520,13 +522,16 @@ textarea {
 
 .feature-card p,
 .plant-card p,
-.timeline p {
+.timeline p,
+.testimonial-card p,
+.glass-card p {
   position: relative;
   z-index: 1;
   margin-top: 0.7rem;
   color: #38443a;
   font-size: 0.94rem;
   line-height: 1.7;
+  text-align: justify;
 }
 
 .land-exp {
@@ -547,7 +552,7 @@ textarea {
 
 .horizontal-viewport {
   width: 100%;
-  overflow: visible;
+  overflow: hidden;
   margin-top: 2rem;
 }
 
@@ -576,7 +581,7 @@ textarea {
   display: flex;
   width: max-content;
   gap: 1rem;
-  padding-inline: max(1.25rem, calc((100vw - 80rem) / 2 + 2rem));
+  padding-inline: 1rem;
 }
 
 .land-slide {

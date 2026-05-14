@@ -177,7 +177,7 @@ export default function HomePage() {
   const rootClass = useMemo(() => `lux-root ${night ? 'night-mode' : ''}`, [night]);
 
   useEffect(() => {
-    const lenis = new Lenis({ duration: 1.18, smoothWheel: true, touchMultiplier: 1.08 });
+    const lenis = new Lenis({ duration: 0.78, smoothWheel: true, touchMultiplier: 1.08 });
     let raf = 0;
     const loop = (time: number) => {
       lenis.raf(time);
