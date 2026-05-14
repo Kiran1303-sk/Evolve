@@ -77,12 +77,12 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main className="orbit-theme ambient-theme snap-root">
-        <section id="home" className="neo-hero snap-page">
+      <main className="orbit-theme ambient-theme">
+        <section id="home" className="neo-hero">
           <HeroSlideshow />
         </section>
 
-        <section id="story" className="neo-band snap-page py-8 md:py-10">
+        <section id="story" className="neo-band py-8 md:py-10">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr]">
             <div className="neo-panel">
               <p className="kicker text-[#C8A96B]">PROJECT STORY</p>
@@ -109,7 +109,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="highlights" className="neo-showcase snap-page py-8 md:py-10">
+        <section id="highlights" className="neo-showcase py-8 md:py-10">
           <div className="section-wrap">
             <p className="kicker text-[#C8A96B]">PROJECT JOURNEY</p>
             <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Plans, Maps, and Future Vision</h2>
@@ -137,7 +137,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="features" className="neo-band snap-page py-8 md:py-10">
+        <section id="features" className="neo-band py-8 md:py-10">
           <div className="section-wrap">
             <p className="kicker text-[#C8A96B]">INFRASTRUCTURE</p>
             <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Core Capability Deck</h2>
@@ -158,7 +158,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="master-plan" className="neo-contact snap-page py-8 md:py-10">
+        <section id="master-plan" className="neo-contact py-8 md:py-10">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <div>
               <p className="kicker text-[#C8A96B]">MASTER PLAN</p>
@@ -176,7 +176,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="connectivity" className="neo-band snap-page py-8 md:py-10">
+        <section id="connectivity" className="neo-band py-8 md:py-10">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <div>
               <p className="kicker text-[#C8A96B]">CONNECTIVITY MAP</p>
@@ -194,7 +194,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="contact" className="neo-contact snap-page py-8 md:py-10">
+        <section id="contact" className="neo-contact py-8 md:py-10">
           <div className="section-wrap grid gap-8 md:grid-cols-[1fr_1fr] md:items-center">
             <div>
               <p className="kicker text-[#C8A96B]">CONTACT & QR</p>
@@ -214,7 +214,7 @@ export default function HomePage() {
             </div>
           </div>
         </section>
-        <footer className="snap-page snap-page-compact border-t border-[#C8A96B]/25 py-6">
+        <footer className="border-t border-[#C8A96B]/25 py-6">
           <div className="section-wrap flex flex-col items-center gap-4 text-center text-sm font-medium text-[#1F4D3A]">
             <div className="flex items-center gap-4">
               <a href="#" aria-label="Instagram" className="transition-opacity hover:opacity-70"><Instagram size={18} /></a>
