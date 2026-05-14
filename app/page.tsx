@@ -233,11 +233,15 @@ export default function HomePage() {
       scrollTrigger: { trigger: heroRef.current, start: 'top top', end: 'bottom top', scrub: true }
     });
 
-    gsap.to('.horizontal-track', {
-      xPercent: -48,
-      ease: 'none',
-      scrollTrigger: { trigger: '.land-exp', start: 'top top', end: '+=1400', scrub: 1, pin: true }
-    });
+    const isMobileSlider = window.matchMedia('(max-width: 900px)').matches;
+
+    if (!isMobileSlider) {
+      gsap.to('.horizontal-track', {
+        xPercent: -48,
+        ease: 'none',
+        scrollTrigger: { trigger: '.land-exp', start: 'top top', end: '+=1400', scrub: 1, pin: true }
+      });
+    }
 
     gsap.utils.toArray<HTMLElement>('.parallax-media').forEach((media) => {
       gsap.to(media, {
@@ -390,7 +394,7 @@ export default function HomePage() {
             <h2 className="section-title">A private estate preview in motion.</h2>
             <p className="section-copy">Scroll through drone-style land views, plotted zones, plantation corridors, and calm water-led landscapes.</p>
           </div>
-          <div className="horizontal-viewport">
+          <div className="horizontal-viewport mobile-slider">
             <div className="horizontal-track">
               {landSlides.map((slide, index) => (
                 <figure key={slide.src} className="land-slide">
