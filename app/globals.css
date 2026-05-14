@@ -942,36 +942,6 @@ textarea {
   cursor: pointer;
 }
 
-.sticky-booking {
-  position: fixed;
-  right: calc(1rem + env(safe-area-inset-right, 0px));
-  bottom: calc(1rem + env(safe-area-inset-bottom, 0px));
-  z-index: 60;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.45rem;
-  border: 1px solid rgba(255, 232, 176, 0.62);
-  border-radius: 9999px;
-  padding: 0.78rem 0.95rem;
-  white-space: nowrap;
-  color: #102618;
-  background: linear-gradient(100deg, #b68f4f, #e4ce98);
-  box-shadow: 0 18px 44px rgba(0, 0, 0, 0.22);
-  font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.09em;
-  text-transform: uppercase;
-}
-
-@media (max-width: 620px) {
-  .sticky-booking {
-    right: calc(0.75rem + env(safe-area-inset-right, 0px));
-    bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
-    padding: 0.7rem 0.9rem;
-    font-size: 0.68rem;
-  }
-}
-
 .lux-footer {
   border-top: 1px solid rgba(200, 169, 107, 0.24);
   background: #0f0f0f;
@@ -1072,13 +1042,6 @@ textarea {
     width: min(88vw, 620px);
     min-height: 54vh;
     scroll-snap-align: center;
-  }
-
-  .sticky-booking {
-    left: 1rem;
-    right: 1rem;
-    bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
-    justify-content: center;
   }
 
   .lux-footer {

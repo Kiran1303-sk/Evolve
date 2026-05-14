@@ -543,11 +543,6 @@ export default function HomePage() {
           </div>
         </section>
 
-        <a href="#contact" className="sticky-booking">
-          <CalendarCheck size={16} />
-          Book Site Visit
-        </a>
-
         <footer className="lux-footer">
           <div className="section-wrap footer-inner">
             <p>© 2026 EVOLVE by DSQUARE. All rights reserved.</p>
