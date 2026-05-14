@@ -561,10 +561,14 @@ textarea {
   z-index: 2;
 }
 
+.land-intro {
+  margin-bottom: clamp(1.5rem, 3vw, 2.5rem);
+}
+
 .horizontal-viewport {
   width: 100%;
   overflow: hidden;
-  margin-top: 2rem;
+  margin-top: 2.5rem;
 }
 
 .horizontal-viewport.mobile-slider {
