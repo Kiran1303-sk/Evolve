@@ -362,7 +362,7 @@ export default function HomePage() {
             </motion.div>
             <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="vision-stack">
               <figure className="image-frame parallax-media">
-                <Image src="/new-farm2.jpg" alt="Open farmland with premium countryside texture" fill sizes="(max-width: 1024px) 100vw, 45vw" className="object-contain" />
+                <Image src="/new-farm2.jpg" alt="Open farmland with premium countryside texture" fill sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" />
               </figure>
               <div className="floating-proof glass-card">
                 <Counter end={42} suffix="%" />
@@ -398,7 +398,7 @@ export default function HomePage() {
             <div className="horizontal-track">
               {landSlides.map((slide, index) => (
                 <figure key={slide.src} className="land-slide">
-                  <Image src={slide.src} alt={slide.label} fill sizes="80vw" className="object-contain" />
+                  <Image src={slide.src} alt={slide.label} fill sizes="80vw" className="object-cover" />
                   <figcaption>
                     <span>0{index + 1}</span>
                     <strong>{slide.label}</strong>
@@ -450,7 +450,7 @@ export default function HomePage() {
                 { src: '/images/section4.png', label: 'Wide green retreat views' }
               ].map((item, index) => (
                 <motion.figure key={item.src} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className={`image-frame lifestyle-card ${index === 0 ? 'large' : ''}`}>
-                  <Image src={item.src} alt={item.label} fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-contain" />
+                  <Image src={item.src} alt={item.label} fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
                   <figcaption>{item.label}</figcaption>
                 </motion.figure>
               ))}
@@ -503,7 +503,7 @@ export default function HomePage() {
             <div className="masonry-grid">
               {gallery.map((src, index) => (
                 <motion.figure key={`${src}-${index}`} initial={{ opacity: 0, y: 28, scale: 0.96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className={`masonry-item ${index % 5 === 0 ? 'wide' : ''} ${index % 4 === 0 ? 'tall' : ''}`}>
-                  <Image src={src} alt="Luxury farmland gallery view" fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-contain" />
+                  <Image src={src} alt="Luxury farmland gallery view" fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" />
                 </motion.figure>
               ))}
             </div>
