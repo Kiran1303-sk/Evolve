@@ -46,48 +46,12 @@ textarea {
   @apply mx-auto w-full max-w-7xl px-5 md:px-8;
 }
 
-.logo-brand {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.85rem;
-  color: #fafaf8;
-  font-weight: 700;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-}
-
-.logo-brand .logo-text {
-  font-size: clamp(0.85rem, 1vw, 1rem);
-}
-
-.logo-gradient-wrap {
+.logo-image-wrap {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   min-width: 140px;
   min-height: 68px;
-}
-
-.logo-gradient-mark {
-  display: block;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(115deg, #163b2c 0%, #c8a96b 45%, #f0dfad 62%, #0b2e1f 100%);
-  -webkit-mask-image: url('/images/evolve-logo-transparent.png');
-  mask-image: url('/images/evolve-logo-transparent.png');
-  -webkit-mask-repeat: no-repeat;
-  mask-repeat: no-repeat;
-  -webkit-mask-position: left center;
-  mask-position: left center;
-  -webkit-mask-size: contain;
-  mask-size: contain;
-}
-
-
-@supports not ((-webkit-mask-image: url('')) or (mask-image: url(''))) {
-  .logo-gradient-mark {
-    background: url('/images/evolve-logo-transparent.png') left center / contain no-repeat;
-  }
 }
 
 .field-nav-link {
@@ -1093,7 +1057,7 @@ textarea {
 }
 
 @media (max-width: 640px) {
-  .logo-gradient-wrap {
+  .logo-image-wrap {
     width: 12.5rem !important;
   }
 
