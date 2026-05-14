@@ -232,7 +232,7 @@ textarea {
   display: flex;
   align-items: flex-end;
   overflow: hidden;
-  padding-bottom: clamp(3rem, 6vw, 5rem);
+  padding: clamp(3rem, 6vw, 5rem) 0 clamp(3rem, 6vw, 5rem);
 }
 
 .hero-image {
@@ -271,10 +271,10 @@ textarea {
   max-width: 26ch;
   margin-top: 0.9rem;
   font-family: var(--font-cormorant), serif;
-  font-size: clamp(3.2rem, 9vw, 8rem);
+  font-size: clamp(2.4rem, 7vw, 5.8rem);
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 0.88;
+  line-height: 0.92;
 }
 
 .hero-subtitle {
