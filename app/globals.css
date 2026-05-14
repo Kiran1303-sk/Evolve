@@ -966,7 +966,7 @@ textarea {
 @media (max-width: 620px) {
   .sticky-booking {
     right: calc(0.75rem + env(safe-area-inset-right, 0px));
-    bottom: calc(0.75rem + env(safe-area-inset-bottom, 0px));
+    bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
     padding: 0.7rem 0.9rem;
     font-size: 0.68rem;
   }
@@ -1077,7 +1077,12 @@ textarea {
   .sticky-booking {
     left: 1rem;
     right: 1rem;
+    bottom: calc(5.5rem + env(safe-area-inset-bottom, 0px));
     justify-content: center;
+  }
+
+  .lux-footer {
+    padding-bottom: 6rem;
   }
 }
 
