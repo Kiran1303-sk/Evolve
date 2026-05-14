@@ -19,7 +19,6 @@ import {
   Leaf,
   MapPinned,
   Moon,
-  Music,
   Palmtree,
   Phone,
   Play,
@@ -552,7 +551,6 @@ export default function HomePage() {
         <footer className="lux-footer">
           <div className="section-wrap footer-inner">
             <p>© 2026 EVOLVE by DSQUARE. All rights reserved.</p>
-            <p><Music size={14} /> Luxury Farmland · Farmhouse Living · Plantation Investment</p>
           </div>
         </footer>
       </main>
