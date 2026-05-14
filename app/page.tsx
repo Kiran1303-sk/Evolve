@@ -1,5 +1,5 @@
 ﻿import Image from 'next/image';
-import { Compass, Facebook, Instagram, Leaf, Linkedin, ShieldCheck, Sparkles, Waves, Youtube } from 'lucide-react';
+import { Compass, Facebook, Instagram, Leaf, Linkedin, ShieldCheck, Waves, Youtube } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 import ScrollReveal from '@/components/ScrollReveal';
 import HeroSlideshow from '@/components/HeroSlideshow';
@@ -28,19 +28,6 @@ const infrastructure = [
     icon: Compass,
     desc: 'Planned internal roads make every pocket easier to navigate and maintain.',
     stat: 'Clean Layout'
-  }
-];
-
-const gallery = [
-  {
-    src: '/images/new-image.png',
-    title: 'Plantation Entrance View',
-    desc: 'Tree-lined arrival stretch with clear internal access and natural shade pockets.'
-  },
-  {
-    src: '/images/new-img2.png',
-    title: 'Lifestyle Farming Zone',
-    desc: 'Prepared land pockets designed for weekend farming, plantation, and long-term value.'
   }
 ];
 
@@ -90,7 +77,7 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main className="orbit-theme">
+      <main className="orbit-theme glacier-theme">
         <section id="home" className="neo-hero">
           <HeroSlideshow />
         </section>
@@ -122,36 +109,7 @@ export default function HomePage() {
           </div>
         </section>
 
-        <section id="showcase" className="neo-showcase py-8 md:py-10">
-          <div className="section-wrap">
-            <p className="kicker text-[#C8A96B]">NEW VISUAL GALLERY</p>
-            <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Live Site Visuals</h2>
-            <div className="split-scroll-grid mt-8">
-              <div className="split-scroll-text">
-                {gallery.map((item) => (
-                  <article key={item.title} className="split-scroll-card">
-                    <p className="media-pill"><Sparkles size={14} /> Enhanced View</p>
-                    <h3 className="mt-3 font-display text-3xl text-[#1F4D3A] md:text-4xl">{item.title}</h3>
-                    <p className="mt-3 text-base leading-relaxed text-[#222222]">{item.desc}</p>
-                  </article>
-                ))}
-              </div>
-              <div className="split-scroll-media">
-                <div className="split-scroll-sticky">
-                  <Image
-                    src={gallery[0].src}
-                    alt={gallery[0].title}
-                    fill
-                    sizes="(max-width: 768px) 100vw, 45vw"
-                    className="object-cover object-center"
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section id="highlights" className="neo-showcase neo-cover-section py-8 md:py-10">
+        <section id="highlights" className="neo-showcase py-8 md:py-10">
           <div className="section-wrap">
             <p className="kicker text-[#C8A96B]">PROJECT JOURNEY</p>
             <h2 className="mt-3 font-display text-4xl text-[#1F4D3A] md:text-6xl">Plans, Maps, and Future Vision</h2>
