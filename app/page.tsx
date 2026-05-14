@@ -77,7 +77,7 @@ export default function HomePage() {
   return (
     <>
       <Navbar />
-      <main className="orbit-theme glacier-theme">
+      <main className="orbit-theme ambient-theme">
         <section id="home" className="neo-hero">
           <HeroSlideshow />
         </section>
