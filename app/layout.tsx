@@ -18,10 +18,15 @@ const manrope = Manrope({
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://evolveplots.com'),
-  title: 'EVOLVE | Luxury Farm Plots',
+  title: 'evolve by dsquare',
   description: 'Premium farm-style open plots with plantation living. Explore EVOLVE and book your site visit.',
+  icons: {
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
+    apple: '/favicon.svg'
+  },
   openGraph: {
-    title: 'EVOLVE | Plantation Living Open Plots',
+    title: 'evolve by dsquare',
     description: 'Cinematic real estate experience for mindful land ownership and long-term investment.',
     images: ['/images/hero-farm.png'],
     type: 'website'
