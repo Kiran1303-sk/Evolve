@@ -82,8 +82,8 @@ textarea {
   font-weight: 800;
   letter-spacing: 0.13em;
   text-transform: uppercase;
-  color: #f9f1db;
-  opacity: 0.88;
+  color: #f6f1e8;
+  opacity: 1;
   transition: color 180ms ease, opacity 180ms ease;
 }
 
@@ -268,13 +268,13 @@ textarea {
 }
 
 .hero-title {
-  max-width: 26ch;
-  margin-top: 0.9rem;
+  max-width: 22ch;
+  margin-top: 1rem;
   font-family: var(--font-cormorant), serif;
-  font-size: clamp(2.4rem, 7vw, 5.8rem);
+  font-size: clamp(2.6rem, 6vw, 5rem);
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 0.92;
+  line-height: 1.02;
 }
 
 .hero-subtitle {
@@ -372,14 +372,14 @@ textarea {
 }
 
 .section-title {
-  max-width: 26ch;
+  max-width: 28ch;
   margin-top: 0.55rem;
   color: var(--forest);
   font-family: var(--font-cormorant), serif;
-  font-size: clamp(2.35rem, 5vw, 5rem);
+  font-size: clamp(2.35rem, 4vw, 4rem);
   font-weight: 600;
   letter-spacing: 0;
-  line-height: 0.96;
+  line-height: 1.02;
 }
 
 .section-copy {

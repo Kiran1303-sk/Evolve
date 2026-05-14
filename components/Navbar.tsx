@@ -18,7 +18,7 @@ export default function Navbar() {
   const [open, setOpen] = useState(false);
 
   return (
-    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#C8A96B]/20 bg-[#0F0F0F]/62 backdrop-blur-2xl shadow-[0_18px_44px_rgba(0,0,0,0.22)]">
+    <header className="fixed inset-x-0 top-0 z-50 border-b border-[#C8A96B]/25 bg-[#0F0F0F]/92 backdrop-blur-2xl shadow-[0_18px_44px_rgba(0,0,0,0.22)]">
       <nav className="section-wrap flex h-16 items-center justify-between md:h-20">
         <Link href="#home" className="logo-gradient-wrap relative h-20 w-72 overflow-hidden md:h-24 md:w-80" onClick={() => setOpen(false)}>
           <span className="sr-only">EVOLVE by DSQUARE logo</span>
