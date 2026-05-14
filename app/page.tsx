@@ -235,8 +235,9 @@ export default function HomePage() {
     const isMobileSlider = window.matchMedia('(max-width: 900px)').matches;
 
     if (!isMobileSlider) {
+      const viewport = document.querySelector<HTMLElement>('.horizontal-viewport');
       const track = document.querySelector<HTMLElement>('.horizontal-track');
-      const distance = track ? Math.max(track.scrollWidth - window.innerWidth, 0) : 0;
+      const distance = viewport && track ? Math.max(viewport.scrollWidth - window.innerWidth, 0) : 0;
 
       gsap.to('.horizontal-track', {
         x: -distance,
@@ -249,6 +250,24 @@ export default function HomePage() {
         }
       });
     }
+
+    const navOffset = window.matchMedia('(max-width: 640px)').matches ? -76 : -92;
+    const handleAnchorClick = (event: MouseEvent) => {
+      const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
+      if (!link) return;
+
+      const hash = link.getAttribute('href');
+      if (!hash || hash === '#') return;
+
+      const target = document.querySelector<HTMLElement>(hash);
+      if (!target) return;
+
+      event.preventDefault();
+      lenis.scrollTo(target, { offset: navOffset, duration: 1.05 });
+      window.history.pushState(null, '', hash);
+    };
+
+    document.addEventListener('click', handleAnchorClick);
 
     gsap.utils.toArray<HTMLElement>('.parallax-media').forEach((media) => {
       gsap.to(media, {
@@ -269,6 +288,7 @@ export default function HomePage() {
 
     return () => {
       cancelAnimationFrame(raf);
+      document.removeEventListener('click', handleAnchorClick);
       lenis.destroy();
       ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
       ScrollTrigger.scrollerProxy(document.body, {});

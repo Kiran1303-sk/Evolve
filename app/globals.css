@@ -22,6 +22,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   scroll-behavior: auto;
+  scroll-padding-top: 5.75rem;
 }
 
 body {
@@ -51,7 +52,7 @@ textarea {
   align-items: center;
   justify-content: center;
   min-width: 140px;
-  min-height: 68px;
+  min-height: 0;
 }
 
 .field-nav-link {
@@ -202,6 +203,7 @@ textarea {
 .lux-section {
   position: relative;
   padding: clamp(2.5rem, 5vw, 4.8rem) 0;
+  scroll-margin-top: 5.75rem;
 }
 
 .hero {
@@ -547,6 +549,8 @@ textarea {
   width: 100%;
   overflow: hidden;
   margin-top: 2.5rem;
+  padding-inline-start: max(1.25rem, calc((100vw - 80rem) / 2 + 2rem));
+  padding-inline-end: max(1.25rem, calc((100vw - 80rem) / 2 + 2rem));
 }
 
 .horizontal-viewport.mobile-slider {
@@ -555,8 +559,6 @@ textarea {
   scroll-snap-type: x mandatory;
   -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
-  padding-inline-start: 0;
-  padding-inline-end: 0.75rem;
   margin-top: 1.5rem;
 }
 
@@ -1041,7 +1043,6 @@ textarea {
     transform: none !important;
     overflow-x: auto;
     width: auto;
-    padding-inline: 1rem;
     scroll-snap-type: x mandatory;
   }
 
@@ -1057,8 +1058,17 @@ textarea {
 }
 
 @media (max-width: 640px) {
+  html,
+  body {
+    scroll-padding-top: 4.75rem;
+  }
+
+  .lux-section {
+    scroll-margin-top: 4.75rem;
+  }
+
   .logo-image-wrap {
-    width: 12.5rem !important;
+    width: 11rem !important;
   }
 
   .hero-stats,
