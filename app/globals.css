@@ -50,10 +50,11 @@ textarea {
 .logo-image-wrap {
   display: inline-flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
   flex-shrink: 0;
   min-width: 180px;
   min-height: 0;
+  transform: translateX(-0.6rem);
 }
 
 .field-nav-link {
