@@ -21,8 +21,8 @@ export const metadata: Metadata = {
   title: 'Evolve By Dsquare',
   description: 'Premium farm-style open plots with plantation living. Explore EVOLVE and book your site visit.',
   icons: {
-    icon: '/single-logo.png',
-    shortcut: '/single-logo.png',
+    icon: '/favicon.svg',
+    shortcut: '/favicon.svg',
     apple: '/single-logo.png'
   },
   openGraph: {
