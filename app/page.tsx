@@ -712,8 +712,8 @@ export default function HomePage() {
             <div className="lifestyle-grid">
               {[
                 { src: '/house.webp', label: 'Private farmhouse inspiration' },
-                { src: '/images/section2.webp', label: 'Family garden and outdoor life' },
-                { src: '/images/section4.webp', label: 'Wide green retreat views' },
+                { src: '/feature.jpeg', label: 'Family garden and outdoor life' },
+                { src: '/wide-green.jpeg', label: 'Wide green retreat views' },
               ].map((item, index) => (
                 <motion.figure
                   key={item.src}
