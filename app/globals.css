@@ -616,7 +616,7 @@ textarea {
   gap: clamp(1rem, 2.5vw, 1.8rem);
   padding-inline: max(1.25rem, calc((100vw - 80rem) / 2 + 2rem));
   margin-inline: 0;
-  align-items: center;
+  align-items: stretch;
   animation: land-carousel 38s linear infinite;
   will-change: transform;
 }
@@ -635,15 +635,6 @@ textarea {
   border-radius: 999px 999px 8px 8px;
   background: #213322;
   box-shadow: 0 26px 70px rgba(0, 0, 0, 0.34);
-  transform: translateY(0) rotate(-1.4deg);
-}
-
-.land-slide:nth-child(even) {
-  transform: translateY(2.2rem) rotate(1.4deg);
-}
-
-.land-slide:nth-child(3n) {
-  transform: translateY(-1rem) rotate(0.6deg);
 }
 
 .land-slide img,
@@ -695,6 +686,8 @@ textarea {
   bottom: 1rem;
   z-index: 2;
   display: grid;
+  min-height: 7rem;
+  align-content: center;
   gap: 0.35rem;
   border: 1px solid rgba(250, 250, 248, 0.2);
   border-radius: 8px;
@@ -1120,17 +1113,17 @@ textarea {
 @media (max-width: 640px) {
   html,
   body {
-    scroll-padding-top: 5rem;
+    scroll-padding-top: 4rem;
   }
 
   .lux-section {
-    scroll-margin-top: 5rem;
+    scroll-margin-top: 4rem;
   }
 
   .logo-image-wrap {
-    width: 12.75rem !important;
-    max-width: calc(100vw - 5.25rem);
-    transform: translateX(-0.2rem);
+    width: 10rem !important;
+    max-width: calc(100vw - 4.8rem);
+    transform: translateX(-0.1rem);
   }
 
   .hero-stats {
@@ -1156,6 +1149,20 @@ textarea {
 
   .feature-card {
     min-height: 0;
+  }
+
+  .land-slide {
+    width: min(82vw, 20rem);
+    height: 25rem;
+  }
+
+  .land-slide figcaption {
+    min-height: 5.75rem;
+    padding: 0.85rem;
+  }
+
+  .land-slide figcaption strong {
+    font-size: clamp(1.55rem, 8vw, 2rem);
   }
 
   .hero-controls {
