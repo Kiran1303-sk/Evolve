@@ -461,7 +461,7 @@ textarea {
   display: grid;
   align-items: stretch;
   gap: 0.8rem;
-  max-width: 68rem;
+  width: 100%;
   margin-top: 2rem;
 }
 
@@ -545,7 +545,7 @@ textarea {
   color: #38443a;
   font-size: 0.9rem;
   line-height: 1.58;
-  text-align: justify;
+  text-align: left;
   text-align-last: left;
 }
 
@@ -793,7 +793,7 @@ textarea {
   display: grid;
   align-items: stretch;
   gap: 0.9rem;
-  max-width: 58rem;
+  width: 100%;
   margin-top: 2rem;
 }
 
