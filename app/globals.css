@@ -1132,10 +1132,20 @@ textarea {
 
   .feature-grid,
   .plantation-grid,
-  .invest-grid {
+  .invest-grid,
+  .timeline {
     grid-template-columns: 1fr;
     max-width: 24rem;
     margin-inline: auto;
+  }
+
+  .timeline {
+    gap: 1rem;
+    margin-top: 1.1rem;
+  }
+
+  .timeline article {
+    padding-left: 0.85rem;
   }
 
   .glass-card,
