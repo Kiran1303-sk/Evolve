@@ -374,10 +374,13 @@ export default function HomePage() {
 
         event.preventDefault();
         const headerHeight = document.querySelector('header')?.getBoundingClientRect().height ?? 0;
-        const targetPaddingTop = Number.parseFloat(window.getComputedStyle(target).paddingTop) || 0;
-        const offset = targetPaddingTop - headerHeight - 12;
+        const scrollTarget =
+          hash === '#home'
+            ? target
+            : (target.querySelector<HTMLElement>(':scope > .section-wrap') ?? target);
+        const offset = hash === '#home' ? 0 : -headerHeight - 18;
 
-        lenis.scrollTo(target, { offset, duration: 1.05 });
+        lenis.scrollTo(scrollTarget, { offset, duration: 1.05 });
         window.history.pushState(null, '', hash);
       };
 
