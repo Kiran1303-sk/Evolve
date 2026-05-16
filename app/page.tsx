@@ -154,16 +154,12 @@ const testimonials = [
 ];
 
 const gallery = [
-  '/images/hero-farm.webp',
-  '/optimized/new-farm.webp',
-  '/optimized/new-farm2.webp',
   '/new-farm3.webp',
   '/new-forming4.webp',
   '/optimized/papamango-farm.webp',
   '/images/section4.webp',
   '/images/section5.webp',
   '/images/section6.webp',
-  '/Mango-farm.webp',
   '/guava_farm.webp',
   '/house.webp',
 ];
