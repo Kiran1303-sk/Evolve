@@ -52,9 +52,10 @@ textarea {
   align-items: center;
   justify-content: flex-start;
   flex-shrink: 0;
-  min-width: 280px;
+  min-width: 0;
+  max-width: calc(100vw - 5.5rem);
   min-height: 0;
-  transform: translateX(-0.6rem);
+  transform: translateX(-0.35rem);
 }
 
 .field-nav-link {
@@ -458,17 +459,23 @@ textarea {
 
 .feature-grid {
   display: grid;
-  gap: 0.9rem;
+  align-items: stretch;
+  gap: 0.8rem;
+  max-width: 68rem;
   margin-top: 2rem;
 }
 
 .feature-card {
   position: relative;
+  display: flex;
+  min-width: 0;
+  height: 100%;
+  flex-direction: column;
   overflow: hidden;
-  min-height: 230px;
+  min-height: 190px;
   border: 1px solid rgba(11, 46, 31, 0.12);
   border-radius: 8px;
-  padding: 1.2rem;
+  padding: 1rem;
   background:
     linear-gradient(145deg, rgba(250, 250, 248, 0.78), rgba(245, 241, 232, 0.56)),
     radial-gradient(circle at 10% 0%, rgba(200, 169, 107, 0.18), transparent 14rem);
@@ -522,7 +529,7 @@ textarea {
   margin-top: 1rem;
   color: var(--forest);
   font-family: var(--font-cormorant), serif;
-  font-size: 1.72rem;
+  font-size: 1.52rem;
   font-weight: 600;
   line-height: 1;
 }
@@ -536,8 +543,8 @@ textarea {
   z-index: 1;
   margin-top: 0.7rem;
   color: #38443a;
-  font-size: 0.94rem;
-  line-height: 1.7;
+  font-size: 0.9rem;
+  line-height: 1.58;
   text-align: justify;
   text-align-last: left;
 }
@@ -730,13 +737,16 @@ textarea {
 
 .plantation-grid {
   display: grid;
+  align-items: stretch;
   gap: 0.8rem;
 }
 
 .plant-card {
+  min-width: 0;
+  height: 100%;
   border: 1px solid rgba(200, 169, 107, 0.24);
   border-radius: 8px;
-  padding: 1rem;
+  padding: 0.95rem;
   color: var(--white);
   background: linear-gradient(135deg, rgba(250, 250, 248, 0.08), rgba(200, 169, 107, 0.05));
   backdrop-filter: blur(16px);
@@ -788,14 +798,18 @@ textarea {
 
 .invest-grid {
   display: grid;
+  align-items: stretch;
   gap: 0.9rem;
+  max-width: 58rem;
   margin-top: 2rem;
 }
 
 .invest-grid article {
+  min-width: 0;
+  height: 100%;
   border: 1px solid rgba(200, 169, 107, 0.26);
   border-radius: 8px;
-  padding: 1.15rem;
+  padding: 1rem;
   color: var(--white);
   background: rgba(250, 250, 248, 0.06);
   backdrop-filter: blur(16px);
@@ -1106,27 +1120,42 @@ textarea {
 @media (max-width: 640px) {
   html,
   body {
-    scroll-padding-top: 6.25rem;
+    scroll-padding-top: 5rem;
   }
 
   .lux-section {
-    scroll-margin-top: 6.25rem;
+    scroll-margin-top: 5rem;
   }
 
   .logo-image-wrap {
-    width: 18.5rem !important;
+    width: 12.75rem !important;
+    max-width: calc(100vw - 5.25rem);
+    transform: translateX(-0.2rem);
   }
 
-  .hero-stats,
-  .invest-grid {
+  .hero-stats {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .feature-grid,
+  .plantation-grid,
+  .invest-grid {
+    grid-template-columns: 1fr;
+    max-width: 24rem;
+    margin-inline: auto;
   }
 
   .glass-card,
   .feature-card,
+  .plant-card,
+  .invest-grid article,
   .testimonial-card,
   .contact-form {
     padding: 0.9rem;
+  }
+
+  .feature-card {
+    min-height: 0;
   }
 
   .hero-controls {
