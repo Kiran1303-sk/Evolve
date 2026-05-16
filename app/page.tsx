@@ -640,10 +640,11 @@ export default function HomePage() {
               water-led landscapes.
             </p>
           </div>
-          <div className="horizontal-viewport">
+          <div className="horizontal-viewport" aria-label="Land preview carousel">
             <div className="horizontal-track">
               {[...landSlides, ...landSlides].map((slide, index) => (
                 <figure key={`${slide.src}-${index}`} className="land-slide">
+                  <span className="land-slide-index">0{(index % landSlides.length) + 1}</span>
                   <Image
                     src={slide.src}
                     alt={slide.label}
@@ -652,7 +653,6 @@ export default function HomePage() {
                     className="object-cover"
                   />
                   <figcaption>
-                    <span>0{(index % landSlides.length) + 1}</span>
                     <strong>{slide.label}</strong>
                     <em>{slide.zone}</em>
                   </figcaption>
