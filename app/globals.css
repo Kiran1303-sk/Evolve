@@ -631,8 +631,8 @@ textarea {
 
 .land-slide {
   position: relative;
-  width: clamp(16rem, 28vw, 23rem);
-  height: clamp(23rem, 38vw, 31rem);
+  width: 23rem;
+  height: 31rem;
   flex: 0 0 auto;
   overflow: hidden;
   border: 1px solid rgba(232, 216, 174, 0.22);
@@ -1114,8 +1114,8 @@ textarea {
   }
 
   .land-slide {
-    width: min(78vw, 22rem);
-    height: 29rem;
+    width: 21rem;
+    height: 28rem;
   }
 
   .lux-footer {
@@ -1175,7 +1175,7 @@ textarea {
   }
 
   .land-slide {
-    width: min(82vw, 20rem);
+    width: min(82vw, 19rem);
     height: 25rem;
   }
 

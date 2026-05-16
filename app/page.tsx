@@ -653,7 +653,7 @@ export default function HomePage() {
                     fill
                     sizes="(max-width: 768px) 82vw, 42vw"
                     quality={68}
-                    className="object-contain"
+                    className="object-cover"
                   />
                   <figcaption>
                     <strong>{slide.label}</strong>
