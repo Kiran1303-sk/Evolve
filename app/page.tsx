@@ -154,14 +154,12 @@ const testimonials = [
 ];
 
 const gallery = [
-  '/new-farm3.webp',
-  '/new-forming4.webp',
-  '/optimized/papamango-farm.webp',
+  '/papamango-farm.webp',
+  '/images/section2.webp',
+  '/images/section3.webp',
   '/images/section4.webp',
   '/images/section5.webp',
   '/images/section6.webp',
-  '/guava_farm.webp',
-  '/house.webp',
 ];
 
 const fadeUp = {
@@ -655,7 +653,7 @@ export default function HomePage() {
                     fill
                     sizes="(max-width: 768px) 82vw, 42vw"
                     quality={68}
-                    className="object-cover"
+                    className="object-contain"
                   />
                   <figcaption>
                     <strong>{slide.label}</strong>
