@@ -1,12 +1,8 @@
-﻿"use client";
+﻿'use client';
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
-import gsap from 'gsap';
-import { ScrollTrigger } from 'gsap/ScrollTrigger';
-import Lenis from 'lenis';
-import * as THREE from 'three';
 import {
   ArrowUpRight,
   BadgeIndianRupee,
@@ -28,72 +24,153 @@ import {
   Trees,
   Volume2,
   VolumeX,
-  Wheat
+  Wheat,
 } from 'lucide-react';
 import Navbar from '@/components/Navbar';
 
-gsap.registerPlugin(ScrollTrigger);
-
 const features = [
-  { icon: Leaf, title: 'Ready Farm Plots', text: 'Clear, curated land parcels planned for immediate planting, private access, and future farmhouse development.' },
-  { icon: Gem, title: 'Luxury Farmhouses', text: 'Architecture-ready concepts with verandas, courtyards, pools, outdoor kitchens, and nature-first materials.' },
-  { icon: Trees, title: 'Premium Plantations', text: 'Mango, teak, sandalwood, coconut, guava, and medicinal plantation pathways for long-horizon value.' },
-  { icon: Droplets, title: 'Water Infrastructure', text: 'Irrigation planning, water bodies, bore support, and practical farm maintenance systems.' },
-  { icon: ShieldCheck, title: 'Gated Security', text: 'Controlled entries, estate roads, boundary clarity, and managed ownership support.' },
-  { icon: Wheat, title: 'Organic Farming', text: 'Seasonal cultivation guidance for families who want real produce and a slower weekend rhythm.' },
-  { icon: CalendarCheck, title: 'Weekend Retreats', text: 'Designed for family stays, private gatherings, bonfire evenings, and calm countryside recovery.' },
-  { icon: ChartNoAxesCombined, title: 'Long-Term Growth', text: 'Land appreciation, plantation yield potential, and future-development adjacency in one estate story.' }
+  {
+    icon: Leaf,
+    title: 'Ready Farm Plots',
+    text: 'Clear, curated land parcels planned for immediate planting, private access, and future farmhouse development.',
+  },
+  {
+    icon: Gem,
+    title: 'Luxury Farmhouses',
+    text: 'Architecture-ready concepts with verandas, courtyards, pools, outdoor kitchens, and nature-first materials.',
+  },
+  {
+    icon: Trees,
+    title: 'Premium Plantations',
+    text: 'Mango, teak, sandalwood, coconut, guava, and medicinal plantation pathways for long-horizon value.',
+  },
+  {
+    icon: Droplets,
+    title: 'Water Infrastructure',
+    text: 'Irrigation planning, water bodies, bore support, and practical farm maintenance systems.',
+  },
+  {
+    icon: ShieldCheck,
+    title: 'Gated Security',
+    text: 'Controlled entries, estate roads, boundary clarity, and managed ownership support.',
+  },
+  {
+    icon: Wheat,
+    title: 'Organic Farming',
+    text: 'Seasonal cultivation guidance for families who want real produce and a slower weekend rhythm.',
+  },
+  {
+    icon: CalendarCheck,
+    title: 'Weekend Retreats',
+    text: 'Designed for family stays, private gatherings, bonfire evenings, and calm countryside recovery.',
+  },
+  {
+    icon: ChartNoAxesCombined,
+    title: 'Long-Term Growth',
+    text: 'Land appreciation, plantation yield potential, and future-development adjacency in one estate story.',
+  },
 ];
 
 const landSlides = [
-  { src: '/images/hero-farm.png', label: 'Drone Estate View', zone: 'Farmhouse Zones' },
-  { src: '/new-farm.jpg', label: 'Green Parcel Grid', zone: 'Investment Plots' },
-  { src: '/new-farm2.jpg', label: 'Living Landscape', zone: 'Plantation Belt' },
-  { src: '/images/section3.png', label: 'Water & Pathways', zone: 'Nature Corridors' },
-  { src: '/Mango-farm.jpg', label: 'Fruit Plantation', zone: 'Yield Gardens' }
+  { src: '/images/hero-farm.webp', label: 'Drone Estate View', zone: 'Farmhouse Zones' },
+  { src: '/new-farm.webp', label: 'Green Parcel Grid', zone: 'Investment Plots' },
+  { src: '/new-farm2.webp', label: 'Living Landscape', zone: 'Plantation Belt' },
+  { src: '/images/section3.webp', label: 'Water & Pathways', zone: 'Nature Corridors' },
+  { src: '/Mango-farm.webp', label: 'Fruit Plantation', zone: 'Yield Gardens' },
 ];
 
 const plantationOptions = [
   { icon: Palmtree, name: 'Mango', metric: 'Heritage orchards with seasonal income stories' },
   { icon: Trees, name: 'Teak', metric: 'Long horizon timber value and estate character' },
-  { icon: Palmtree, name: 'Coconut', metric: 'Resilient plantation planning with lifestyle appeal' },
-  { icon: Sprout, name: 'Sandalwood', metric: 'Premium aromatic asset class for patient investors' },
-  { icon: Wheat, name: 'Organic Vegetables', metric: 'Family harvests and managed cultivation support' },
-  { icon: Leaf, name: 'Medicinal Plants', metric: 'Specialty crops for sustainable green portfolios' }
+  {
+    icon: Palmtree,
+    name: 'Coconut',
+    metric: 'Resilient plantation planning with lifestyle appeal',
+  },
+  {
+    icon: Sprout,
+    name: 'Sandalwood',
+    metric: 'Premium aromatic asset class for patient investors',
+  },
+  {
+    icon: Wheat,
+    name: 'Organic Vegetables',
+    metric: 'Family harvests and managed cultivation support',
+  },
+  {
+    icon: Leaf,
+    name: 'Medicinal Plants',
+    metric: 'Specialty crops for sustainable green portfolios',
+  },
 ];
 
 const timeline = [
-  { year: '01', title: 'Acquire', text: 'Choose a legally clear farm plot aligned with your lifestyle and investment horizon.' },
-  { year: '02', title: 'Plant', text: 'Activate a curated plantation mix with water, soil, and maintenance planning.' },
-  { year: '03', title: 'Build', text: 'Create a private farmhouse retreat as the estate matures around you.' },
-  { year: '04', title: 'Grow', text: 'Benefit from land appreciation, plantation potential, and premium countryside demand.' }
+  {
+    year: '01',
+    title: 'Acquire',
+    text: 'Choose a legally clear farm plot aligned with your lifestyle and investment horizon.',
+  },
+  {
+    year: '02',
+    title: 'Plant',
+    text: 'Activate a curated plantation mix with water, soil, and maintenance planning.',
+  },
+  {
+    year: '03',
+    title: 'Build',
+    text: 'Create a private farmhouse retreat as the estate matures around you.',
+  },
+  {
+    year: '04',
+    title: 'Grow',
+    text: 'Benefit from land appreciation, plantation potential, and premium countryside demand.',
+  },
 ];
 
 const testimonials = [
-  { name: 'Arjun Reddy', role: 'NRI Investor', quote: 'The estate gave me the rare combination of emotional peace and disciplined asset growth.' },
-  { name: 'Priya Menon', role: 'Farmhouse Buyer', quote: 'Our weekends now feel private, green, and genuinely restorative. The planning feels very premium.' },
-  { name: 'Vikram S.', role: 'Plantation Investor', quote: 'The plantation roadmap, site access, and advisory support made the decision feel confident.' },
-  { name: 'Neha Kapoor', role: 'Weekend Home Buyer', quote: 'It feels like owning a piece of quiet luxury, not just a plot on paper.' }
+  {
+    name: 'Arjun Reddy',
+    role: 'NRI Investor',
+    quote:
+      'The estate gave me the rare combination of emotional peace and disciplined asset growth.',
+  },
+  {
+    name: 'Priya Menon',
+    role: 'Farmhouse Buyer',
+    quote:
+      'Our weekends now feel private, green, and genuinely restorative. The planning feels very premium.',
+  },
+  {
+    name: 'Vikram S.',
+    role: 'Plantation Investor',
+    quote:
+      'The plantation roadmap, site access, and advisory support made the decision feel confident.',
+  },
+  {
+    name: 'Neha Kapoor',
+    role: 'Weekend Home Buyer',
+    quote: 'It feels like owning a piece of quiet luxury, not just a plot on paper.',
+  },
 ];
 
 const gallery = [
-  '/images/hero-farm.png',
-  '/new-farm.jpg',
-  '/new-farm2.jpg',
-  '/new-farm3.jpg',
+  '/images/hero-farm.webp',
+  '/new-farm.webp',
+  '/new-farm2.webp',
+  '/new-farm3.webp',
   '/new-forming4.webp',
   '/papamango-farm.webp',
-  '/images/section4.png',
-  '/images/section5.png',
-  '/images/section6.png',
-  '/Mango-farm.jpg',
-  '/guava_farm.jpg',
-  '/house.avif'
+  '/images/section4.webp',
+  '/images/section5.webp',
+  '/images/section6.webp',
+  '/Mango-farm.webp',
+  '/guava_farm.webp',
+  '/house.webp',
 ];
 
 const fadeUp = {
   hidden: { opacity: 0, y: 38, filter: 'blur(10px)' },
-  show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.85 } }
+  show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.85 } },
 };
 
 function ThreeBackdrop({ night }: { night: boolean }) {
@@ -102,58 +179,80 @@ function ThreeBackdrop({ night }: { night: boolean }) {
   useEffect(() => {
     if (!canvasRef.current) return;
 
-    const canvas = canvasRef.current;
-    const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.8));
+    let cancelled = false;
+    let cleanup = () => {};
 
-    const scene = new THREE.Scene();
-    const camera = new THREE.PerspectiveCamera(42, window.innerWidth / window.innerHeight, 0.1, 100);
-    camera.position.z = 7;
+    const setupBackdrop = async () => {
+      if (window.matchMedia('(max-width: 768px), (prefers-reduced-motion: reduce)').matches) return;
 
-    const geometry = new THREE.BufferGeometry();
-    const count = 420;
-    const positions = new Float32Array(count * 3);
+      const THREE = await import('three');
+      if (cancelled || !canvasRef.current) return;
 
-    for (let i = 0; i < count; i += 1) {
-      positions[i * 3] = (Math.random() - 0.5) * 15;
-      positions[i * 3 + 1] = (Math.random() - 0.5) * 9;
-      positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
-    }
+      const canvas = canvasRef.current;
+      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
+      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
 
-    geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-    const material = new THREE.PointsMaterial({
-      color: night ? '#f1d99a' : '#c8a96b',
-      size: 0.035,
-      transparent: true,
-      opacity: night ? 0.62 : 0.42
-    });
-    const points = new THREE.Points(geometry, material);
-    scene.add(points);
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(
+        42,
+        window.innerWidth / window.innerHeight,
+        0.1,
+        100
+      );
+      camera.position.z = 7;
 
-    const onResize = () => {
-      renderer.setSize(window.innerWidth, window.innerHeight);
-      camera.aspect = window.innerWidth / window.innerHeight;
-      camera.updateProjectionMatrix();
+      const geometry = new THREE.BufferGeometry();
+      const count = 420;
+      const positions = new Float32Array(count * 3);
+
+      for (let i = 0; i < count; i += 1) {
+        positions[i * 3] = (Math.random() - 0.5) * 15;
+        positions[i * 3 + 1] = (Math.random() - 0.5) * 9;
+        positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
+      }
+
+      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
+      const material = new THREE.PointsMaterial({
+        color: night ? '#f1d99a' : '#c8a96b',
+        size: 0.035,
+        transparent: true,
+        opacity: night ? 0.62 : 0.42,
+      });
+      const points = new THREE.Points(geometry, material);
+      scene.add(points);
+
+      const onResize = () => {
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        camera.aspect = window.innerWidth / window.innerHeight;
+        camera.updateProjectionMatrix();
+      };
+
+      onResize();
+      window.addEventListener('resize', onResize);
+
+      let frame = 0;
+      const animate = () => {
+        frame = requestAnimationFrame(animate);
+        points.rotation.y += 0.0008;
+        points.rotation.x += 0.00026;
+        renderer.render(scene, camera);
+      };
+      animate();
+
+      cleanup = () => {
+        cancelAnimationFrame(frame);
+        window.removeEventListener('resize', onResize);
+        geometry.dispose();
+        material.dispose();
+        renderer.dispose();
+      };
     };
 
-    onResize();
-    window.addEventListener('resize', onResize);
-
-    let frame = 0;
-    const animate = () => {
-      frame = requestAnimationFrame(animate);
-      points.rotation.y += 0.0008;
-      points.rotation.x += 0.00026;
-      renderer.render(scene, camera);
-    };
-    animate();
+    setupBackdrop();
 
     return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener('resize', onResize);
-      geometry.dispose();
-      material.dispose();
-      renderer.dispose();
+      cancelled = true;
+      cleanup();
     };
   }, [night]);
 
@@ -161,12 +260,18 @@ function ThreeBackdrop({ night }: { night: boolean }) {
 }
 
 function Counter({ end, suffix = '' }: { end: number; suffix?: string }) {
-  return <span data-counter={end} data-suffix={suffix}>{end}{suffix}</span>;
+  return (
+    <span data-counter={end} data-suffix={suffix}>
+      {end}
+      {suffix}
+    </span>
+  );
 }
 
 export default function HomePage() {
   const progressRef = useRef<HTMLDivElement | null>(null);
   const heroRef = useRef<HTMLElement | null>(null);
+  const mainRef = useRef<HTMLElement | null>(null);
   const audioRef = useRef<AudioContext | null>(null);
   const oscillatorRef = useRef<OscillatorNode | null>(null);
   const gainRef = useRef<GainNode | null>(null);
@@ -177,138 +282,184 @@ export default function HomePage() {
   const rootClass = useMemo(() => `lux-root ${night ? 'night-mode' : ''}`, [night]);
 
   useEffect(() => {
-    const lenis = new Lenis({ duration: 0.78, smoothWheel: true, touchMultiplier: 1.08 });
-    let raf = 0;
-    const loop = (time: number) => {
-      lenis.raf(time);
+    let cleanup = () => {};
+    let cancelled = false;
+
+    const setupScrollEffects = async () => {
+      const [{ default: gsap }, { ScrollTrigger }, { default: Lenis }] = await Promise.all([
+        import('gsap'),
+        import('gsap/ScrollTrigger'),
+        import('lenis'),
+      ]);
+
+      if (cancelled) return;
+
+      gsap.registerPlugin(ScrollTrigger);
+      const lenis = new Lenis({ duration: 0.78, smoothWheel: true, touchMultiplier: 1.08 });
+      let raf = 0;
+      const loop = (time: number) => {
+        lenis.raf(time);
+        raf = requestAnimationFrame(loop);
+      };
       raf = requestAnimationFrame(loop);
-    };
-    raf = requestAnimationFrame(loop);
 
-    ScrollTrigger.scrollerProxy(document.body, {
-      scrollTop(value) {
-        if (arguments.length && typeof value === 'number') {
-          lenis.scrollTo(value, { immediate: true });
-        }
-        return window.scrollY;
-      },
-      getBoundingClientRect() {
-        return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-      }
-    });
-
-    lenis.on('scroll', ScrollTrigger.update);
-
-    gsap.utils.toArray<HTMLElement>('[data-counter]').forEach((counter) => {
-      const end = Number(counter.dataset.counter || 0);
-      const suffix = counter.dataset.suffix || '';
-      gsap.fromTo(
-        counter,
-        { innerText: 0 },
-        {
-          innerText: end,
-          duration: 2.2,
-          snap: { innerText: 1 },
-          ease: 'power3.out',
-          scrollTrigger: { trigger: counter, start: 'top 86%' },
-          onUpdate() {
-            counter.innerText = `${Math.floor(Number(counter.innerText))}${suffix}`;
+      ScrollTrigger.scrollerProxy(document.body, {
+        scrollTop(value) {
+          if (arguments.length && typeof value === 'number') {
+            lenis.scrollTo(value, { immediate: true });
           }
-        }
-      );
-    });
+          return window.scrollY;
+        },
+        getBoundingClientRect() {
+          return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
+        },
+      });
 
-    gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((el) => {
-      gsap.fromTo(
-        el,
-        { opacity: 0, y: 42, filter: 'blur(12px)' },
-        { opacity: 1, y: 0, filter: 'blur(0px)', duration: 1, ease: 'power3.out', scrollTrigger: { trigger: el, start: 'top 82%' } }
-      );
-    });
+      lenis.on('scroll', ScrollTrigger.update);
 
-    gsap.to('.hero-image', {
-      scale: 1.16,
-      ease: 'none',
-      scrollTrigger: { trigger: heroRef.current, start: 'top top', end: 'bottom top', scrub: true }
-    });
+      gsap.utils.toArray<HTMLElement>('[data-counter]').forEach((counter) => {
+        const end = Number(counter.dataset.counter || 0);
+        const suffix = counter.dataset.suffix || '';
+        gsap.fromTo(
+          counter,
+          { innerText: 0 },
+          {
+            innerText: end,
+            duration: 2.2,
+            snap: { innerText: 1 },
+            ease: 'power3.out',
+            scrollTrigger: { trigger: counter, start: 'top 86%' },
+            onUpdate() {
+              counter.innerText = `${Math.floor(Number(counter.innerText))}${suffix}`;
+            },
+          }
+        );
+      });
 
-    const isMobileSlider = window.matchMedia('(max-width: 900px)').matches;
+      gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((el) => {
+        gsap.fromTo(
+          el,
+          { opacity: 0, y: 42, filter: 'blur(12px)' },
+          {
+            opacity: 1,
+            y: 0,
+            filter: 'blur(0px)',
+            duration: 1,
+            ease: 'power3.out',
+            scrollTrigger: { trigger: el, start: 'top 82%' },
+          }
+        );
+      });
 
-    if (!isMobileSlider) {
-      const viewport = document.querySelector<HTMLElement>('.horizontal-viewport');
-      const track = document.querySelector<HTMLElement>('.horizontal-track');
-      const distance = viewport && track ? Math.max(viewport.scrollWidth - window.innerWidth, 0) : 0;
-
-      gsap.to('.horizontal-track', {
-        x: -distance,
+      gsap.to('.hero-image', {
+        scale: 1.16,
         ease: 'none',
         scrollTrigger: {
-          trigger: '.land-exp',
+          trigger: heroRef.current,
           start: 'top top',
-          end: () => `+=${Math.max(distance + window.innerHeight * 0.75, 1200)}`,
-          scrub: 1
-        }
+          end: 'bottom top',
+          scrub: true,
+        },
       });
-    }
 
-    const navOffset = window.matchMedia('(max-width: 640px)').matches ? -76 : -92;
-    const handleAnchorClick = (event: MouseEvent) => {
-      const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
-      if (!link) return;
+      const isMobileSlider = window.matchMedia('(max-width: 900px)').matches;
 
-      const hash = link.getAttribute('href');
-      if (!hash || hash === '#') return;
+      if (!isMobileSlider) {
+        const viewport = document.querySelector<HTMLElement>('.horizontal-viewport');
+        const track = document.querySelector<HTMLElement>('.horizontal-track');
+        const distance =
+          viewport && track ? Math.max(viewport.scrollWidth - window.innerWidth, 0) : 0;
 
-      const target = document.querySelector<HTMLElement>(hash);
-      if (!target) return;
+        gsap.to('.horizontal-track', {
+          x: -distance,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: '.land-exp',
+            start: 'top top',
+            end: () => `+=${Math.max(distance + window.innerHeight * 0.75, 1200)}`,
+            scrub: 1,
+          },
+        });
+      }
 
-      event.preventDefault();
-      lenis.scrollTo(target, { offset: navOffset, duration: 1.05 });
-      window.history.pushState(null, '', hash);
+      const navOffset = window.matchMedia('(max-width: 640px)').matches ? -76 : -92;
+      const handleAnchorClick = (event: MouseEvent) => {
+        const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
+        if (!link) return;
+
+        const hash = link.getAttribute('href');
+        if (!hash || hash === '#') return;
+
+        const target = document.querySelector<HTMLElement>(hash);
+        if (!target) return;
+
+        event.preventDefault();
+        lenis.scrollTo(target, { offset: navOffset, duration: 1.05 });
+        window.history.pushState(null, '', hash);
+      };
+
+      document.addEventListener('click', handleAnchorClick);
+
+      gsap.utils.toArray<HTMLElement>('.parallax-media').forEach((media) => {
+        gsap.to(media, {
+          yPercent: -10,
+          ease: 'none',
+          scrollTrigger: { trigger: media, start: 'top bottom', end: 'bottom top', scrub: true },
+        });
+      });
+
+      if (progressRef.current) {
+        gsap.to(progressRef.current, {
+          scaleX: 1,
+          transformOrigin: 'left center',
+          ease: 'none',
+          scrollTrigger: { trigger: 'main', start: 'top top', end: 'bottom bottom', scrub: true },
+        });
+      }
+
+      cleanup = () => {
+        cancelAnimationFrame(raf);
+        document.removeEventListener('click', handleAnchorClick);
+        lenis.destroy();
+        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
+        ScrollTrigger.scrollerProxy(document.body, {});
+      };
     };
 
-    document.addEventListener('click', handleAnchorClick);
-
-    gsap.utils.toArray<HTMLElement>('.parallax-media').forEach((media) => {
-      gsap.to(media, {
-        yPercent: -10,
-        ease: 'none',
-        scrollTrigger: { trigger: media, start: 'top bottom', end: 'bottom top', scrub: true }
-      });
-    });
-
-    if (progressRef.current) {
-      gsap.to(progressRef.current, {
-        scaleX: 1,
-        transformOrigin: 'left center',
-        ease: 'none',
-        scrollTrigger: { trigger: 'main', start: 'top top', end: 'bottom bottom', scrub: true }
-      });
-    }
+    setupScrollEffects();
 
     return () => {
-      cancelAnimationFrame(raf);
-      document.removeEventListener('click', handleAnchorClick);
-      lenis.destroy();
-      ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-      ScrollTrigger.scrollerProxy(document.body, {});
+      cancelled = true;
+      cleanup();
     };
   }, []);
 
   useEffect(() => {
+    const main = mainRef.current;
+    if (!main || window.matchMedia('(max-width: 768px), (prefers-reduced-motion: reduce)').matches)
+      return;
+
+    let frame = 0;
     const onMove = (event: PointerEvent) => {
-      setCursor({
-        x: (event.clientX / window.innerWidth) * 100,
-        y: (event.clientY / window.innerHeight) * 100
+      cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(() => {
+        main.style.setProperty('--cursor-x', `${(event.clientX / window.innerWidth) * 100}%`);
+        main.style.setProperty('--cursor-y', `${(event.clientY / window.innerHeight) * 100}%`);
       });
     };
     window.addEventListener('pointermove', onMove);
-    return () => window.removeEventListener('pointermove', onMove);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.removeEventListener('pointermove', onMove);
+    };
   }, []);
 
   useEffect(() => {
     if (!soundOn) {
-      gainRef.current?.gain.exponentialRampToValueAtTime(0.0001, (audioRef.current?.currentTime || 0) + 0.25);
+      gainRef.current?.gain.exponentialRampToValueAtTime(
+        0.0001,
+        (audioRef.current?.currentTime || 0) + 0.25
+      );
       oscillatorRef.current?.stop((audioRef.current?.currentTime || 0) + 0.3);
       oscillatorRef.current = null;
       return;
@@ -335,39 +486,88 @@ export default function HomePage() {
       <div className="scroll-progress-track" aria-hidden="true">
         <div ref={progressRef} className="scroll-progress-bar" />
       </div>
-      <main className={rootClass} style={{ '--cursor-x': `${cursor.x}%`, '--cursor-y': `${cursor.y}%` } as React.CSSProperties}>
+      <main
+        ref={mainRef}
+        className={rootClass}
+        style={
+          { '--cursor-x': `${cursor.x}%`, '--cursor-y': `${cursor.y}%` } as React.CSSProperties
+        }
+      >
         <ThreeBackdrop night={night} />
 
         <section id="home" ref={heroRef} className="lux-section hero">
-          <Image src="/images/hero-farm.png" alt="Premium green farmland estate from above" fill priority className="hero-image" sizes="100vw" />
+          <Image
+            src="/images/hero-farm.webp"
+            alt="Premium green farmland estate from above"
+            fill
+            priority
+            className="hero-image"
+            sizes="100vw"
+          />
           <div className="hero-vignette" />
           <div className="cursor-light" aria-hidden="true" />
           <div className="section-wrap hero-content">
-            <motion.p initial="hidden" animate="show" variants={fadeUp} className="kicker text-[#C8A96B]">
+            <motion.p
+              initial="hidden"
+              animate="show"
+              variants={fadeUp}
+              className="kicker text-[#C8A96B]"
+            >
               PREMIUM FARMLAND / FARMHOUSES / PLANTATION INVESTMENT
             </motion.p>
             <motion.h1 initial="hidden" animate="show" variants={fadeUp} className="hero-title">
               Own Nature. Build Legacy.
             </motion.h1>
             <motion.p initial="hidden" animate="show" variants={fadeUp} className="hero-subtitle">
-              A luxury countryside estate for premium farm plots, bespoke farmhouse living, managed plantations, and long-term land wealth.
+              A luxury countryside estate for premium farm plots, bespoke farmhouse living, managed
+              plantations, and long-term land wealth.
             </motion.p>
             <motion.div initial="hidden" animate="show" variants={fadeUp} className="hero-actions">
-              <a href="#land-experience" className="field-cta-primary">Explore Lands <ChevronRight size={15} /></a>
-              <a href="#contact" className="field-cta-secondary">Book Site Visit <CalendarCheck size={15} /></a>
+              <a href="#land-experience" className="field-cta-primary">
+                Explore Lands <ChevronRight size={15} />
+              </a>
+              <a href="#contact" className="field-cta-secondary">
+                Book Site Visit <CalendarCheck size={15} />
+              </a>
             </motion.div>
-            <motion.div initial="hidden" animate="show" variants={fadeUp} className="hero-stats" aria-label="Estate highlights">
-              <article className="glass-card"><Counter end={120} suffix="+" /><p>Curated acres pipeline</p></article>
-              <article className="glass-card"><Counter end={18} suffix="%" /><p>ROI potential outlook</p></article>
-              <article className="glass-card"><Counter end={6} /><p>Plantation categories</p></article>
-              <article className="glass-card"><Counter end={4} /><p>Farmhouse formats</p></article>
+            <motion.div
+              initial="hidden"
+              animate="show"
+              variants={fadeUp}
+              className="hero-stats"
+              aria-label="Estate highlights"
+            >
+              <article className="glass-card">
+                <Counter end={120} suffix="+" />
+                <p>Curated acres pipeline</p>
+              </article>
+              <article className="glass-card">
+                <Counter end={18} suffix="%" />
+                <p>ROI potential outlook</p>
+              </article>
+              <article className="glass-card">
+                <Counter end={6} />
+                <p>Plantation categories</p>
+              </article>
+              <article className="glass-card">
+                <Counter end={4} />
+                <p>Farmhouse formats</p>
+              </article>
             </motion.div>
           </div>
           <div className="hero-controls" aria-label="Experience controls">
-            <button type="button" onClick={() => setSoundOn((value) => !value)} aria-label="Toggle ambient sound">
+            <button
+              type="button"
+              onClick={() => setSoundOn((value) => !value)}
+              aria-label="Toggle ambient sound"
+            >
               {soundOn ? <Volume2 size={17} /> : <VolumeX size={17} />}
             </button>
-            <button type="button" onClick={() => setNight((value) => !value)} aria-label="Toggle day night view">
+            <button
+              type="button"
+              onClick={() => setNight((value) => !value)}
+              aria-label="Toggle day night view"
+            >
               {night ? <Sun size={17} /> : <Moon size={17} />}
             </button>
           </div>
@@ -375,21 +575,48 @@ export default function HomePage() {
 
         <section id="vision" className="lux-section vision">
           <div className="section-wrap split-layout">
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.3 }} variants={fadeUp}>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true, amount: 0.3 }}
+              variants={fadeUp}
+            >
               <p className="kicker text-[#C8A96B]">ABOUT / VISION</p>
               <h2 className="section-title">Where wealth slows down and life gets deeper.</h2>
               <p className="section-copy">
-                Evolve is designed as a living asset: a place where families reconnect with open skies, investors hold scarce green land, and every acre matures through farming, architecture, and patient stewardship.
+                Evolve is designed as a living asset: a place where families reconnect with open
+                skies, investors hold scarce green land, and every acre matures through farming,
+                architecture, and patient stewardship.
               </p>
               <div className="vision-points">
-                {['Farmhouse living', 'Organic farming', 'Investment growth', 'Peaceful lifestyle'].map((item) => (
-                  <span key={item}><Check size={14} />{item}</span>
+                {[
+                  'Farmhouse living',
+                  'Organic farming',
+                  'Investment growth',
+                  'Peaceful lifestyle',
+                ].map((item) => (
+                  <span key={item}>
+                    <Check size={14} />
+                    {item}
+                  </span>
                 ))}
               </div>
             </motion.div>
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="vision-stack">
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="vision-stack"
+            >
               <figure className="image-frame parallax-media">
-                <Image src="/new-farm2.jpg" alt="Open farmland with premium countryside texture" fill sizes="(max-width: 1024px) 100vw, 45vw" className="object-cover" />
+                <Image
+                  src="/new-farm2.webp"
+                  alt="Open farmland with premium countryside texture"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  className="object-cover"
+                />
               </figure>
               <div className="floating-proof glass-card">
                 <Counter end={42} suffix="%" />
@@ -405,8 +632,17 @@ export default function HomePage() {
             <h2 className="section-title">The estate system behind effortless ownership.</h2>
             <div className="feature-grid">
               {features.map(({ icon: Icon, title, text }) => (
-                <motion.article key={title} initial="hidden" whileInView="show" viewport={{ once: true, amount: 0.16 }} variants={fadeUp} className="feature-card">
-                  <span className="icon-shell"><Icon size={21} /></span>
+                <motion.article
+                  key={title}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true, amount: 0.16 }}
+                  variants={fadeUp}
+                  className="feature-card"
+                >
+                  <span className="icon-shell">
+                    <Icon size={21} />
+                  </span>
                   <h3>{title}</h3>
                   <p>{text}</p>
                 </motion.article>
@@ -419,13 +655,22 @@ export default function HomePage() {
           <div className="section-wrap land-intro">
             <p className="kicker text-[#C8A96B]">INTERACTIVE LAND EXPERIENCE</p>
             <h2 className="section-title">A private estate preview in motion.</h2>
-            <p className="section-copy">Scroll through drone-style land views, plotted zones, plantation corridors, and calm water-led landscapes.</p>
+            <p className="section-copy">
+              Scroll through drone-style land views, plotted zones, plantation corridors, and calm
+              water-led landscapes.
+            </p>
           </div>
           <div className="horizontal-viewport mobile-slider">
             <div className="horizontal-track">
               {landSlides.map((slide, index) => (
                 <figure key={slide.src} className="land-slide">
-                  <Image src={slide.src} alt={slide.label} fill sizes="80vw" className="object-cover" />
+                  <Image
+                    src={slide.src}
+                    alt={slide.label}
+                    fill
+                    sizes="80vw"
+                    className="object-cover"
+                  />
                   <figcaption>
                     <span>0{index + 1}</span>
                     <strong>{slide.label}</strong>
@@ -447,16 +692,31 @@ export default function HomePage() {
 
         <section id="farming" className="lux-section farming-dark">
           <div className="section-wrap split-layout">
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeUp}
+            >
               <p className="kicker text-[#C8A96B]">PLANTATION & FARMING</p>
-              <h2 className="section-title text-[#FAFAF8]">A portfolio that grows from the soil up.</h2>
+              <h2 className="section-title text-[#FAFAF8]">
+                A portfolio that grows from the soil up.
+              </h2>
               <p className="section-copy text-[#dfe5d6]">
-                Every crop is chosen for a balance of beauty, resilience, lifestyle value, and long-term income potential.
+                Every crop is chosen for a balance of beauty, resilience, lifestyle value, and
+                long-term income potential.
               </p>
             </motion.div>
             <div className="plantation-grid">
               {plantationOptions.map(({ icon: Icon, name, metric }) => (
-                <motion.article key={name} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="plant-card">
+                <motion.article
+                  key={name}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  className="plant-card"
+                >
                   <Icon size={20} />
                   <h3>{name}</h3>
                   <p>{metric}</p>
@@ -469,15 +729,30 @@ export default function HomePage() {
         <section id="lifestyle" className="lux-section lifestyle">
           <div className="section-wrap">
             <p className="kicker text-[#C8A96B]">FARMHOUSE LIFESTYLE</p>
-            <h2 className="section-title">Weekend living, without leaving sophistication behind.</h2>
+            <h2 className="section-title">
+              Weekend living, without leaving sophistication behind.
+            </h2>
             <div className="lifestyle-grid">
               {[
-                { src: '/house.avif', label: 'Private farmhouse inspiration' },
-                { src: '/images/section2.png', label: 'Family garden and outdoor life' },
-                { src: '/images/section4.png', label: 'Wide green retreat views' }
+                { src: '/house.webp', label: 'Private farmhouse inspiration' },
+                { src: '/images/section2.webp', label: 'Family garden and outdoor life' },
+                { src: '/images/section4.webp', label: 'Wide green retreat views' },
               ].map((item, index) => (
-                <motion.figure key={item.src} initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className={`image-frame lifestyle-card ${index === 0 ? 'large' : ''}`}>
-                  <Image src={item.src} alt={item.label} fill sizes="(max-width: 1024px) 100vw, 40vw" className="object-cover" />
+                <motion.figure
+                  key={item.src}
+                  initial="hidden"
+                  whileInView="show"
+                  viewport={{ once: true }}
+                  variants={fadeUp}
+                  className={`image-frame lifestyle-card ${index === 0 ? 'large' : ''}`}
+                >
+                  <Image
+                    src={item.src}
+                    alt={item.label}
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    className="object-cover"
+                  />
                   <figcaption>{item.label}</figcaption>
                 </motion.figure>
               ))}
@@ -490,9 +765,21 @@ export default function HomePage() {
             <p className="kicker text-[#C8A96B]">INVESTMENT INSIGHT</p>
             <h2 className="section-title">Land appreciation with a living income story.</h2>
             <div className="invest-grid">
-              <article><BadgeIndianRupee size={22} /><Counter end={24} suffix="%" /><p>Projected 5-year appreciation trend</p></article>
-              <article><ChartNoAxesCombined size={22} /><Counter end={3} /><p>Income channels: plantation, lease, stays</p></article>
-              <article><ShieldCheck size={22} /><Counter end={100} suffix="%" /><p>Ownership transparency focus</p></article>
+              <article>
+                <BadgeIndianRupee size={22} />
+                <Counter end={24} suffix="%" />
+                <p>Projected 5-year appreciation trend</p>
+              </article>
+              <article>
+                <ChartNoAxesCombined size={22} />
+                <Counter end={3} />
+                <p>Income channels: plantation, lease, stays</p>
+              </article>
+              <article>
+                <ShieldCheck size={22} />
+                <Counter end={100} suffix="%" />
+                <p>Ownership transparency focus</p>
+              </article>
             </div>
             <div className="timeline">
               {timeline.map((item) => (
@@ -514,7 +801,9 @@ export default function HomePage() {
           <div className="testimonial-marquee">
             {[...testimonials, ...testimonials].map((item, index) => (
               <article key={`${item.name}-${index}`} className="testimonial-card">
-                <div className="video-dot"><Play size={13} fill="currentColor" /></div>
+                <div className="video-dot">
+                  <Play size={13} fill="currentColor" />
+                </div>
                 <p>“{item.quote}”</p>
                 <h3>{item.name}</h3>
                 <span>{item.role}</span>
@@ -529,8 +818,21 @@ export default function HomePage() {
             <h2 className="section-title">Land, lifestyle, and legacy in frames.</h2>
             <div className="masonry-grid">
               {gallery.map((src, index) => (
-                <motion.figure key={`${src}-${index}`} initial={{ opacity: 0, y: 28, scale: 0.96 }} whileInView={{ opacity: 1, y: 0, scale: 1 }} viewport={{ once: true }} transition={{ duration: 0.7 }} className={`masonry-item ${index % 5 === 0 ? 'wide' : ''} ${index % 4 === 0 ? 'tall' : ''}`}>
-                  <Image src={src} alt="Luxury farmland gallery view" fill sizes="(max-width: 1024px) 100vw, 33vw" className="object-cover" />
+                <motion.figure
+                  key={`${src}-${index}`}
+                  initial={{ opacity: 0, y: 28, scale: 0.96 }}
+                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.7 }}
+                  className={`masonry-item ${index % 5 === 0 ? 'wide' : ''} ${index % 4 === 0 ? 'tall' : ''}`}
+                >
+                  <Image
+                    src={src}
+                    alt="Luxury farmland gallery view"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    className="object-cover"
+                  />
                 </motion.figure>
               ))}
             </div>
@@ -539,25 +841,46 @@ export default function HomePage() {
 
         <section id="contact" className="lux-section contact">
           <div className="section-wrap split-layout">
-            <motion.div initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp}>
+            <motion.div
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeUp}
+            >
               <p className="kicker text-[#C8A96B]">CONTACT / BOOKING</p>
               <h2 className="section-title">Book a private site visit.</h2>
-              <p className="section-copy">Speak with the advisory team for plot availability, plantation plans, farmhouse concepts, and guided estate previews.</p>
+              <p className="section-copy">
+                Speak with the advisory team for plot availability, plantation plans, farmhouse
+                concepts, and guided estate previews.
+              </p>
               <div className="contact-points">
-                <a href="https://wa.me/919999999999" className="field-cta-primary">WhatsApp Now <Phone size={15} /></a>
-                <a href="tel:+919999999999" className="field-cta-secondary dark">Call Advisor <ArrowUpRight size={15} /></a>
+                <a href="https://wa.me/919999999999" className="field-cta-primary">
+                  WhatsApp Now <Phone size={15} />
+                </a>
+                <a href="tel:+919999999999" className="field-cta-secondary dark">
+                  Call Advisor <ArrowUpRight size={15} />
+                </a>
               </div>
               <div className="map-card">
                 <MapPinned size={20} />
                 <span>Future City Growth Corridor, Hyderabad Region</span>
               </div>
             </motion.div>
-            <motion.form initial="hidden" whileInView="show" viewport={{ once: true }} variants={fadeUp} className="contact-form" onSubmit={(event) => event.preventDefault()}>
+            <motion.form
+              initial="hidden"
+              whileInView="show"
+              viewport={{ once: true }}
+              variants={fadeUp}
+              className="contact-form"
+              onSubmit={(event) => event.preventDefault()}
+            >
               <input type="text" placeholder="Full Name" aria-label="Full Name" />
               <input type="tel" placeholder="Phone Number" aria-label="Phone Number" />
               <input type="email" placeholder="Email Address" aria-label="Email Address" />
               <select defaultValue="" aria-label="Interest Type">
-                <option value="" disabled>Interest Type</option>
+                <option value="" disabled>
+                  Interest Type
+                </option>
                 <option>Farm Plot Purchase</option>
                 <option>Farmhouse Construction</option>
                 <option>Plantation Investment</option>

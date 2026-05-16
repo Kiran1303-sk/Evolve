@@ -28,7 +28,7 @@ export const metadata: Metadata = {
   openGraph: {
     title: 'Evolve By Dsquare',
     description: 'Cinematic real estate experience for mindful land ownership and long-term investment.',
-    images: ['/images/hero-farm.png'],
+    images: ['/images/hero-farm.webp'],
     type: 'website'
   }
 };

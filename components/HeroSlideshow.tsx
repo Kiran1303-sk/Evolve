@@ -5,14 +5,14 @@ import Image from 'next/image';
 
 const slides = [
   {
-    src: '/new-farm.jpg',
+    src: '/new-farm.webp',
     alt: 'Planned farm-style plots with green landscape',
     kicker: 'PHASE 1 | 12 ACRES',
     title: 'Farm-Style Plots Crafted for Living.',
     desc: 'Low-density planning with practical land structuring for buyers who want usable farmland and future growth potential.'
   },
   {
-    src: '/new-farm3.jpg',
+    src: '/new-farm3.webp',
     alt: 'Connected farmland location near growth corridors',
     kicker: 'STRONG CONNECTIVITY',
     title: 'Own Land With Better Access.',
