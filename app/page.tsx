@@ -373,7 +373,7 @@ export default function HomePage() {
         if (!target) return;
 
         event.preventDefault();
-        const headerHeight = document.querySelector('header')?.getBoundingClientRect().height ?? 0;
+        const headerHeight = document.querySelector('header nav')?.getBoundingClientRect().height ?? 0;
         const scrollTarget =
           hash === '#home'
             ? target

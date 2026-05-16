@@ -1083,6 +1083,15 @@ textarea {
 }
 
 @media (max-width: 979px) {
+  html,
+  body {
+    scroll-padding-top: 5.75rem;
+  }
+
+  .lux-section {
+    scroll-margin-top: 5.75rem;
+  }
+
   .field-nav-link {
     color: #173b2d;
   }
