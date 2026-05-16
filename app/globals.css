@@ -65,7 +65,9 @@ textarea {
   text-transform: uppercase;
   color: #ffffff;
   opacity: 1;
-  transition: color 180ms ease, opacity 180ms ease;
+  transition:
+    color 180ms ease,
+    opacity 180ms ease;
 }
 
 .field-nav-link::after {
@@ -103,7 +105,10 @@ textarea {
   letter-spacing: 0.1em;
   line-height: 1;
   text-transform: uppercase;
-  transition: transform 220ms ease, box-shadow 220ms ease, border-color 220ms ease;
+  transition:
+    transform 220ms ease,
+    box-shadow 220ms ease,
+    border-color 220ms ease;
   will-change: transform;
 }
 
@@ -228,7 +233,12 @@ textarea {
   position: absolute;
   inset: 0;
   background:
-    linear-gradient(90deg, rgba(8, 11, 8, 0.84) 0%, rgba(11, 46, 31, 0.66) 45%, rgba(15, 15, 15, 0.22) 100%),
+    linear-gradient(
+      90deg,
+      rgba(8, 11, 8, 0.84) 0%,
+      rgba(11, 46, 31, 0.66) 45%,
+      rgba(15, 15, 15, 0.22) 100%
+    ),
     linear-gradient(180deg, rgba(15, 15, 15, 0.28), rgba(15, 15, 15, 0.82)),
     radial-gradient(circle at 70% 28%, rgba(200, 169, 107, 0.28), transparent 34rem);
 }
@@ -239,7 +249,11 @@ textarea {
   z-index: 1;
   pointer-events: none;
   opacity: 0.7;
-  background: radial-gradient(circle at var(--cursor-x) var(--cursor-y), rgba(240, 214, 150, 0.18), transparent 16rem);
+  background: radial-gradient(
+    circle at var(--cursor-x) var(--cursor-y),
+    rgba(240, 214, 150, 0.18),
+    transparent 16rem
+  );
   mix-blend-mode: screen;
 }
 
@@ -345,7 +359,9 @@ textarea {
   color: var(--white);
   background: rgba(15, 15, 15, 0.28);
   backdrop-filter: blur(16px);
-  transition: transform 180ms ease, border-color 180ms ease;
+  transition:
+    transform 180ms ease,
+    border-color 180ms ease;
 }
 
 .hero-controls button:hover {
@@ -458,7 +474,10 @@ textarea {
     radial-gradient(circle at 10% 0%, rgba(200, 169, 107, 0.18), transparent 14rem);
   box-shadow: 0 18px 46px rgba(11, 46, 31, 0.08);
   backdrop-filter: blur(18px);
-  transition: transform 240ms ease, box-shadow 240ms ease, border-color 240ms ease;
+  transition:
+    transform 240ms ease,
+    box-shadow 240ms ease,
+    border-color 240ms ease;
 }
 
 .feature-card::before {
@@ -658,8 +677,7 @@ textarea {
   background:
     linear-gradient(135deg, rgba(15, 15, 15, 0.16), rgba(200, 169, 107, 0.08)),
     repeating-linear-gradient(45deg, rgba(200, 169, 107, 0.08) 0 1px, transparent 1px 30px),
-    radial-gradient(circle at 70% 40%, rgba(73, 135, 99, 0.4), transparent 12rem),
-    #13261b;
+    radial-gradient(circle at 70% 40%, rgba(73, 135, 99, 0.4), transparent 12rem), #13261b;
 }
 
 .plot {
@@ -678,10 +696,27 @@ textarea {
   text-transform: uppercase;
 }
 
-.plot-a { inset: 12% auto auto 8%; width: 30%; height: 36%; }
-.plot-b { inset: 18% 10% auto auto; width: 42%; height: 28%; }
-.plot-c { inset: auto auto 13% 18%; width: 26%; height: 24%; border-radius: 9999px; }
-.plot-d { inset: auto 8% 10% auto; width: 38%; height: 34%; }
+.plot-a {
+  inset: 12% auto auto 8%;
+  width: 30%;
+  height: 36%;
+}
+.plot-b {
+  inset: 18% 10% auto auto;
+  width: 42%;
+  height: 28%;
+}
+.plot-c {
+  inset: auto auto 13% 18%;
+  width: 26%;
+  height: 24%;
+  border-radius: 9999px;
+}
+.plot-d {
+  inset: auto 8% 10% auto;
+  width: 38%;
+  height: 34%;
+}
 
 .farming-dark,
 .invest {
@@ -874,8 +909,7 @@ textarea {
 
 .gallery {
   background:
-    radial-gradient(circle at 80% 8%, rgba(200, 169, 107, 0.14), transparent 26rem),
-    #f8f4ec;
+    radial-gradient(circle at 80% 8%, rgba(200, 169, 107, 0.14), transparent 26rem), #f8f4ec;
 }
 
 .masonry-grid {
@@ -941,7 +975,9 @@ textarea {
   color: #16291e;
   background: rgba(250, 250, 248, 0.88);
   outline: none;
-  transition: border-color 180ms ease, box-shadow 180ms ease;
+  transition:
+    border-color 180ms ease,
+    box-shadow 180ms ease;
 }
 
 .contact-form input:focus,
@@ -979,13 +1015,21 @@ textarea {
 }
 
 @keyframes slow-zoom {
-  0% { transform: scale(1.04); }
-  100% { transform: scale(1.13); }
+  0% {
+    transform: scale(1.04);
+  }
+  100% {
+    transform: scale(1.13);
+  }
 }
 
 @keyframes marquee {
-  from { transform: translateX(0); }
-  to { transform: translateX(-50%); }
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
 }
 
 @media (min-width: 760px) {
@@ -1116,6 +1160,22 @@ textarea {
 
   .masonry-item.wide {
     grid-column: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .three-bg,
+  .cursor-light {
+    display: none;
+  }
+
+  .hero-image {
+    animation: none;
+    transform: scale(1.02);
+  }
+
+  .lux-root::before {
+    display: none;
   }
 }
 
