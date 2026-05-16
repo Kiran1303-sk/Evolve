@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const slides = [
   {
-    src: '/new-farm.webp',
+    src: '/optimized/new-farm.webp',
     alt: 'Planned farm-style plots with green landscape',
     kicker: 'PHASE 1 | 12 ACRES',
     title: 'Farm-Style Plots Crafted for Living.',
@@ -41,6 +41,7 @@ export default function HeroSlideshow() {
             fill
             priority={i === 0}
             sizes="100vw"
+            quality={72}
             className={`hero-slide ${i === index ? 'is-active' : ''}`}
           />
         ))}

@@ -28,10 +28,11 @@ export default function Navbar() {
         >
           <span className="sr-only">EVOLVE by DSQUARE logo</span>
           <Image
-            src="/new-logo.png"
+            src="/optimized/new-logo.webp"
             alt=""
             fill
             sizes="(max-width: 640px) 12.75rem, (max-width: 768px) 18rem, 20rem"
+            quality={80}
             className="object-contain object-left"
           />
         </Link>

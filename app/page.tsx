@@ -73,8 +73,8 @@ const features = [
 
 const landSlides = [
   { src: '/images/hero-farm.webp', label: 'Drone Estate View', zone: 'Farmhouse Zones' },
-  { src: '/new-farm.webp', label: 'Green Parcel Grid', zone: 'Investment Plots' },
-  { src: '/new-farm2.webp', label: 'Living Landscape', zone: 'Plantation Belt' },
+  { src: '/optimized/new-farm.webp', label: 'Green Parcel Grid', zone: 'Investment Plots' },
+  { src: '/optimized/new-farm2.webp', label: 'Living Landscape', zone: 'Plantation Belt' },
   { src: '/images/section3.webp', label: 'Water & Pathways', zone: 'Nature Corridors' },
   { src: '/Mango-farm.webp', label: 'Fruit Plantation', zone: 'Yield Gardens' },
 ];
@@ -155,11 +155,11 @@ const testimonials = [
 
 const gallery = [
   '/images/hero-farm.webp',
-  '/new-farm.webp',
-  '/new-farm2.webp',
+  '/optimized/new-farm.webp',
+  '/optimized/new-farm2.webp',
   '/new-farm3.webp',
   '/new-forming4.webp',
-  '/papamango-farm.webp',
+  '/optimized/papamango-farm.webp',
   '/images/section4.webp',
   '/images/section5.webp',
   '/images/section6.webp',
@@ -483,6 +483,7 @@ export default function HomePage() {
             priority
             className="hero-image"
             sizes="100vw"
+            quality={72}
           />
           <div className="hero-vignette" />
           <div className="cursor-light" aria-hidden="true" />
@@ -591,10 +592,11 @@ export default function HomePage() {
             >
               <figure className="image-frame parallax-media">
                 <Image
-                  src="/new-farm2.webp"
+                  src="/optimized/new-farm2.webp"
                   alt="Open farmland with premium countryside texture"
                   fill
                   sizes="(max-width: 1024px) 100vw, 45vw"
+                  quality={70}
                   className="object-cover"
                 />
               </figure>
@@ -650,6 +652,7 @@ export default function HomePage() {
                     alt={slide.label}
                     fill
                     sizes="(max-width: 768px) 82vw, 42vw"
+                    quality={68}
                     className="object-cover"
                   />
                   <figcaption>
@@ -723,6 +726,7 @@ export default function HomePage() {
                     alt={item.label}
                     fill
                     sizes="(max-width: 1024px) 100vw, 40vw"
+                    quality={70}
                     className="object-cover"
                   />
                   <figcaption>{item.label}</figcaption>
@@ -802,7 +806,8 @@ export default function HomePage() {
                     src={src}
                     alt="Luxury farmland gallery view"
                     fill
-                    sizes="(max-width: 1024px) 100vw, 33vw"
+                    sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                    quality={68}
                     className="object-cover"
                   />
                 </motion.figure>
