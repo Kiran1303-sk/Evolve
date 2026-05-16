@@ -808,7 +808,7 @@ export default function HomePage() {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     quality={68}
-                    className="object-contain"
+                    className="object-cover"
                   />
                 </motion.figure>
               ))}

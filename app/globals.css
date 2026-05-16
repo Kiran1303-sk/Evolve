@@ -924,7 +924,7 @@ textarea {
 .masonry-item {
   position: relative;
   min-height: auto;
-  aspect-ratio: 16 / 10;
+  aspect-ratio: 16 / 9;
   overflow: hidden;
   border-radius: 8px;
   background: #ede4d2;
