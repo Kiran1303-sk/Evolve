@@ -362,26 +362,6 @@ export default function HomePage() {
         },
       });
 
-      const isMobileSlider = window.matchMedia('(max-width: 900px)').matches;
-
-      if (!isMobileSlider) {
-        const viewport = document.querySelector<HTMLElement>('.horizontal-viewport');
-        const track = document.querySelector<HTMLElement>('.horizontal-track');
-        const distance =
-          viewport && track ? Math.max(viewport.scrollWidth - window.innerWidth, 0) : 0;
-
-        gsap.to('.horizontal-track', {
-          x: -distance,
-          ease: 'none',
-          scrollTrigger: {
-            trigger: '.land-exp',
-            start: 'top top',
-            end: () => `+=${Math.max(distance + window.innerHeight * 0.75, 1200)}`,
-            scrub: 1,
-          },
-        });
-      }
-
       const navOffset = window.matchMedia('(max-width: 640px)').matches ? -76 : -92;
       const handleAnchorClick = (event: MouseEvent) => {
         const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
@@ -660,32 +640,24 @@ export default function HomePage() {
               water-led landscapes.
             </p>
           </div>
-          <div className="horizontal-viewport mobile-slider">
+          <div className="horizontal-viewport">
             <div className="horizontal-track">
-              {landSlides.map((slide, index) => (
-                <figure key={slide.src} className="land-slide">
+              {[...landSlides, ...landSlides].map((slide, index) => (
+                <figure key={`${slide.src}-${index}`} className="land-slide">
                   <Image
                     src={slide.src}
                     alt={slide.label}
                     fill
-                    sizes="80vw"
+                    sizes="(max-width: 768px) 82vw, 42vw"
                     className="object-cover"
                   />
                   <figcaption>
-                    <span>0{index + 1}</span>
+                    <span>0{(index % landSlides.length) + 1}</span>
                     <strong>{slide.label}</strong>
                     <em>{slide.zone}</em>
                   </figcaption>
                 </figure>
               ))}
-            </div>
-          </div>
-          <div className="estate-map section-wrap" data-reveal>
-            <div className="map-field">
-              <span className="plot plot-a">Farmhouse</span>
-              <span className="plot plot-b">Plantation</span>
-              <span className="plot plot-c">Water</span>
-              <span className="plot plot-d">Investment</span>
             </div>
           </div>
         </section>
