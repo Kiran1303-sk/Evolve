@@ -800,7 +800,7 @@ export default function HomePage() {
                   whileInView={{ opacity: 1, y: 0, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ duration: 0.7 }}
-                  className={`masonry-item ${index % 5 === 0 ? 'wide' : ''} ${index % 4 === 0 ? 'tall' : ''}`}
+                  className="masonry-item"
                 >
                   <Image
                     src={src}
@@ -808,7 +808,7 @@ export default function HomePage() {
                     fill
                     sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     quality={68}
-                    className="object-cover"
+                    className="object-contain"
                   />
                 </motion.figure>
               ))}
