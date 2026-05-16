@@ -28,7 +28,7 @@ export default function Navbar() {
         >
           <span className="sr-only">EVOLVE by DSQUARE logo</span>
           <Image
-            src="/evolve-logo.png"
+            src="/new-logo.png"
             alt=""
             fill
             sizes="(max-width: 768px) 16rem, 20rem"
