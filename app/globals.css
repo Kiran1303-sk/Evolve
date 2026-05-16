@@ -426,6 +426,10 @@ textarea {
   min-height: 430px;
 }
 
+.split-layout > .vision-stack {
+  padding-top: 0.7rem;
+}
+
 .image-frame {
   position: relative;
   min-height: 360px;
@@ -1068,6 +1072,10 @@ textarea {
     align-items: flex-start;
   }
 
+  .split-layout > .vision-stack {
+    padding-top: 1.8rem;
+  }
+
   .feature-grid {
     grid-template-columns: repeat(4, minmax(0, 1fr));
   }
@@ -1107,6 +1115,10 @@ textarea {
 
   .section-title {
     max-width: 22ch;
+  }
+
+  .split-layout > .vision-stack {
+    padding-top: 0;
   }
 
   .land-slide {
