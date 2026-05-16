@@ -55,7 +55,7 @@ textarea {
   min-width: 0;
   max-width: calc(100vw - 5.5rem);
   min-height: 0;
-  transform: translateX(-0.35rem);
+  transform: translateX(-0.15rem);
 }
 
 .field-nav-link {

@@ -20,10 +20,10 @@ export default function Navbar() {
 
   return (
     <header className="fixed inset-x-0 top-0 z-50 border-b border-[#C8A96B]/25 bg-[#0F0F0F] backdrop-blur-2xl shadow-[0_18px_44px_rgba(0,0,0,0.22)]">
-      <nav className="section-wrap flex h-20 items-center justify-between sm:h-[6.25rem] md:h-28">
+      <nav className="section-wrap flex h-20 items-center justify-between sm:h-24 md:h-[5.75rem]">
         <Link
           href="#home"
-          className="logo-image-wrap relative h-16 w-[12.75rem] sm:h-24 sm:w-80 md:h-28 md:w-[28rem]"
+          className="logo-image-wrap relative h-16 w-[12.75rem] sm:h-20 sm:w-72 md:h-20 md:w-[20rem]"
           onClick={() => setOpen(false)}
         >
           <span className="sr-only">EVOLVE by DSQUARE logo</span>
@@ -31,7 +31,7 @@ export default function Navbar() {
             src="/new-logo.png"
             alt=""
             fill
-            sizes="(max-width: 640px) 12.75rem, (max-width: 768px) 20rem, 28rem"
+            sizes="(max-width: 640px) 12.75rem, (max-width: 768px) 18rem, 20rem"
             className="object-contain object-left"
           />
         </Link>
