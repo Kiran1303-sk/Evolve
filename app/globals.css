@@ -627,8 +627,8 @@ textarea {
 
 .land-slide {
   position: relative;
-  width: clamp(18rem, 34vw, 28rem);
-  height: clamp(24rem, 42vw, 34rem);
+  width: clamp(16rem, 28vw, 23rem);
+  height: clamp(23rem, 38vw, 31rem);
   flex: 0 0 auto;
   overflow: hidden;
   border: 1px solid rgba(232, 216, 174, 0.22);
