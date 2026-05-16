@@ -362,7 +362,6 @@ export default function HomePage() {
         },
       });
 
-      const navOffset = window.matchMedia('(max-width: 640px)').matches ? -76 : -92;
       const handleAnchorClick = (event: MouseEvent) => {
         const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
         if (!link) return;
@@ -374,7 +373,11 @@ export default function HomePage() {
         if (!target) return;
 
         event.preventDefault();
-        lenis.scrollTo(target, { offset: navOffset, duration: 1.05 });
+        const headerHeight = document.querySelector('header')?.getBoundingClientRect().height ?? 0;
+        const targetPaddingTop = Number.parseFloat(window.getComputedStyle(target).paddingTop) || 0;
+        const offset = targetPaddingTop - headerHeight - 12;
+
+        lenis.scrollTo(target, { offset, duration: 1.05 });
         window.history.pushState(null, '', hash);
       };
 

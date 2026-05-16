@@ -22,7 +22,7 @@ body {
   padding: 0;
   overflow-x: hidden;
   scroll-behavior: auto;
-  scroll-padding-top: 7rem;
+  scroll-padding-top: 5.5rem;
 }
 
 body {
@@ -211,7 +211,7 @@ textarea {
 .lux-section {
   position: relative;
   padding: clamp(2.5rem, 5vw, 4.8rem) 0;
-  scroll-margin-top: 7rem;
+  scroll-margin-top: 5.5rem;
 }
 
 .hero {
@@ -1113,11 +1113,11 @@ textarea {
 @media (max-width: 640px) {
   html,
   body {
-    scroll-padding-top: 4rem;
+    scroll-padding-top: 4.75rem;
   }
 
   .lux-section {
-    scroll-margin-top: 4rem;
+    scroll-margin-top: 4.75rem;
   }
 
   .logo-image-wrap {
