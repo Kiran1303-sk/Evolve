@@ -4,6 +4,8 @@
 
 :root {
   color-scheme: light;
+  --font-cormorant: 'Cormorant Garamond';
+  --font-manrope: 'Manrope';
   --forest: #0b2e1f;
   --gold: #c8a96b;
   --beige: #f5f1e8;
