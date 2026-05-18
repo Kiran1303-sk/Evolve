@@ -31,6 +31,7 @@ export default function Navbar() {
             src="/optimized/new-logo.webp"
             alt=""
             fill
+            priority
             sizes="(max-width: 640px) 10rem, 14rem"
             quality={80}
             className="object-contain object-left"

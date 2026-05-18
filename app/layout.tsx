@@ -1,20 +1,7 @@
 import type { Metadata } from 'next';
-import { Cormorant_Garamond, Manrope } from 'next/font/google';
 import type { ReactNode } from 'react';
 import ScrollToTop from '@/components/ScrollToTop';
 import './globals.css';
-
-const cormorant = Cormorant_Garamond({
-  subsets: ['latin'],
-  weight: ['600'],
-  variable: '--font-cormorant'
-});
-
-const manrope = Manrope({
-  subsets: ['latin'],
-  weight: ['400', '700'],
-  variable: '--font-manrope'
-});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://evolveplots.com'),
@@ -38,7 +25,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: ReactNode }) {
   return (
-    <html lang="en" className={`${cormorant.variable} ${manrope.variable}`}>
+    <html lang="en">
       <body>
         {children}
         <ScrollToTop />

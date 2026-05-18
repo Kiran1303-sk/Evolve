@@ -26,7 +26,7 @@ body {
 }
 
 body {
-  font-family: var(--font-manrope), sans-serif;
+  font-family: var(--font-manrope, Arial, Helvetica), sans-serif;
   color: #172118;
   background: var(--black);
 }
@@ -312,7 +312,7 @@ textarea {
 .hero-title {
   max-width: 24ch;
   margin-top: 1rem;
-  font-family: var(--font-cormorant), serif;
+  font-family: var(--font-cormorant, Georgia), serif;
   font-size: clamp(2.35rem, 4vw, 4rem);
   font-weight: 600;
   letter-spacing: 0;
@@ -370,7 +370,7 @@ textarea {
 
 .glass-card span {
   display: block;
-  font-family: var(--font-cormorant), serif;
+  font-family: var(--font-cormorant, Georgia), serif;
   font-size: clamp(2rem, 4vw, 3rem);
   font-weight: 600;
   line-height: 0.92;
@@ -419,7 +419,7 @@ textarea {
   max-width: 28ch;
   margin-top: 0.55rem;
   color: var(--forest);
-  font-family: var(--font-cormorant), serif;
+  font-family: var(--font-cormorant, Georgia), serif;
   font-size: clamp(2.35rem, 4vw, 4rem);
   font-weight: 600;
   letter-spacing: 0;
@@ -577,7 +577,7 @@ textarea {
   z-index: 1;
   margin-top: 1rem;
   color: var(--forest);
-  font-family: var(--font-cormorant), serif;
+  font-family: var(--font-cormorant, Georgia), serif;
   font-size: 1.52rem;
   font-weight: 600;
   line-height: 1;
@@ -747,7 +747,7 @@ textarea {
 }
 
 .land-slide figcaption strong {
-  font-family: var(--font-cormorant), serif;
+  font-family: var(--font-cormorant, Georgia), serif;
   font-size: clamp(1.8rem, 3.4vw, 2.7rem);
   font-weight: 600;
   line-height: 0.95;
@@ -832,7 +832,7 @@ textarea {
   z-index: 2;
   max-width: calc(100% - 2rem);
   color: var(--white);
-  font-family: var(--font-cormorant), serif;
+  font-family: var(--font-cormorant, Georgia), serif;
   font-size: 1.8rem;
   font-weight: 600;
   line-height: 1;
@@ -865,7 +865,7 @@ textarea {
   display: block;
   margin-top: 1rem;
   color: var(--white);
-  font-family: var(--font-cormorant), serif;
+  font-family: var(--font-cormorant, Georgia), serif;
   font-size: clamp(2.2rem, 5vw, 4rem);
   font-weight: 600;
   line-height: 0.9;
@@ -1278,6 +1278,10 @@ textarea {
 }
 
 @media (max-width: 768px) {
+  .scroll-progress-track {
+    display: none;
+  }
+
   .three-bg,
   .cursor-light {
     display: none;
@@ -1285,11 +1289,47 @@ textarea {
 
   .hero-image {
     animation: none;
-    transform: scale(1.02);
+    transform: none !important;
+  }
+
+  .hero-reveal {
+    animation: none;
+  }
+
+  [data-reveal],
+  [data-reveal].is-visible {
+    opacity: 1;
+    transform: none;
+    filter: none;
+    transition: none;
   }
 
   .lux-root::before {
     display: none;
+  }
+
+  .hero-vignette {
+    background:
+      linear-gradient(90deg, rgba(8, 11, 8, 0.86), rgba(11, 46, 31, 0.7)),
+      linear-gradient(180deg, rgba(15, 15, 15, 0.18), rgba(15, 15, 15, 0.84));
+  }
+
+  .glass-card,
+  .field-cta-secondary,
+  .hero-controls button,
+  .feature-card,
+  .plant-card,
+  .invest-grid article,
+  .land-slide figcaption,
+  .contact-form {
+    backdrop-filter: none;
+  }
+
+  .glass-card,
+  .feature-card,
+  .testimonial-card,
+  .image-frame {
+    box-shadow: 0 14px 32px rgba(11, 46, 31, 0.14);
   }
 }
 

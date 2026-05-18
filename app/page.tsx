@@ -1,70 +1,102 @@
-﻿'use client';
-
-import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
-import {
-  ArrowUpRight,
-  BadgeIndianRupee,
-  CalendarCheck,
-  ChartNoAxesCombined,
-  Check,
-  ChevronRight,
-  Droplets,
-  Gem,
-  Leaf,
-  MapPinned,
-  Moon,
-  Palmtree,
-  Phone,
-  Play,
-  ShieldCheck,
-  Sprout,
-  Sun,
-  Trees,
-  Volume2,
-  VolumeX,
-  Wheat,
-} from 'lucide-react';
+import type { ReactNode } from 'react';
+import ClientEnhancements from '@/components/ClientEnhancements';
+import HeroControls from '@/components/HeroControls';
 import Navbar from '@/components/Navbar';
+
+type IconName =
+  | 'arrow'
+  | 'badge'
+  | 'calendar'
+  | 'chart'
+  | 'check'
+  | 'chevron'
+  | 'droplets'
+  | 'gem'
+  | 'leaf'
+  | 'map'
+  | 'palm'
+  | 'phone'
+  | 'play'
+  | 'shield'
+  | 'sprout'
+  | 'trees'
+  | 'wheat';
+
+function SimpleIcon({ name, size = 20, fill = false }: { name: IconName; size?: number; fill?: boolean }) {
+  const common = {
+    width: size,
+    height: size,
+    viewBox: '0 0 24 24',
+    fill: fill ? 'currentColor' : 'none',
+    stroke: 'currentColor',
+    strokeWidth: 2,
+    strokeLinecap: 'round' as const,
+    strokeLinejoin: 'round' as const,
+    'aria-hidden': true,
+  };
+
+  const paths: Record<IconName, ReactNode> = {
+    arrow: <path d="M7 17 17 7M9 7h8v8" />,
+    badge: <path d="M12 3v18M8 7h5a3 3 0 0 1 0 6H8h6a3 3 0 0 1 0 6H8" />,
+    calendar: <path d="M8 2v4M16 2v4M4 9h16M6 4h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H6a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2Zm3 10 2 2 4-5" />,
+    chart: <path d="M4 19V5M4 19h16M8 16v-5M12 16V8M16 16v-3M20 16V6" />,
+    check: <path d="m5 12 4 4L19 6" />,
+    chevron: <path d="m9 18 6-6-6-6" />,
+    droplets: <path d="M7 16a4 4 0 0 0 8 0c0-2.5-4-7-4-7s-4 4.5-4 7Zm8-7a3 3 0 0 0 6 0c0-1.9-3-5-3-5s-3 3.1-3 5Z" />,
+    gem: <path d="M6 3h12l4 6-10 12L2 9l4-6Zm-4 6h20M8 3l4 18 4-18" />,
+    leaf: <path d="M5 21c8-2 14-8 16-18C11 4 4 9 3 17c0 2 1 3 2 4Zm0 0c2-5 5-8 10-10" />,
+    map: <path d="M12 21s7-5.3 7-12A7 7 0 0 0 5 9c0 6.7 7 12 7 12Zm0-9a3 3 0 1 0 0-6 3 3 0 0 0 0 6Z" />,
+    palm: <path d="M12 22V10M5 8c3-4 7-4 10 0M19 8c-4-3-8-2-11 2M12 10c1-5 4-7 8-6M12 10C10 5 7 3 3 4" />,
+    phone: <path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.8a2 2 0 0 1-.4 2.1L8.1 9.9a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.4c.9.3 1.8.6 2.8.7a2 2 0 0 1 1.7 2Z" />,
+    play: <path d="m8 5 11 7-11 7V5Z" />,
+    shield: <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10Zm-3-10 2 2 4-5" />,
+    sprout: <path d="M12 22V12M12 12c0-5 4-8 9-8 0 5-3 8-9 8ZM12 14C7 14 4 11 4 6c5 0 8 3 8 8Z" />,
+    trees: <path d="M10 21v-6H6l4-5H7l5-7 5 7h-3l4 5h-4v6M4 21h16" />,
+    wheat: <path d="M12 22V2M8 6l4 4 4-4M8 11l4 4 4-4M8 16l4 4 4-4" />,
+  };
+
+  return <svg {...common}>{paths[name]}</svg>;
+}
 
 const features = [
   {
-    icon: Leaf,
+    icon: 'leaf',
     title: 'Ready Farm Plots',
     text: 'Clear, curated land parcels planned for immediate planting, private access, and future farmhouse development.',
   },
   {
-    icon: Gem,
+    icon: 'gem',
     title: 'Luxury Farmhouses',
     text: 'Architecture-ready concepts with verandas, courtyards, pools, outdoor kitchens, and nature-first materials.',
   },
   {
-    icon: Trees,
+    icon: 'trees',
     title: 'Premium Plantations',
     text: 'Mango, teak, sandalwood, coconut, guava, and medicinal plantation pathways for long-horizon value.',
   },
   {
-    icon: Droplets,
+    icon: 'droplets',
     title: 'Water Infrastructure',
     text: 'Irrigation planning, water bodies, bore support, and practical farm maintenance systems.',
   },
   {
-    icon: ShieldCheck,
+    icon: 'shield',
     title: 'Gated Security',
     text: 'Controlled entries, estate roads, boundary clarity, and managed ownership support.',
   },
   {
-    icon: Wheat,
+    icon: 'wheat',
     title: 'Organic Farming',
     text: 'Seasonal cultivation guidance for families who want real produce and a slower weekend rhythm.',
   },
   {
-    icon: CalendarCheck,
+    icon: 'calendar',
     title: 'Weekend Retreats',
     text: 'Designed for family stays, private gatherings, bonfire evenings, and calm countryside recovery.',
   },
   {
-    icon: ChartNoAxesCombined,
+    icon: 'chart',
     title: 'Long-Term Growth',
     text: 'Land appreciation, plantation yield potential, and future-development adjacency in one estate story.',
   },
@@ -79,25 +111,25 @@ const landSlides = [
 ];
 
 const plantationOptions = [
-  { icon: Palmtree, name: 'Mango', metric: 'Heritage orchards with seasonal income stories' },
-  { icon: Trees, name: 'Teak', metric: 'Long horizon timber value and estate character' },
+  { icon: 'palm', name: 'Mango', metric: 'Heritage orchards with seasonal income stories' },
+  { icon: 'trees', name: 'Teak', metric: 'Long horizon timber value and estate character' },
   {
-    icon: Palmtree,
+    icon: 'palm',
     name: 'Coconut',
     metric: 'Resilient plantation planning with lifestyle appeal',
   },
   {
-    icon: Sprout,
+    icon: 'sprout',
     name: 'Sandalwood',
     metric: 'Premium aromatic asset class for patient investors',
   },
   {
-    icon: Wheat,
+    icon: 'wheat',
     name: 'Organic Vegetables',
     metric: 'Family harvests and managed cultivation support',
   },
   {
-    icon: Leaf,
+    icon: 'leaf',
     name: 'Medicinal Plants',
     metric: 'Specialty crops for sustainable green portfolios',
   },
@@ -171,188 +203,17 @@ function Counter({ end, suffix = '' }: { end: number; suffix?: string }) {
 }
 
 export default function HomePage() {
-  const progressRef = useRef<HTMLDivElement | null>(null);
-  const heroRef = useRef<HTMLElement | null>(null);
-  const mainRef = useRef<HTMLElement | null>(null);
-  const audioRef = useRef<AudioContext | null>(null);
-  const oscillatorRef = useRef<OscillatorNode | null>(null);
-  const gainRef = useRef<GainNode | null>(null);
-  const [night, setNight] = useState(false);
-  const [soundOn, setSoundOn] = useState(false);
-
-  const rootClass = useMemo(() => `lux-root ${night ? 'night-mode' : ''}`, [night]);
-
-  useEffect(() => {
-    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    const revealObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          entry.target.classList.add('is-visible');
-          revealObserver.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.16, rootMargin: '0px 0px -8% 0px' }
-    );
-
-    const animateCounter = (counter: HTMLElement) => {
-      const end = Number(counter.dataset.counter || 0);
-      const suffix = counter.dataset.suffix || '';
-      const startTime = performance.now();
-      const duration = prefersReducedMotion ? 1 : 1600;
-
-      const tick = (time: number) => {
-        const progress = Math.min((time - startTime) / duration, 1);
-        const eased = 1 - Math.pow(1 - progress, 3);
-        counter.innerText = `${Math.floor(end * eased)}${suffix}`;
-
-        if (progress < 1) {
-          requestAnimationFrame(tick);
-        }
-      };
-
-      requestAnimationFrame(tick);
-    };
-
-    const counterObserver = new IntersectionObserver(
-      (entries) => {
-        entries.forEach((entry) => {
-          if (!entry.isIntersecting) return;
-          animateCounter(entry.target as HTMLElement);
-          counterObserver.unobserve(entry.target);
-        });
-      },
-      { threshold: 0.3 }
-    );
-
-    document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => revealObserver.observe(el));
-    document.querySelectorAll<HTMLElement>('[data-counter]').forEach((el) => counterObserver.observe(el));
-
-    let frame = 0;
-    const handleScrollFrame = () => {
-      frame = 0;
-      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-      const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-      progressRef.current?.style.setProperty('transform', `scaleX(${progress})`);
-
-      const hero = heroRef.current;
-      const heroImage = hero?.querySelector<HTMLElement>('.hero-image');
-      if (hero && heroImage) {
-        const heroProgress = Math.min(Math.max(window.scrollY / hero.offsetHeight, 0), 1);
-        heroImage.style.transform = `scale(${1.05 + heroProgress * 0.11})`;
-      }
-
-      document.querySelectorAll<HTMLElement>('.parallax-media').forEach((media) => {
-        const rect = media.getBoundingClientRect();
-        const localProgress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
-        const clamped = Math.min(Math.max(localProgress, 0), 1);
-        media.style.transform = `translate3d(0, ${clamped * -10}%, 0)`;
-      });
-    };
-
-    const onScroll = () => {
-      if (!frame) frame = requestAnimationFrame(handleScrollFrame);
-    };
-
-    const handleAnchorClick = (event: MouseEvent) => {
-      const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
-      if (!link) return;
-
-      const hash = link.getAttribute('href');
-      if (!hash || hash === '#') return;
-
-      const target = document.querySelector<HTMLElement>(hash);
-      if (!target) return;
-
-      event.preventDefault();
-      const headerHeight = document.querySelector('header nav')?.getBoundingClientRect().height ?? 0;
-      const scrollTarget =
-        hash === '#home'
-          ? target
-          : (target.querySelector<HTMLElement>(':scope > .section-wrap') ?? target);
-      const top =
-        scrollTarget.getBoundingClientRect().top +
-        window.scrollY +
-        (hash === '#home' ? 0 : -headerHeight - 18);
-
-      window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
-      window.history.pushState(null, '', hash);
-    };
-
-    document.addEventListener('click', handleAnchorClick);
-    window.addEventListener('scroll', onScroll, { passive: true });
-    window.addEventListener('resize', onScroll);
-    handleScrollFrame();
-
-    return () => {
-      cancelAnimationFrame(frame);
-      document.removeEventListener('click', handleAnchorClick);
-      window.removeEventListener('scroll', onScroll);
-      window.removeEventListener('resize', onScroll);
-      revealObserver.disconnect();
-      counterObserver.disconnect();
-    };
-  }, []);
-
-  useEffect(() => {
-    const main = mainRef.current;
-    if (!main || window.matchMedia('(max-width: 768px), (prefers-reduced-motion: reduce)').matches)
-      return;
-
-    let frame = 0;
-    const onMove = (event: PointerEvent) => {
-      cancelAnimationFrame(frame);
-      frame = requestAnimationFrame(() => {
-        main.style.setProperty('--cursor-x', `${(event.clientX / window.innerWidth) * 100}%`);
-        main.style.setProperty('--cursor-y', `${(event.clientY / window.innerHeight) * 100}%`);
-      });
-    };
-    window.addEventListener('pointermove', onMove);
-    return () => {
-      cancelAnimationFrame(frame);
-      window.removeEventListener('pointermove', onMove);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (!soundOn) {
-      gainRef.current?.gain.exponentialRampToValueAtTime(
-        0.0001,
-        (audioRef.current?.currentTime || 0) + 0.25
-      );
-      oscillatorRef.current?.stop((audioRef.current?.currentTime || 0) + 0.3);
-      oscillatorRef.current = null;
-      return;
-    }
-
-    const context = audioRef.current || new AudioContext();
-    audioRef.current = context;
-    const oscillator = context.createOscillator();
-    const gain = context.createGain();
-    oscillator.type = 'sine';
-    oscillator.frequency.value = 96;
-    gain.gain.value = 0.0001;
-    oscillator.connect(gain);
-    gain.connect(context.destination);
-    oscillator.start();
-    gain.gain.exponentialRampToValueAtTime(0.018, context.currentTime + 0.5);
-    oscillatorRef.current = oscillator;
-    gainRef.current = gain;
-  }, [soundOn]);
-
   return (
     <>
       <Navbar />
       <div className="scroll-progress-track" aria-hidden="true">
-        <div ref={progressRef} className="scroll-progress-bar" />
+        <div className="scroll-progress-bar" />
       </div>
-      <main
-        ref={mainRef}
-        className={rootClass}
-      >
+      <main className="lux-root">
+        <ClientEnhancements />
         <div className="three-bg" aria-hidden="true" />
 
-        <section id="home" ref={heroRef} className="lux-section hero">
+        <section id="home" className="lux-section hero">
           <Image
             src="/images/hero-farm.webp"
             alt="Premium green farmland estate from above"
@@ -377,10 +238,10 @@ export default function HomePage() {
             </p>
             <div className="hero-reveal hero-actions">
               <a href="#land-experience" className="field-cta-primary">
-                Explore Lands <ChevronRight size={15} />
+                Explore Lands <SimpleIcon name="chevron" size={15} />
               </a>
               <a href="#contact" className="field-cta-secondary">
-                Book Site Visit <CalendarCheck size={15} />
+                Book Site Visit <SimpleIcon name="calendar" size={15} />
               </a>
             </div>
             <div className="hero-reveal hero-stats" aria-label="Estate highlights">
@@ -402,22 +263,7 @@ export default function HomePage() {
               </article>
             </div>
           </div>
-          <div className="hero-controls" aria-label="Experience controls">
-            <button
-              type="button"
-              onClick={() => setSoundOn((value) => !value)}
-              aria-label="Toggle ambient sound"
-            >
-              {soundOn ? <Volume2 size={17} /> : <VolumeX size={17} />}
-            </button>
-            <button
-              type="button"
-              onClick={() => setNight((value) => !value)}
-              aria-label="Toggle day night view"
-            >
-              {night ? <Sun size={17} /> : <Moon size={17} />}
-            </button>
-          </div>
+          <HeroControls />
         </section>
 
         <section id="vision" className="lux-section vision">
@@ -438,7 +284,7 @@ export default function HomePage() {
                   'Peaceful lifestyle',
                 ].map((item) => (
                   <span key={item}>
-                    <Check size={14} />
+                    <SimpleIcon name="check" size={14} />
                     {item}
                   </span>
                 ))}
@@ -468,14 +314,14 @@ export default function HomePage() {
             <p className="kicker text-[#C8A96B]">PREMIUM FEATURES</p>
             <h2 className="section-title">The estate system behind effortless ownership.</h2>
             <div className="feature-grid">
-              {features.map(({ icon: Icon, title, text }) => (
+              {features.map(({ icon, title, text }) => (
                 <article
                   key={title}
                   data-reveal
                   className="feature-card"
                 >
                   <span className="icon-shell">
-                    <Icon size={21} />
+                    <SimpleIcon name={icon as IconName} size={21} />
                   </span>
                   <h3>{title}</h3>
                   <p>{text}</p>
@@ -530,13 +376,13 @@ export default function HomePage() {
               </p>
             </div>
             <div className="plantation-grid">
-              {plantationOptions.map(({ icon: Icon, name, metric }) => (
+              {plantationOptions.map(({ icon, name, metric }) => (
                 <article
                   key={name}
                   data-reveal
                   className="plant-card"
                 >
-                  <Icon size={20} />
+                  <SimpleIcon name={icon as IconName} size={20} />
                   <h3>{name}</h3>
                   <p>{metric}</p>
                 </article>
@@ -583,17 +429,17 @@ export default function HomePage() {
             <h2 className="section-title">Land appreciation with a living income story.</h2>
             <div className="invest-grid">
               <article>
-                <BadgeIndianRupee size={22} />
+                <SimpleIcon name="badge" size={22} />
                 <Counter end={24} suffix="%" />
                 <p>Projected 5-year appreciation trend</p>
               </article>
               <article>
-                <ChartNoAxesCombined size={22} />
+                <SimpleIcon name="chart" size={22} />
                 <Counter end={3} />
                 <p>Income channels: plantation, lease, stays</p>
               </article>
               <article>
-                <ShieldCheck size={22} />
+                <SimpleIcon name="shield" size={22} />
                 <Counter end={100} suffix="%" />
                 <p>Ownership transparency focus</p>
               </article>
@@ -619,7 +465,7 @@ export default function HomePage() {
             {[...testimonials, ...testimonials].map((item, index) => (
               <article key={`${item.name}-${index}`} className="testimonial-card">
                 <div className="video-dot">
-                  <Play size={13} fill="currentColor" />
+                  <SimpleIcon name="play" size={13} fill />
                 </div>
                 <p>“{item.quote}”</p>
                 <h3>{item.name}</h3>
@@ -665,21 +511,20 @@ export default function HomePage() {
               </p>
               <div className="contact-points">
                 <a href="https://wa.me/919999999999" className="field-cta-primary">
-                  WhatsApp Now <Phone size={15} />
+                  WhatsApp Now <SimpleIcon name="phone" size={15} />
                 </a>
                 <a href="tel:+919999999999" className="field-cta-secondary dark">
-                  Call Advisor <ArrowUpRight size={15} />
+                  Call Advisor <SimpleIcon name="arrow" size={15} />
                 </a>
               </div>
               <div className="map-card">
-                <MapPinned size={20} />
+                <SimpleIcon name="map" size={20} />
                 <span>Future City Growth Corridor, Hyderabad Region</span>
               </div>
             </div>
             <form
               data-reveal
               className="contact-form"
-              onSubmit={(event) => event.preventDefault()}
             >
               <input type="text" placeholder="Full Name" aria-label="Full Name" />
               <input type="tel" placeholder="Phone Number" aria-label="Phone Number" />
@@ -695,7 +540,7 @@ export default function HomePage() {
               </select>
               <textarea rows={4} placeholder="Message" aria-label="Message" />
               <button type="submit" className="field-cta-primary">
-                Request Consultation <ArrowUpRight size={15} />
+                Request Consultation <SimpleIcon name="arrow" size={15} />
               </button>
             </form>
           </div>
