@@ -2,7 +2,6 @@
 
 import { useEffect, useMemo, useRef, useState } from 'react';
 import Image from 'next/image';
-import { motion } from 'framer-motion';
 import {
   ArrowUpRight,
   BadgeIndianRupee,
@@ -162,97 +161,6 @@ const gallery = [
   '/images/section6.webp',
 ];
 
-const fadeUp = {
-  hidden: { opacity: 0, y: 38, filter: 'blur(10px)' },
-  show: { opacity: 1, y: 0, filter: 'blur(0px)', transition: { duration: 0.85 } },
-};
-
-function ThreeBackdrop({ night }: { night: boolean }) {
-  const canvasRef = useRef<HTMLCanvasElement | null>(null);
-
-  useEffect(() => {
-    if (!canvasRef.current) return;
-
-    let cancelled = false;
-    let cleanup = () => {};
-
-    const setupBackdrop = async () => {
-      if (window.matchMedia('(max-width: 768px), (prefers-reduced-motion: reduce)').matches) return;
-
-      const THREE = await import('three');
-      if (cancelled || !canvasRef.current) return;
-
-      const canvas = canvasRef.current;
-      const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
-      renderer.setPixelRatio(Math.min(window.devicePixelRatio, 1.25));
-
-      const scene = new THREE.Scene();
-      const camera = new THREE.PerspectiveCamera(
-        42,
-        window.innerWidth / window.innerHeight,
-        0.1,
-        100
-      );
-      camera.position.z = 7;
-
-      const geometry = new THREE.BufferGeometry();
-      const count = 420;
-      const positions = new Float32Array(count * 3);
-
-      for (let i = 0; i < count; i += 1) {
-        positions[i * 3] = (Math.random() - 0.5) * 15;
-        positions[i * 3 + 1] = (Math.random() - 0.5) * 9;
-        positions[i * 3 + 2] = (Math.random() - 0.5) * 8;
-      }
-
-      geometry.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-      const material = new THREE.PointsMaterial({
-        color: night ? '#f1d99a' : '#c8a96b',
-        size: 0.035,
-        transparent: true,
-        opacity: night ? 0.62 : 0.42,
-      });
-      const points = new THREE.Points(geometry, material);
-      scene.add(points);
-
-      const onResize = () => {
-        renderer.setSize(window.innerWidth, window.innerHeight);
-        camera.aspect = window.innerWidth / window.innerHeight;
-        camera.updateProjectionMatrix();
-      };
-
-      onResize();
-      window.addEventListener('resize', onResize);
-
-      let frame = 0;
-      const animate = () => {
-        frame = requestAnimationFrame(animate);
-        points.rotation.y += 0.0008;
-        points.rotation.x += 0.00026;
-        renderer.render(scene, camera);
-      };
-      animate();
-
-      cleanup = () => {
-        cancelAnimationFrame(frame);
-        window.removeEventListener('resize', onResize);
-        geometry.dispose();
-        material.dispose();
-        renderer.dispose();
-      };
-    };
-
-    setupBackdrop();
-
-    return () => {
-      cancelled = true;
-      cleanup();
-    };
-  }, [night]);
-
-  return <canvas ref={canvasRef} className="three-bg" aria-hidden="true" />;
-}
-
 function Counter({ end, suffix = '' }: { end: number; suffix?: string }) {
   return (
     <span data-counter={end} data-suffix={suffix}>
@@ -271,146 +179,118 @@ export default function HomePage() {
   const gainRef = useRef<GainNode | null>(null);
   const [night, setNight] = useState(false);
   const [soundOn, setSoundOn] = useState(false);
-  const [cursor, setCursor] = useState({ x: 50, y: 50 });
 
   const rootClass = useMemo(() => `lux-root ${night ? 'night-mode' : ''}`, [night]);
 
   useEffect(() => {
-    let cleanup = () => {};
-    let cancelled = false;
-
-    const setupScrollEffects = async () => {
-      const [{ default: gsap }, { ScrollTrigger }, { default: Lenis }] = await Promise.all([
-        import('gsap'),
-        import('gsap/ScrollTrigger'),
-        import('lenis'),
-      ]);
-
-      if (cancelled) return;
-
-      gsap.registerPlugin(ScrollTrigger);
-      const lenis = new Lenis({ duration: 0.78, smoothWheel: true, touchMultiplier: 1.08 });
-      let raf = 0;
-      const loop = (time: number) => {
-        lenis.raf(time);
-        raf = requestAnimationFrame(loop);
-      };
-      raf = requestAnimationFrame(loop);
-
-      ScrollTrigger.scrollerProxy(document.body, {
-        scrollTop(value) {
-          if (arguments.length && typeof value === 'number') {
-            lenis.scrollTo(value, { immediate: true });
-          }
-          return window.scrollY;
-        },
-        getBoundingClientRect() {
-          return { top: 0, left: 0, width: window.innerWidth, height: window.innerHeight };
-        },
-      });
-
-      lenis.on('scroll', ScrollTrigger.update);
-
-      gsap.utils.toArray<HTMLElement>('[data-counter]').forEach((counter) => {
-        const end = Number(counter.dataset.counter || 0);
-        const suffix = counter.dataset.suffix || '';
-        gsap.fromTo(
-          counter,
-          { innerText: 0 },
-          {
-            innerText: end,
-            duration: 2.2,
-            snap: { innerText: 1 },
-            ease: 'power3.out',
-            scrollTrigger: { trigger: counter, start: 'top 86%' },
-            onUpdate() {
-              counter.innerText = `${Math.floor(Number(counter.innerText))}${suffix}`;
-            },
-          }
-        );
-      });
-
-      gsap.utils.toArray<HTMLElement>('[data-reveal]').forEach((el) => {
-        gsap.fromTo(
-          el,
-          { opacity: 0, y: 42, filter: 'blur(12px)' },
-          {
-            opacity: 1,
-            y: 0,
-            filter: 'blur(0px)',
-            duration: 1,
-            ease: 'power3.out',
-            scrollTrigger: { trigger: el, start: 'top 82%' },
-          }
-        );
-      });
-
-      gsap.to('.hero-image', {
-        scale: 1.16,
-        ease: 'none',
-        scrollTrigger: {
-          trigger: heroRef.current,
-          start: 'top top',
-          end: 'bottom top',
-          scrub: true,
-        },
-      });
-
-      const handleAnchorClick = (event: MouseEvent) => {
-        const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
-        if (!link) return;
-
-        const hash = link.getAttribute('href');
-        if (!hash || hash === '#') return;
-
-        const target = document.querySelector<HTMLElement>(hash);
-        if (!target) return;
-
-        event.preventDefault();
-        const headerHeight = document.querySelector('header nav')?.getBoundingClientRect().height ?? 0;
-        const scrollTarget =
-          hash === '#home'
-            ? target
-            : (target.querySelector<HTMLElement>(':scope > .section-wrap') ?? target);
-        const offset = hash === '#home' ? 0 : -headerHeight - 18;
-
-        lenis.scrollTo(scrollTarget, { offset, duration: 1.05 });
-        window.history.pushState(null, '', hash);
-      };
-
-      document.addEventListener('click', handleAnchorClick);
-
-      gsap.utils.toArray<HTMLElement>('.parallax-media').forEach((media) => {
-        gsap.to(media, {
-          yPercent: -10,
-          ease: 'none',
-          scrollTrigger: { trigger: media, start: 'top bottom', end: 'bottom top', scrub: true },
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const revealObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add('is-visible');
+          revealObserver.unobserve(entry.target);
         });
-      });
+      },
+      { threshold: 0.16, rootMargin: '0px 0px -8% 0px' }
+    );
 
-      if (progressRef.current) {
-        gsap.to(progressRef.current, {
-          scaleX: 1,
-          transformOrigin: 'left center',
-          ease: 'none',
-          scrollTrigger: { trigger: 'main', start: 'top top', end: 'bottom bottom', scrub: true },
-        });
-      }
+    const animateCounter = (counter: HTMLElement) => {
+      const end = Number(counter.dataset.counter || 0);
+      const suffix = counter.dataset.suffix || '';
+      const startTime = performance.now();
+      const duration = prefersReducedMotion ? 1 : 1600;
 
-      cleanup = () => {
-        cancelAnimationFrame(raf);
-        document.removeEventListener('click', handleAnchorClick);
-        lenis.destroy();
-        ScrollTrigger.getAll().forEach((trigger) => trigger.kill());
-        ScrollTrigger.scrollerProxy(document.body, {});
+      const tick = (time: number) => {
+        const progress = Math.min((time - startTime) / duration, 1);
+        const eased = 1 - Math.pow(1 - progress, 3);
+        counter.innerText = `${Math.floor(end * eased)}${suffix}`;
+
+        if (progress < 1) {
+          requestAnimationFrame(tick);
+        }
       };
+
+      requestAnimationFrame(tick);
     };
 
-    setupScrollEffects();
+    const counterObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return;
+          animateCounter(entry.target as HTMLElement);
+          counterObserver.unobserve(entry.target);
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    document.querySelectorAll<HTMLElement>('[data-reveal]').forEach((el) => revealObserver.observe(el));
+    document.querySelectorAll<HTMLElement>('[data-counter]').forEach((el) => counterObserver.observe(el));
+
+    let frame = 0;
+    const handleScrollFrame = () => {
+      frame = 0;
+      const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
+      const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
+      progressRef.current?.style.setProperty('transform', `scaleX(${progress})`);
+
+      const hero = heroRef.current;
+      const heroImage = hero?.querySelector<HTMLElement>('.hero-image');
+      if (hero && heroImage) {
+        const heroProgress = Math.min(Math.max(window.scrollY / hero.offsetHeight, 0), 1);
+        heroImage.style.transform = `scale(${1.05 + heroProgress * 0.11})`;
+      }
+
+      document.querySelectorAll<HTMLElement>('.parallax-media').forEach((media) => {
+        const rect = media.getBoundingClientRect();
+        const localProgress = (window.innerHeight - rect.top) / (window.innerHeight + rect.height);
+        const clamped = Math.min(Math.max(localProgress, 0), 1);
+        media.style.transform = `translate3d(0, ${clamped * -10}%, 0)`;
+      });
+    };
+
+    const onScroll = () => {
+      if (!frame) frame = requestAnimationFrame(handleScrollFrame);
+    };
+
+    const handleAnchorClick = (event: MouseEvent) => {
+      const link = (event.target as Element | null)?.closest<HTMLAnchorElement>('a[href^="#"]');
+      if (!link) return;
+
+      const hash = link.getAttribute('href');
+      if (!hash || hash === '#') return;
+
+      const target = document.querySelector<HTMLElement>(hash);
+      if (!target) return;
+
+      event.preventDefault();
+      const headerHeight = document.querySelector('header nav')?.getBoundingClientRect().height ?? 0;
+      const scrollTarget =
+        hash === '#home'
+          ? target
+          : (target.querySelector<HTMLElement>(':scope > .section-wrap') ?? target);
+      const top =
+        scrollTarget.getBoundingClientRect().top +
+        window.scrollY +
+        (hash === '#home' ? 0 : -headerHeight - 18);
+
+      window.scrollTo({ top, behavior: prefersReducedMotion ? 'auto' : 'smooth' });
+      window.history.pushState(null, '', hash);
+    };
+
+    document.addEventListener('click', handleAnchorClick);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    handleScrollFrame();
 
     return () => {
-      cancelled = true;
-      cleanup();
+      cancelAnimationFrame(frame);
+      document.removeEventListener('click', handleAnchorClick);
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      revealObserver.disconnect();
+      counterObserver.disconnect();
     };
   }, []);
 
@@ -469,11 +349,8 @@ export default function HomePage() {
       <main
         ref={mainRef}
         className={rootClass}
-        style={
-          { '--cursor-x': `${cursor.x}%`, '--cursor-y': `${cursor.y}%` } as React.CSSProperties
-        }
       >
-        <ThreeBackdrop night={night} />
+        <div className="three-bg" aria-hidden="true" />
 
         <section id="home" ref={heroRef} className="lux-section hero">
           <Image
@@ -488,36 +365,25 @@ export default function HomePage() {
           <div className="hero-vignette" />
           <div className="cursor-light" aria-hidden="true" />
           <div className="section-wrap hero-content">
-            <motion.p
-              initial="hidden"
-              animate="show"
-              variants={fadeUp}
-              className="kicker text-[#C8A96B]"
-            >
+            <p className="hero-reveal kicker text-[#C8A96B]">
               PREMIUM FARMLAND / FARMHOUSES / PLANTATION INVESTMENT
-            </motion.p>
-            <motion.h1 initial="hidden" animate="show" variants={fadeUp} className="hero-title">
+            </p>
+            <h1 className="hero-reveal hero-title">
               Own Nature. Build Legacy.
-            </motion.h1>
-            <motion.p initial="hidden" animate="show" variants={fadeUp} className="hero-subtitle">
+            </h1>
+            <p className="hero-reveal hero-subtitle">
               A luxury countryside estate for premium farm plots, bespoke farmhouse living, managed
               plantations, and long-term land wealth.
-            </motion.p>
-            <motion.div initial="hidden" animate="show" variants={fadeUp} className="hero-actions">
+            </p>
+            <div className="hero-reveal hero-actions">
               <a href="#land-experience" className="field-cta-primary">
                 Explore Lands <ChevronRight size={15} />
               </a>
               <a href="#contact" className="field-cta-secondary">
                 Book Site Visit <CalendarCheck size={15} />
               </a>
-            </motion.div>
-            <motion.div
-              initial="hidden"
-              animate="show"
-              variants={fadeUp}
-              className="hero-stats"
-              aria-label="Estate highlights"
-            >
+            </div>
+            <div className="hero-reveal hero-stats" aria-label="Estate highlights">
               <article className="glass-card">
                 <Counter end={120} suffix="+" />
                 <p>Curated acres pipeline</p>
@@ -534,7 +400,7 @@ export default function HomePage() {
                 <Counter end={4} />
                 <p>Farmhouse formats</p>
               </article>
-            </motion.div>
+            </div>
           </div>
           <div className="hero-controls" aria-label="Experience controls">
             <button
@@ -556,12 +422,7 @@ export default function HomePage() {
 
         <section id="vision" className="lux-section vision">
           <div className="section-wrap split-layout">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true, amount: 0.3 }}
-              variants={fadeUp}
-            >
+            <div data-reveal>
               <p className="kicker text-[#C8A96B]">ABOUT / VISION</p>
               <h2 className="section-title">Where wealth slows down and life gets deeper.</h2>
               <p className="section-copy">
@@ -582,14 +443,8 @@ export default function HomePage() {
                   </span>
                 ))}
               </div>
-            </motion.div>
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-              className="vision-stack"
-            >
+            </div>
+            <div data-reveal className="vision-stack">
               <figure className="image-frame parallax-media">
                 <Image
                   src="/optimized/new-farm2.webp"
@@ -604,7 +459,7 @@ export default function HomePage() {
                 <Counter end={42} suffix="%" />
                 <p>Green cover planned across lifestyle and plantation zones</p>
               </div>
-            </motion.div>
+            </div>
           </div>
         </section>
 
@@ -614,12 +469,9 @@ export default function HomePage() {
             <h2 className="section-title">The estate system behind effortless ownership.</h2>
             <div className="feature-grid">
               {features.map(({ icon: Icon, title, text }) => (
-                <motion.article
+                <article
                   key={title}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true, amount: 0.16 }}
-                  variants={fadeUp}
+                  data-reveal
                   className="feature-card"
                 >
                   <span className="icon-shell">
@@ -627,7 +479,7 @@ export default function HomePage() {
                   </span>
                   <h3>{title}</h3>
                   <p>{text}</p>
-                </motion.article>
+                </article>
               ))}
             </div>
           </div>
@@ -667,12 +519,7 @@ export default function HomePage() {
 
         <section id="farming" className="lux-section farming-dark">
           <div className="section-wrap split-layout">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-            >
+            <div data-reveal>
               <p className="kicker text-[#C8A96B]">PLANTATION & FARMING</p>
               <h2 className="section-title text-[#FAFAF8]">
                 A portfolio that grows from the soil up.
@@ -681,21 +528,18 @@ export default function HomePage() {
                 Every crop is chosen for a balance of beauty, resilience, lifestyle value, and
                 long-term income potential.
               </p>
-            </motion.div>
+            </div>
             <div className="plantation-grid">
               {plantationOptions.map(({ icon: Icon, name, metric }) => (
-                <motion.article
+                <article
                   key={name}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  variants={fadeUp}
+                  data-reveal
                   className="plant-card"
                 >
                   <Icon size={20} />
                   <h3>{name}</h3>
                   <p>{metric}</p>
-                </motion.article>
+                </article>
               ))}
             </div>
           </div>
@@ -713,12 +557,9 @@ export default function HomePage() {
                 { src: '/feature.jpeg', label: 'Family garden and outdoor life' },
                 { src: '/wide-green.jpeg', label: 'Wide green retreat views' },
               ].map((item, index) => (
-                <motion.figure
+                <figure
                   key={item.src}
-                  initial="hidden"
-                  whileInView="show"
-                  viewport={{ once: true }}
-                  variants={fadeUp}
+                  data-reveal
                   className={`image-frame lifestyle-card ${index === 0 ? 'large' : ''}`}
                 >
                   <Image
@@ -730,7 +571,7 @@ export default function HomePage() {
                     className="object-cover"
                   />
                   <figcaption>{item.label}</figcaption>
-                </motion.figure>
+                </figure>
               ))}
             </div>
           </div>
@@ -794,12 +635,9 @@ export default function HomePage() {
             <h2 className="section-title">Land, lifestyle, and legacy in frames.</h2>
             <div className="masonry-grid">
               {gallery.map((src, index) => (
-                <motion.figure
+                <figure
                   key={`${src}-${index}`}
-                  initial={{ opacity: 0, y: 28, scale: 0.96 }}
-                  whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.7 }}
+                  data-reveal
                   className="masonry-item"
                 >
                   <Image
@@ -810,7 +648,7 @@ export default function HomePage() {
                     quality={68}
                     className="object-cover"
                   />
-                </motion.figure>
+                </figure>
               ))}
             </div>
           </div>
@@ -818,12 +656,7 @@ export default function HomePage() {
 
         <section id="contact" className="lux-section contact">
           <div className="section-wrap split-layout">
-            <motion.div
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
-            >
+            <div data-reveal>
               <p className="kicker text-[#C8A96B]">CONTACT / BOOKING</p>
               <h2 className="section-title">Book a private site visit.</h2>
               <p className="section-copy">
@@ -842,12 +675,9 @@ export default function HomePage() {
                 <MapPinned size={20} />
                 <span>Future City Growth Corridor, Hyderabad Region</span>
               </div>
-            </motion.div>
-            <motion.form
-              initial="hidden"
-              whileInView="show"
-              viewport={{ once: true }}
-              variants={fadeUp}
+            </div>
+            <form
+              data-reveal
               className="contact-form"
               onSubmit={(event) => event.preventDefault()}
             >
@@ -867,7 +697,7 @@ export default function HomePage() {
               <button type="submit" className="field-cta-primary">
                 Request Consultation <ArrowUpRight size={15} />
               </button>
-            </motion.form>
+            </form>
           </div>
         </section>
 

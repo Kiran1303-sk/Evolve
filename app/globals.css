@@ -153,6 +153,8 @@ textarea {
   isolation: isolate;
   min-height: 100vh;
   overflow: clip;
+  --cursor-x: 50%;
+  --cursor-y: 50%;
   background:
     radial-gradient(circle at 16% 10%, rgba(200, 169, 107, 0.12), transparent 34rem),
     radial-gradient(circle at 86% 30%, rgba(23, 83, 53, 0.14), transparent 32rem),
@@ -189,6 +191,13 @@ textarea {
   height: 100%;
   pointer-events: none;
   opacity: 0.72;
+  background-image: radial-gradient(circle, rgba(200, 169, 107, 0.42) 1px, transparent 1.5px);
+  background-size: 4.6rem 4.6rem;
+  animation: field-drift 42s linear infinite;
+}
+
+.night-mode .three-bg {
+  background-image: radial-gradient(circle, rgba(241, 217, 154, 0.58) 1px, transparent 1.5px);
 }
 
 .scroll-progress-track {
@@ -262,6 +271,42 @@ textarea {
   position: relative;
   z-index: 2;
   color: var(--white);
+}
+
+.hero-reveal {
+  animation: reveal-up 850ms ease both;
+}
+
+.hero-reveal:nth-child(2) {
+  animation-delay: 90ms;
+}
+
+.hero-reveal:nth-child(3) {
+  animation-delay: 180ms;
+}
+
+.hero-reveal:nth-child(4) {
+  animation-delay: 270ms;
+}
+
+.hero-reveal:nth-child(5) {
+  animation-delay: 360ms;
+}
+
+[data-reveal] {
+  opacity: 0;
+  transform: translateY(42px);
+  filter: blur(12px);
+  transition:
+    opacity 700ms ease,
+    transform 700ms ease,
+    filter 700ms ease;
+}
+
+[data-reveal].is-visible {
+  opacity: 1;
+  transform: translateY(0);
+  filter: blur(0);
 }
 
 .hero-title {
@@ -1014,6 +1059,28 @@ textarea {
   }
   100% {
     transform: scale(1.13);
+  }
+}
+
+@keyframes reveal-up {
+  from {
+    opacity: 0;
+    transform: translateY(38px);
+    filter: blur(10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+    filter: blur(0);
+  }
+}
+
+@keyframes field-drift {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 4.6rem 4.6rem;
   }
 }
 
